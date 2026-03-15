@@ -1,0 +1,3427 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════╗
+  ║         © 2025 Wil Rivera — Todos los derechos          ║
+  ║         reservados. Prohibida su reproducción,          ║
+  ║         modificación o distribución sin autorización    ║
+  ║         expresa del autor.                              ║
+  ╚══════════════════════════════════════════════════════════╝
+-->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="author" content="Wil Rivera">
+<meta name="copyright" content="© 2025 Wil Rivera. Todos los derechos reservados.">
+<meta name="description" content="Juegos para parejas — Una noche de deseos sin límites. Ruleta, retos, cartas, timer y más.">
+<meta name="theme-color" content="#0a0202">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Juegos para Dos 🔥 | © Wil Rivera</title>
+<style>
+/* ═══════════════ © 2025 WIL RIVERA ═══════════════ */
+:root{
+  --bg:#0a0202;--bg2:#160505;--card:rgba(28,6,6,0.97);
+  --border:rgba(200,80,40,0.4);--acc:#e8503a;--acc2:#ff8c6a;--acc3:#ffb89a;
+  --text:#fff0e8;--muted:#a07060;
+  --glow:rgba(200,40,10,0.35);--glow2:rgba(255,100,50,0.2);
+  --rbtn:linear-gradient(135deg,#8a1000,#3d0800);--rbord:#cc2500;
+  --r1:#5a0800;--r2:#780f0f;--r3:#420505;--r4:#620c0c;--r5:#350303;--r6:#580a0a;--r7:#6e1010;--r8:#480707;
+}
+body.az{--bg:#01080f;--bg2:#021428;--card:rgba(2,14,35,.97);--border:rgba(30,130,255,.4);--acc:#2e8fff;--acc2:#70bfff;--acc3:#a0d8ff;--text:#dff0ff;--muted:#3a70a0;--glow:rgba(0,60,180,.3);--glow2:rgba(30,130,255,.15);--rbtn:linear-gradient(135deg,#00256e,#001030);--rbord:#004db0;--r1:#001540;--r2:#002060;--r3:#000e28;--r4:#002a70;--r5:#000a20;--r6:#001c50;--r7:#002868;--r8:#001030;}
+body.vi{--bg:#060210;--bg2:#0d0620;--card:rgba(12,4,28,.97);--border:rgba(140,50,255,.4);--acc:#8830ff;--acc2:#b870ff;--acc3:#d4a8ff;--text:#efe8ff;--muted:#5530a0;--glow:rgba(80,0,200,.3);--glow2:rgba(140,50,255,.15);--rbtn:linear-gradient(135deg,#400080,#1a0040);--rbord:#6800c0;--r1:#1e0048;--r2:#2e0060;--r3:#120030;--r4:#3a0070;--r5:#0c0022;--r6:#280050;--r7:#360060;--r8:#180038;}
+body.go{--bg:#080400;--bg2:#120900;--card:rgba(20,12,0,.97);--border:rgba(230,170,20,.4);--acc:#e8a810;--acc2:#ffd040;--acc3:#ffe080;--text:#fff8e0;--muted:#887020;--glow:rgba(160,90,0,.3);--glow2:rgba(230,170,20,.15);--rbtn:linear-gradient(135deg,#604200,#2c1a00);--rbord:#987000;--r1:#2c1e00;--r2:#463200;--r3:#1e1000;--r4:#543c00;--r5:#140a00;--r6:#382800;--r7:#423400;--r8:#241800;}
+body.ro{--bg:#040210;--bg2:#080320;--card:rgba(8,4,28,.97);--border:rgba(200,40,120,.4);--acc:#d8286a;--acc2:#ff6090;--acc3:#ffaacc;--text:#ffe8f4;--muted:#903060;--glow:rgba(180,0,80,.3);--glow2:rgba(200,40,120,.15);--rbtn:linear-gradient(135deg,#780040,#380018);--rbord:#b80058;--r1:#2a0028;--r2:#400040;--r3:#1c0018;--r4:#4c0048;--r5:#120010;--r6:#360030;--r7:#440038;--r8:#200020;}
+body.lu{--bg:#040404;--bg2:#0a0a0a;--card:rgba(10,10,10,.97);--border:rgba(180,180,180,.22);--acc:#a8a8a8;--acc2:#d8d8d8;--acc3:#e8e8e8;--text:#eeeeee;--muted:#606060;--glow:rgba(50,50,50,.3);--glow2:rgba(180,180,180,.08);--rbtn:linear-gradient(135deg,#202020,#0e0e0e);--rbord:#404040;--r1:#181818;--r2:#242424;--r3:#101010;--r4:#2c2c2c;--r5:#0c0c0c;--r6:#1e1e1e;--r7:#282828;--r8:#161616;}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;min-height:100vh;min-height:100dvh;overflow-x:hidden;transition:background .5s,color .4s}
+
+/* ── FONDO ANIMADO (canvas) ── */
+#bgg{position:fixed;inset:0;pointer-events:none;z-index:0}
+#bggCanvas{position:absolute;inset:0;width:100%;height:100%;opacity:.85}
+
+/* ── LLAMAS DE FONDO (canvas realista) ── */
+#flames{position:fixed;bottom:0;left:0;right:0;height:180px;pointer-events:none;z-index:1}
+#flameCanvas{position:absolute;bottom:0;left:0;width:100%;height:100%}
+
+/* ── PÉTALOS (canvas orgánico) ── */
+#petals{position:fixed;inset:0;pointer-events:none;z-index:1}
+#petalCanvas{position:absolute;inset:0;width:100%;height:100%}
+
+/* ── CONFETTI ── */
+#cc{position:fixed;inset:0;pointer-events:none;z-index:999}
+
+/* ── PANTALLA INTRO ── */
+#intro{position:fixed;inset:0;z-index:1000;background:#0a0202;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;transition:opacity .8s,transform .8s}
+#intro.hide{opacity:0;transform:scale(1.08);pointer-events:none}
+.intro-logo{font-size:4rem;margin-bottom:12px;animation:logopulse 1.5s ease-in-out infinite alternate}
+@keyframes logopulse{from{text-shadow:0 0 20px rgba(255,80,30,.5)}to{text-shadow:0 0 50px rgba(255,120,50,.9),0 0 80px rgba(255,60,0,.4)}}
+.intro-title{font-size:clamp(1.8rem,7vw,4.5rem);font-weight:bold;letter-spacing:clamp(4px,2vw,8px);text-transform:uppercase;background:linear-gradient(135deg,#ff8c6a,#e8503a,#ff6040,#ffb89a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
+.intro-sub{font-style:italic;font-size:clamp(.9rem,3vw,1.1rem);color:#e8a090;letter-spacing:3px;margin-bottom:6px;opacity:.85}
+.intro-copy{font-size:.72rem;letter-spacing:3px;color:#a07060;opacity:.7;text-transform:uppercase;margin-bottom:36px}
+.intro-btn{background:linear-gradient(135deg,#8a1000,#cc2500);border:1px solid #ff4020;color:#fff0e8;font-family:Georgia,serif;font-size:1rem;letter-spacing:4px;padding:16px 48px;cursor:pointer;border-radius:2px;text-transform:uppercase;transition:all .3s;box-shadow:0 0 30px rgba(255,80,0,.3);min-height:54px;touch-action:manipulation}
+.intro-btn:hover,.intro-btn:active{box-shadow:0 0 50px rgba(255,80,0,.6);transform:translateY(-3px)}
+.intro-wr{position:absolute;bottom:20px;font-size:.65rem;letter-spacing:3px;color:#6a4030;text-transform:uppercase}
+
+/* ── TOAST ── */
+#toast{position:fixed;bottom:env(safe-area-inset-bottom, 22px);bottom:calc(env(safe-area-inset-bottom, 0px) + 22px);left:50%;transform:translateX(-50%) translateY(60px);background:var(--card);border:1px solid var(--acc);color:var(--text);padding:10px 24px;border-radius:30px;font-style:italic;font-size:.85rem;z-index:500;transition:transform .35s,opacity .3s;opacity:0;white-space:nowrap;box-shadow:0 0 20px var(--glow);max-width:90vw;overflow:hidden;text-overflow:ellipsis}
+#toast.on{transform:translateX(-50%) translateY(0);opacity:1}
+
+/* ── HEADER ── */
+header{position:relative;z-index:10;text-align:center;padding:clamp(14px,4vw,28px) clamp(10px,4vw,16px) 16px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,rgba(0,0,0,.4),transparent)}
+.htop{display:flex;justify-content:space-between;align-items:center;padding:0 4px;margin-bottom:10px;flex-wrap:wrap;gap:6px}
+.hright{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+h1{font-size:clamp(1.3rem,5vw,3.2rem);font-weight:bold;letter-spacing:clamp(3px,1.5vw,6px);text-transform:uppercase;background:linear-gradient(135deg,var(--acc2),var(--acc),var(--acc3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:5px 0;animation:titleglow 3s ease-in-out infinite alternate}
+@keyframes titleglow{from{filter:drop-shadow(0 0 8px var(--glow))}to{filter:drop-shadow(0 0 18px var(--glow2))}}
+.sub{font-style:italic;font-size:clamp(.75rem,2.5vw,.88rem);color:var(--acc3);letter-spacing:2.5px;opacity:.82}
+.copy-tag{font-size:.58rem;letter-spacing:3px;color:var(--muted);opacity:.65;text-transform:uppercase;margin-top:5px}
+
+/* ── BUTTONS ── */
+.ibtn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);color:var(--acc);padding:7px 12px;cursor:pointer;font-size:clamp(.68rem,.8rem,.76rem);letter-spacing:1px;border-radius:8px;transition:all .22s;font-family:Georgia,serif;min-height:38px;touch-action:manipulation;white-space:nowrap;backdrop-filter:blur(4px)}
+.ibtn:hover,.ibtn.on{background:rgba(255,80,30,.12);border-color:var(--acc);box-shadow:0 0 14px var(--glow2),inset 0 1px 0 rgba(255,255,255,.08)}
+.ibtn.off{opacity:.35}
+.rbtn{background:linear-gradient(145deg,rgba(160,20,0,.9),rgba(90,5,0,.95));border:1px solid var(--rbord);color:var(--text);padding:13px 24px;cursor:pointer;font-size:clamp(.76rem,.9rem,.82rem);letter-spacing:2.5px;border-radius:8px;transition:all .28s;font-family:Georgia,serif;position:relative;overflow:hidden;min-height:48px;touch-action:manipulation;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.1),inset 0 -1px 0 rgba(0,0,0,.3)}
+.rbtn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.12) 0%,transparent 50%,rgba(0,0,0,.1) 100%);opacity:.6;pointer-events:none}
+.rbtn:hover,.rbtn:active{box-shadow:0 8px 32px var(--glow),0 0 60px var(--glow2),inset 0 1px 0 rgba(255,255,255,.15);transform:translateY(-3px)}
+.sbtn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);color:var(--acc);padding:10px 18px;cursor:pointer;font-size:clamp(.7rem,.85rem,.76rem);letter-spacing:1.5px;border-radius:8px;transition:all .22s;font-family:Georgia,serif;min-height:44px;touch-action:manipulation;backdrop-filter:blur(4px)}
+.sbtn:hover,.sbtn:active{background:rgba(255,80,30,.1);border-color:var(--acc);box-shadow:0 0 14px var(--glow2)}
+.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.btnrow-center{justify-content:center}
+
+/* ── NAV ── */
+nav{display:flex;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:5px;padding:10px 12px;position:sticky;top:0;z-index:50;background:rgba(0,0,0,.75);border-bottom:1px solid rgba(255,255,255,.07);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);scrollbar-width:none;-ms-overflow-style:none}
+nav::-webkit-scrollbar{display:none}
+.nbtn{background:transparent;border:1px solid rgba(255,255,255,.1);color:var(--acc);font-family:Georgia,serif;font-size:clamp(.65rem,.75rem,.72rem);letter-spacing:.5px;padding:8px 12px;cursor:pointer;transition:all .22s;border-radius:8px;white-space:nowrap;flex-shrink:0;min-height:38px;touch-action:manipulation}
+.nbtn:hover,.nbtn.act{background:rgba(255,80,30,.14);border-color:var(--acc);color:var(--acc2);box-shadow:0 0 14px var(--glow2),inset 0 1px 0 rgba(255,255,255,.08)}
+
+/* ── MAIN ── */
+main{position:relative;z-index:10;max-width:800px;margin:0 auto;padding:clamp(12px,4vw,18px) clamp(10px,4vw,12px) 100px}
+.sec{display:none}.sec.vis{display:block;animation:fadein .4s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── CARD ── */
+.card{background:linear-gradient(160deg,rgba(22,5,5,.97) 0%,rgba(10,2,2,.99) 100%);border:1px solid rgba(255,255,255,.1);border-top:1px solid rgba(255,255,255,.16);border-radius:12px;padding:clamp(18px,5vw,28px);position:relative;overflow:hidden;margin-bottom:14px;transition:background .5s,border .5s;box-shadow:0 12px 40px rgba(0,0,0,.7),0 0 0 1px rgba(255,80,30,.06),inset 0 1px 0 rgba(255,255,255,.06)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--acc),var(--acc2),var(--acc),transparent);animation:topline 3s ease-in-out infinite;opacity:.8}
+@keyframes topline{0%,100%{opacity:.5;transform:scaleX(.8)}50%{opacity:1;transform:scaleX(1)}}
+.card::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,var(--glow2) 0%,transparent 55%);opacity:.25}
+.ctitle{font-size:clamp(1.2rem,4vw,1.55rem);font-weight:bold;color:var(--acc2);letter-spacing:2px;margin-bottom:5px;text-shadow:0 0 20px var(--glow2)}
+.cdesc{color:var(--muted);font-style:italic;font-size:clamp(.8rem,2.5vw,.87rem);line-height:1.6;margin-bottom:17px}
+.div{text-align:center;color:var(--acc);opacity:.4;margin:0 0 17px;letter-spacing:8px;font-size:1rem}
+
+/* ── RESULT BOX ── */
+.rbox{background:rgba(0,0,0,.5);border:1px solid var(--border);border-radius:5px;padding:clamp(12px,4vw,16px) clamp(14px,4vw,20px);min-height:64px;display:flex;align-items:center;justify-content:center;text-align:center;margin:12px 0;transition:all .4s}
+.rbox p{font-size:clamp(.95rem,3vw,1.12rem);font-style:italic;line-height:1.6}
+.rbox.hl{border-color:var(--acc);box-shadow:0 0 20px var(--glow),inset 0 0 20px rgba(255,80,30,.05)}
+.hl{border-color:var(--acc)!important;box-shadow:0 0 20px var(--glow)!important}
+.ph{color:var(--muted)!important}
+.flash{animation:fl .32s ease}
+@keyframes fl{0%,100%{opacity:1}50%{opacity:.05}}
+.pulse-text{animation:ptxt 2s ease-in-out infinite}
+@keyframes ptxt{0%,100%{text-shadow:0 0 8px var(--glow2)}50%{text-shadow:0 0 20px var(--acc),0 0 40px var(--glow)}}
+
+/* ── OVERLAYS ── */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:200;display:none;align-items:center;justify-content:center;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:10px}
+.ov.open{display:flex;animation:fadein .28s ease}
+.pan{background:linear-gradient(160deg,rgba(20,5,5,.98) 0%,rgba(12,2,2,.99) 100%);border:1px solid rgba(255,255,255,.1);border-top:1px solid rgba(255,255,255,.18);border-radius:14px;width:min(95vw,560px);max-height:88vh;overflow-y:auto;padding:clamp(16px,4vw,26px);box-shadow:0 32px 80px rgba(0,0,0,.9),0 0 0 1px rgba(255,80,30,.08),inset 0 1px 0 rgba(255,255,255,.06);-webkit-overflow-scrolling:touch}
+.ptitle{font-size:clamp(.9rem,3vw,1.1rem);font-weight:bold;color:var(--acc2);letter-spacing:3px;text-transform:uppercase;margin-bottom:18px;padding-bottom:13px;border-bottom:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.pclose{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--muted);font-size:1.1rem;cursor:pointer;transition:all .2s;padding:6px 10px;flex-shrink:0;min-height:36px;min-width:36px;display:flex;align-items:center;justify-content:center;border-radius:8px}
+.pclose:hover{color:var(--acc);background:rgba(255,80,30,.12);border-color:var(--acc)}
+
+/* TEMAS GRID */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px}
+.tc{border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:13px 9px;text-align:center;cursor:pointer;transition:all .28s;touch-action:manipulation;background:rgba(0,0,0,.3);backdrop-filter:blur(4px)}
+.tc:hover,.tc:active{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.5),0 0 20px var(--glow2)}
+.tc.sel{border-color:var(--acc);background:rgba(255,80,30,.08);box-shadow:0 0 20px var(--glow2),inset 0 0 12px rgba(255,80,30,.05)}
+.tp{width:100%;height:36px;border-radius:6px;margin-bottom:8px;box-shadow:inset 0 2px 6px rgba(0,0,0,.4)}
+.tn{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--text);opacity:.9}
+
+/* ── RULETA ── */
+.rwrap{display:flex;flex-direction:column;align-items:center;gap:20px}
+.rcont{position:relative;width:min(255px,85vw);height:min(255px,85vw)}
+#rcanv{display:block;border-radius:50%;box-shadow:0 0 0 3px var(--border),0 0 30px var(--glow),0 0 60px rgba(0,0,0,.5);width:100%;height:100%}
+.rarrow{position:absolute;top:50%;right:-16px;transform:translateY(-50%);width:0;height:0;border-top:13px solid transparent;border-bottom:13px solid transparent;border-right:26px solid var(--acc);filter:drop-shadow(0 0 8px var(--acc));animation:arrowpulse 1.5s ease-in-out infinite}
+@keyframes arrowpulse{0%,100%{filter:drop-shadow(0 0 6px var(--acc))}50%{filter:drop-shadow(0 0 16px var(--acc2))}}
+
+/* ── RULETA HISTORIAL ── */
+.rhist{background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:5px;padding:10px 14px;margin-top:8px;width:100%;max-width:380px}
+.rhist-title{font-size:.55rem;letter-spacing:4px;text-transform:uppercase;color:var(--acc);opacity:.7;margin-bottom:6px}
+.rhist-items{display:flex;flex-wrap:wrap;gap:5px}
+.rhist-item{font-size:.7rem;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:3px 9px;color:var(--muted);font-style:italic}
+
+/* ── VERDAD O RETO ── */
+.torbtn{flex:1;padding:clamp(12px,4vw,16px);font-family:Georgia,serif;font-size:clamp(.82rem,3vw,.92rem);letter-spacing:2px;cursor:pointer;transition:all .25s;text-transform:uppercase;border-radius:5px;position:relative;overflow:hidden;min-height:54px;touch-action:manipulation}
+.torbtn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(255,255,255,.06),transparent);opacity:0;transition:opacity .2s}
+.torbtn:hover::before,.torbtn:active::before{opacity:1}
+.tvbtn{background:rgba(0,30,80,.6);border:1px solid rgba(60,120,255,.5);color:#90c4ff;box-shadow:inset 0 0 20px rgba(0,40,120,.3)}
+.trbtn{background:rgba(100,0,0,.6);border:1px solid rgba(255,60,40,.5);color:#ff9988;box-shadow:inset 0 0 20px rgba(180,0,0,.3)}
+.torbtn:hover,.torbtn:active{transform:translateY(-3px);filter:brightness(1.25);box-shadow:0 6px 20px rgba(0,0,0,.4)}
+
+/* ── DADOS ── */
+.dfila{display:flex;gap:clamp(8px,3vw,14px);justify-content:center;flex-wrap:wrap}
+.dblk{text-align:center;flex:1;min-width:80px;max-width:140px}
+.det{font-size:.6rem;letter-spacing:3px;color:var(--acc);opacity:.75;text-transform:uppercase;margin-bottom:7px}
+.dado{width:100%;aspect-ratio:1;background:linear-gradient(135deg,rgba(0,0,0,.7),rgba(80,10,10,.4));border:2px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:clamp(.72rem,2.5vw,.82rem);text-align:center;padding:6px;line-height:1.3;box-shadow:0 4px 14px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04);transition:all .3s;min-height:70px}
+.dado.spin{animation:dspin .5s ease;border-color:var(--acc);box-shadow:0 0 20px var(--glow)}
+@keyframes dspin{0%,100%{transform:rotate(0) scale(1)}30%{transform:rotate(-18deg) scale(1.12)}70%{transform:rotate(18deg) scale(.9)}}
+
+/* ── TIMER ── */
+.tdisp{font-size:clamp(3rem,12vw,4.5rem);font-weight:bold;color:var(--acc2);letter-spacing:10px;text-align:center;text-shadow:0 0 24px var(--glow2);margin:16px 0;transition:color .3s}
+.tdisp.urg{color:#ff4444;animation:tpulse 1s ease infinite}
+@keyframes tpulse{0%,100%{text-shadow:0 0 24px rgba(255,50,50,.4)}50%{text-shadow:0 0 48px rgba(255,50,50,.9),0 0 80px rgba(255,0,0,.3)}}
+.tbwrap{width:100%;height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;margin:5px 0}
+.tb{height:100%;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width 1s linear;border-radius:3px;box-shadow:0 0 10px var(--glow2)}
+.tbtns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:13px}
+.ttbtn{background:transparent;border:1px solid var(--border);color:var(--acc);font-family:Georgia,serif;font-size:clamp(.68rem,.78rem,.73rem);padding:7px 10px;cursor:pointer;letter-spacing:1px;border-radius:3px;transition:all .2s;min-height:40px;touch-action:manipulation}
+.ttbtn:hover,.ttbtn.s{background:rgba(255,255,255,.07);border-color:var(--acc);box-shadow:0 0 8px var(--glow2)}
+
+/* ── CARTAS ── */
+.cwrap{display:flex;flex-direction:column;align-items:center;gap:18px}
+.ccont{width:min(220px,65vw);height:min(300px,88vw);perspective:900px;cursor:pointer;touch-action:manipulation}
+.cinner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.4,0,.2,1)}
+.ccont.flip .cinner{transform:rotateY(180deg)}
+.cfront,.cback{position:absolute;inset:0;backface-visibility:hidden;border-radius:9px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;padding:20px;text-align:center}
+.cfront{background:linear-gradient(135deg,rgba(40,0,0,.8),rgba(10,0,0,.9));border:2px solid var(--border);box-shadow:0 8px 28px rgba(0,0,0,.7)}
+.cback{background:linear-gradient(135deg,var(--bg2),rgba(80,10,10,.9));border:2px solid var(--acc);transform:rotateY(180deg);box-shadow:0 8px 32px var(--glow)}
+.cback .ccat{font-size:.58rem;letter-spacing:4px;color:var(--acc);text-transform:uppercase;opacity:.85}
+.cback .ctxt{font-size:clamp(.88rem,3vw,1rem);font-style:italic;line-height:1.6;color:var(--text)}
+.cem{font-size:2.8rem}
+.chint{font-size:.56rem;letter-spacing:3px;color:var(--acc);opacity:.5;text-transform:uppercase}
+
+/* ── TURNOS ── */
+.jcard{background:rgba(0,0,0,.45);border:1px solid var(--border);border-radius:5px;padding:clamp(12px,4vw,16px) clamp(14px,4vw,22px);margin-bottom:11px;display:flex;align-items:center;justify-content:space-between;transition:all .35s;gap:10px}
+.jcard.act{border-color:var(--acc);background:rgba(80,10,0,.3);box-shadow:0 0 20px var(--glow),inset 0 0 20px rgba(200,40,0,.05)}
+.jnom{font-size:clamp(.9rem,3vw,1.05rem);font-weight:bold;color:var(--acc2);letter-spacing:2px}
+.jlbl{font-size:.6rem;letter-spacing:3px;color:var(--acc);opacity:.7;margin-top:3px;animation:lblpulse 1.5s ease-in-out infinite}
+@keyframes lblpulse{0%,100%{opacity:.7}50%{opacity:1}}
+.ptwrap{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.ptnum{font-size:clamp(1.8rem,6vw,2.3rem);font-weight:bold;color:var(--acc);min-width:38px;text-align:center;text-shadow:0 0 12px var(--glow2)}
+.ptnum.bump{animation:bump .28s ease}
+@keyframes bump{0%,100%{transform:scale(1)}50%{transform:scale(1.45)}}
+.ptctrl{display:flex;flex-direction:column;gap:3px}
+.ptbtn{background:transparent;border:1px solid var(--border);color:var(--acc);width:34px;height:30px;cursor:pointer;font-size:.82rem;border-radius:2px;transition:all .18s;touch-action:manipulation}
+.ptbtn:hover,.ptbtn:active{background:rgba(255,80,30,.15);border-color:var(--acc)}
+.rtobox{background:rgba(0,0,0,.45);border:1px solid var(--border);border-radius:5px;padding:16px;text-align:center;margin-bottom:13px}
+.rtoet{font-size:.58rem;letter-spacing:4px;color:var(--acc);opacity:.7;text-transform:uppercase;margin-bottom:5px}
+.rtobox p{font-size:clamp(.9rem,3vw,1.02rem);font-style:italic;line-height:1.55}
+
+/* ── RETOS HOT ── */
+.hcard{background:rgba(0,0,0,.55);border:2px solid var(--border);border-radius:8px;padding:clamp(18px,5vw,28px);text-align:center;min-height:135px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;margin-bottom:14px;transition:all .4s;position:relative;overflow:hidden}
+.hcard::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,var(--glow) 0%,transparent 60%);opacity:0;transition:opacity .4s}
+.hcard.glow{border-color:var(--acc);box-shadow:0 0 35px var(--glow),0 0 70px var(--glow2)}
+.hcard.glow::before{opacity:.6}
+.hniv{font-size:.6rem;letter-spacing:5px;text-transform:uppercase;color:var(--acc);opacity:.8}
+.htxt{font-size:clamp(1rem,3.5vw,1.2rem);font-style:italic;line-height:1.65;color:var(--text)}
+.nbtns{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-bottom:13px}
+.nbtn2{background:transparent;border:1px solid var(--border);color:var(--muted);font-family:Georgia,serif;font-size:clamp(.64rem,.75rem,.7rem);letter-spacing:1.5px;padding:8px 12px;cursor:pointer;border-radius:20px;transition:all .24s;min-height:40px;touch-action:manipulation}
+.nbtn2:hover,.nbtn2:active,.nbtn2.s{background:rgba(255,255,255,.06);border-color:var(--acc);color:var(--acc);box-shadow:0 0 10px var(--glow2)}
+
+/* ── PREGUNTAS ── */
+.pqbox{background:rgba(0,0,0,.5);border:1px solid var(--border);border-radius:7px;padding:clamp(16px,4vw,24px);text-align:center;min-height:95px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;margin-bottom:13px}
+.pqcat{font-size:.58rem;letter-spacing:5px;text-transform:uppercase;color:var(--acc);opacity:.8}
+.pqtxt{font-size:clamp(1rem,3.5vw,1.15rem);font-style:italic;line-height:1.58;color:var(--text)}
+.ptabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px;justify-content:center}
+.ptab{background:transparent;border:1px solid var(--border);color:var(--muted);font-family:Georgia,serif;font-size:clamp(.62rem,.72rem,.68rem);letter-spacing:1px;padding:7px 12px;cursor:pointer;border-radius:20px;transition:all .22s;min-height:38px;touch-action:manipulation}
+.ptab.s,.ptab:hover,.ptab:active{border-color:var(--acc);color:var(--acc);background:rgba(255,80,30,.08)}
+
+/* ── PRENDAS ── */
+.prwrap{display:flex;gap:clamp(8px,3vw,14px);justify-content:center;flex-wrap:wrap;margin:14px 0}
+.prcard{flex:1;min-width:120px;max-width:200px;background:rgba(0,0,0,.45);border:1px solid var(--border);border-radius:7px;padding:clamp(12px,4vw,18px);text-align:center;transition:all .3s}
+.prcard.danger{border-color:var(--acc);box-shadow:0 0 16px var(--glow)}
+.prnom{font-size:clamp(.75rem,2.5vw,.82rem);letter-spacing:2px;color:var(--acc2);margin-bottom:11px;font-weight:bold}
+.prnum{font-size:clamp(2.4rem,8vw,3.2rem);font-weight:bold;color:var(--acc);line-height:1;text-shadow:0 0 14px var(--glow2)}
+.pritems{display:flex;flex-wrap:wrap;gap:3px;justify-content:center;margin:9px 0;min-height:28px}
+.priit{font-size:clamp(1rem,3vw,1.2rem);animation:popi .28s ease}
+@keyframes popi{from{transform:scale(0) rotate(-20deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.prbtns{display:flex;gap:5px;justify-content:center;margin-top:8px}
+.prbtn{background:transparent;border:1px solid var(--border);color:var(--acc);width:40px;height:34px;cursor:pointer;font-size:1rem;border-radius:3px;transition:all .2s;touch-action:manipulation}
+.prbtn:hover,.prbtn:active{background:rgba(255,80,30,.12);border-color:var(--acc)}
+
+/* ── FOOTER ── */
+footer{position:relative;z-index:10;text-align:center;padding:20px 14px calc(env(safe-area-inset-bottom,0px) + 60px);border-top:1px solid rgba(255,255,255,.04)}
+.fline1{color:var(--muted);font-style:italic;font-size:.82rem;opacity:.55;margin-bottom:6px}
+.fcopy{font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--acc);opacity:.4}
+
+::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:rgba(0,0,0,.2)}::-webkit-scrollbar-thumb{background:var(--acc);border-radius:2px}
+
+/* ── AJUSTES ── */
+.sa{margin-bottom:22px}
+.sa-h{font-size:.62rem;letter-spacing:4px;text-transform:uppercase;color:var(--acc);opacity:.85;margin-bottom:11px;padding-bottom:8px;border-bottom:1px solid var(--border);font-weight:normal}
+.irow{display:flex;gap:8px;margin-bottom:9px;align-items:center;flex-wrap:wrap}
+.ilbl{font-size:.7rem;color:var(--muted);min-width:72px;flex-shrink:0}
+.inp{flex:1;min-width:0;background:rgba(0,0,0,.5);border:1px solid var(--border);color:var(--text);font-family:Georgia,serif;font-size:.86rem;padding:9px 12px;border-radius:3px;outline:none;transition:border .2s;width:100%}
+.inp:focus{border-color:var(--acc);box-shadow:0 0 8px var(--glow2)}
+.inp::placeholder{color:var(--muted)}
+.elist{list-style:none;margin-bottom:9px;max-height:160px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.eli{display:flex;align-items:flex-start;gap:7px;background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:3px;padding:8px 10px;margin-bottom:5px}
+.elitxt{flex:1;font-size:.82rem;font-style:italic;line-height:1.45;color:var(--text);opacity:.85}
+.elidel{background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:.9rem;padding:2px 5px;transition:color .18s;flex-shrink:0;min-width:32px;min-height:32px;display:flex;align-items:center;justify-content:center;touch-action:manipulation}
+.elidel:hover,.elidel:active{color:#ff5555}
+.arow{display:flex;gap:7px}
+.arow textarea{flex:1;background:rgba(0,0,0,.5);border:1px solid var(--border);color:var(--text);font-family:Georgia,serif;font-size:.83rem;padding:9px 12px;border-radius:3px;outline:none;resize:vertical;min-height:50px;transition:border .2s}
+.arow textarea:focus{border-color:var(--acc)}
+.arow textarea::placeholder{color:var(--muted)}
+.abtn{background:var(--rbtn);border:1px solid var(--rbord);color:var(--text);font-size:1.1rem;padding:0 16px;cursor:pointer;border-radius:3px;flex-shrink:0;transition:filter .2s;line-height:1;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;touch-action:manipulation}
+.abtn:hover,.abtn:active{filter:brightness(1.2)}
+
+/* ── INDICADOR GUARDADO ── */
+#saveind{position:fixed;top:12px;right:12px;z-index:300;background:var(--card);border:1px solid var(--acc);color:var(--acc);padding:6px 14px;border-radius:20px;font-size:.65rem;letter-spacing:2px;opacity:0;transition:opacity .3s;pointer-events:none}
+#saveind.show{opacity:1}
+
+/* ── PANTALLA COMPLETA BTN ── */
+.fs-btn{font-size:1rem;padding:7px 10px;cursor:pointer}
+
+/* ── GAME EDITOR GRID ── */
+.jgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px}
+.jgbtn{background:linear-gradient(160deg,rgba(30,8,8,.9) 0%,rgba(14,3,3,.95) 100%);border:1px solid rgba(255,255,255,.1);border-top:1px solid rgba(255,255,255,.18);border-radius:12px;padding:18px 10px 14px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:7px;transition:all .26s;touch-action:manipulation;font-family:Georgia,serif;position:relative;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.07)}
+.jgbtn::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--acc),transparent);opacity:0;transition:opacity .25s}
+.jgbtn::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,var(--glow2),transparent 70%);opacity:0;transition:opacity .25s;pointer-events:none}
+.jgbtn:hover,.jgbtn:active{border-color:rgba(255,80,30,.4);border-top-color:rgba(255,120,60,.5);transform:translateY(-4px) scale(1.02);box-shadow:0 14px 36px rgba(0,0,0,.6),0 0 24px var(--glow2)}
+.jgbtn:hover::before,.jgbtn:active::before,.jgbtn:hover::after,.jgbtn:active::after{opacity:1}
+.jgico{font-size:1.8rem;line-height:1;filter:drop-shadow(0 2px 8px var(--glow))}
+.jgnm{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--acc2);text-align:center;line-height:1.35;font-weight:bold}
+.jgcnt{font-size:.55rem;color:var(--muted);letter-spacing:1px;font-style:italic;background:rgba(0,0,0,.3);padding:2px 7px;border-radius:10px;border:1px solid rgba(255,255,255,.06)}
+
+/* ── GAME EDITOR PANEL ── */
+.ge-tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
+.ge-tab{background:transparent;border:1px solid var(--border);color:var(--muted);font-family:Georgia,serif;font-size:.66rem;letter-spacing:1px;padding:7px 11px;cursor:pointer;border-radius:20px;transition:all .2s;min-height:36px;touch-action:manipulation}
+.ge-tab.act,.ge-tab:hover{border-color:var(--acc);color:var(--acc);background:rgba(255,80,30,.08)}
+.ge-section{display:none}.ge-section.vis{display:block;animation:fadein .25s ease}
+.ge-item{display:flex;align-items:flex-start;gap:8px;background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:4px;padding:8px 10px;margin-bottom:6px;transition:border .2s}
+.ge-item:hover{border-color:rgba(255,255,255,.15)}
+.ge-item-txt{flex:1;font-size:.82rem;font-style:italic;line-height:1.5;color:var(--text);opacity:.88;cursor:pointer;min-width:0;word-break:break-word}
+.ge-item-txt.editing{background:rgba(0,0,0,.4);border:1px solid var(--acc);border-radius:3px;padding:5px 8px;outline:none;font-family:Georgia,serif;resize:vertical;min-height:50px;width:100%;color:var(--text);font-size:.82rem}
+.ge-actions{display:flex;flex-direction:column;gap:3px;flex-shrink:0}
+.ge-del{background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:.85rem;padding:2px 5px;transition:color .18s;min-width:30px;min-height:28px;display:flex;align-items:center;justify-content:center;touch-action:manipulation}
+.ge-del:hover,.ge-del:active{color:#ff5555}
+.ge-edit{background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:.78rem;padding:2px 5px;transition:color .18s;min-width:30px;min-height:28px;display:flex;align-items:center;justify-content:center;touch-action:manipulation}
+.ge-edit:hover,.ge-edit:active{color:var(--acc)}
+.ge-list{max-height:220px;overflow-y:auto;-webkit-overflow-scrolling:touch;margin-bottom:10px}
+.ge-add{display:flex;gap:7px;margin-top:4px}
+.ge-add textarea{flex:1;background:rgba(0,0,0,.5);border:1px solid var(--border);color:var(--text);font-family:Georgia,serif;font-size:.82rem;padding:8px 11px;border-radius:4px;outline:none;resize:vertical;min-height:48px;transition:border .2s}
+.ge-add textarea:focus{border-color:var(--acc)}
+.ge-add textarea::placeholder{color:var(--muted)}
+.ge-add-btn{background:var(--rbtn);border:1px solid var(--rbord);color:var(--text);font-size:1.1rem;padding:0 14px;cursor:pointer;border-radius:4px;flex-shrink:0;transition:filter .2s;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;touch-action:manipulation}
+.ge-add-btn:hover,.ge-add-btn:active{filter:brightness(1.2)}
+.ge-count{font-size:.58rem;color:var(--muted);letter-spacing:2px;margin-bottom:8px;font-style:italic}
+.ge-carta-add{display:flex;flex-direction:column;gap:7px;margin-top:4px}
+
+@media(max-width:360px){
+  .jgrid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ── BG PATTERN GRID ── */
+.bggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.bgbtn{border:1px solid var(--border);border-radius:8px;padding:9px 6px;text-align:center;cursor:pointer;transition:all .22s;touch-action:manipulation;display:flex;flex-direction:column;align-items:center;gap:4px;background:rgba(0,0,0,.3)}
+.bgbtn:hover,.bgbtn:active{border-color:var(--acc);transform:translateY(-2px);box-shadow:0 4px 14px var(--glow2)}
+.bgbtn.sel{border-color:var(--acc);background:rgba(255,80,30,.1);box-shadow:0 0 12px var(--glow2)}
+.bgico{font-size:1.2rem;line-height:1}
+.bglbl{font-size:.54rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+
+/* ── MÚSICA BTN ── */
+.mbtn{background:var(--rbtn);border:1px solid var(--rbord);color:var(--text);font-family:Georgia,serif;font-size:.72rem;padding:8px 16px;cursor:pointer;border-radius:20px;letter-spacing:1.5px;transition:all .25s;white-space:nowrap;min-height:36px;touch-action:manipulation}
+.mbtn:hover,.mbtn:active{filter:brightness(1.25);box-shadow:0 0 14px var(--glow)}
+.mbtn.playing{background:rgba(255,255,255,.06);border-color:var(--acc);color:var(--acc);box-shadow:0 0 12px var(--glow2)}
+
+/* ── EFECTOS GRID ── */
+.efxgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.efxbtn{border:1px solid var(--border);border-radius:6px;padding:10px 6px;text-align:center;cursor:pointer;transition:all .22s;touch-action:manipulation}
+.efxbtn:hover,.efxbtn:active{transform:translateY(-2px);border-color:var(--acc);box-shadow:0 4px 14px var(--glow2)}
+.efxbtn.sel{border-color:var(--acc);background:rgba(255,255,255,.05);box-shadow:0 0 12px var(--glow2)}
+.efxico{font-size:1.4rem;margin-bottom:4px}
+.efxlbl{font-size:.55rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+
+@media(max-width:480px){
+  .card{padding:14px}
+  .rcont{width:min(230px,80vw);height:min(230px,80vw)}
+  .dfila{gap:6px}
+  .dblk{min-width:70px}
+  .btnrow{gap:6px}
+  .rbtn{padding:12px 14px;letter-spacing:1.5px}
+  .sbtn{padding:10px 12px}
+  .htop{gap:4px}
+  .efxgrid{grid-template-columns:repeat(4,1fr)}
+}
+
+@media(max-width:360px){
+  .intro-btn{padding:14px 28px;letter-spacing:2px}
+  .rbtn{font-size:.74rem;letter-spacing:1px}
+}
+
+@media(orientation:landscape) and (max-height:500px){
+  #intro{flex-direction:row;flex-wrap:wrap;padding:12px 20px;gap:10px}
+  .intro-logo{font-size:2.5rem;margin:0}
+  .intro-title{font-size:1.8rem;letter-spacing:4px}
+  .intro-sub,.intro-copy{display:none}
+  .intro-btn{padding:12px 28px}
+  header{padding:8px 10px 8px}
+  h1{font-size:1.3rem;margin:2px 0}
+  .sub,.copy-tag{display:none}
+}
+
+/* ── YO NUNCA ── */
+.yn-card{background:rgba(0,0,0,.5);border:2px solid var(--border);border-radius:10px;padding:clamp(20px,5vw,32px);text-align:center;min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;margin-bottom:14px;transition:all .4s;position:relative;overflow:hidden}
+.yn-card.glow{border-color:var(--acc);box-shadow:0 0 30px var(--glow),0 0 60px var(--glow2)}
+.yn-num{font-size:.56rem;letter-spacing:4px;color:var(--acc);opacity:.7;text-transform:uppercase}
+.yn-txt{font-size:clamp(1rem,3.5vw,1.22rem);font-style:italic;line-height:1.65;color:var(--text)}
+.yn-lives{display:flex;gap:clamp(6px,2vw,12px);justify-content:center;margin:14px 0}
+.yn-player{flex:1;min-width:0;background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:8px;padding:clamp(10px,3vw,16px);text-align:center;transition:all .35s}
+.yn-player.danger{border-color:var(--acc);box-shadow:0 0 14px var(--glow)}
+.yn-pnom{font-size:clamp(.72rem,2.5vw,.82rem);letter-spacing:2px;color:var(--acc2);margin-bottom:8px;font-weight:bold}
+.yn-hearts{display:flex;flex-wrap:wrap;gap:3px;justify-content:center;min-height:24px;margin-bottom:6px}
+.yn-heart{font-size:clamp(.9rem,2.8vw,1.1rem);transition:transform .2s;display:inline-block}
+.yn-heart.lost{opacity:.18;transform:scale(.75)}
+.yn-hnum{font-size:clamp(1.4rem,5vw,2rem);font-weight:bold;color:var(--acc);text-shadow:0 0 10px var(--glow2)}
+.yn-actions{display:flex;gap:7px;justify-content:center;margin-top:8px}
+.yn-btn{font-family:Georgia,serif;font-size:clamp(.68rem,.8rem,.75rem);letter-spacing:1.5px;padding:9px 16px;cursor:pointer;border-radius:8px;transition:all .25s;min-height:42px;touch-action:manipulation}
+.yn-btn-yes{background:rgba(200,40,40,.5);border:1px solid rgba(255,80,60,.5);color:#ffb0a0}
+.yn-btn-no{background:rgba(0,80,20,.4);border:1px solid rgba(60,200,80,.4);color:#90e8a0}
+.yn-btn-yes:hover,.yn-btn-yes:active{background:rgba(220,60,40,.7);box-shadow:0 0 14px var(--glow);transform:translateY(-2px)}
+.yn-btn-no:hover,.yn-btn-no:active{background:rgba(0,120,40,.5);box-shadow:0 0 10px rgba(60,200,80,.3);transform:translateY(-2px)}
+.yn-cats{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;margin-bottom:14px}
+.yn-cat{background:transparent;border:1px solid var(--border);color:var(--muted);font-family:Georgia,serif;font-size:clamp(.6rem,.72rem,.67rem);letter-spacing:1px;padding:6px 11px;cursor:pointer;border-radius:20px;transition:all .22s;min-height:36px;touch-action:manipulation}
+.yn-cat.s,.yn-cat:hover,.yn-cat:active{border-color:var(--acc);color:var(--acc);background:rgba(255,80,30,.08)}
+.yn-score-banner{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:6px;padding:10px 16px;text-align:center;margin-bottom:12px;font-size:.72rem;color:var(--muted);font-style:italic;min-height:36px;display:flex;align-items:center;justify-content:center}
+
+/* ── TIMER CUSTOM INPUT ── */
+.tcustom{display:flex;align-items:center;gap:6px;margin-top:4px}
+.tcustom-inp{background:rgba(0,0,0,.5);border:1px solid var(--border);color:var(--text);font-family:Georgia,serif;font-size:.82rem;padding:6px 10px;border-radius:3px;outline:none;width:60px;text-align:center;transition:border .2s}
+.tcustom-inp:focus{border-color:var(--acc)}
+.tcustom-lbl{font-size:.6rem;color:var(--muted);letter-spacing:2px}
+
+/* ── SWIPE HINT ── */
+.swipe-hint{text-align:center;font-size:.55rem;letter-spacing:2.5px;color:var(--muted);opacity:.35;padding:6px 0 2px;text-transform:uppercase;pointer-events:none;user-select:none}
+
+/* ── SLIDE TRANSITION ── */
+#secWrap{position:relative;overflow:hidden}
+.sec{display:none}.sec.vis{display:block}
+.sec.slide-in-right{animation:slideInR .32s cubic-bezier(.22,1,.36,1)}
+.sec.slide-in-left{animation:slideInL .32s cubic-bezier(.22,1,.36,1)}
+@keyframes slideInR{from{opacity:0;transform:translateX(48px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideInL{from{opacity:0;transform:translateX(-48px)}to{opacity:1;transform:translateX(0)}}
+
+/* ── TOUCH PARTICLES ── */
+#touchFX{position:fixed;inset:0;pointer-events:none;z-index:998}
+
+/* ── EPIC WIN SCREEN ── */
+#winScreen{position:fixed;inset:0;z-index:900;display:none;align-items:center;justify-content:center;flex-direction:column;gap:18px;background:rgba(0,0,0,.88);backdrop-filter:blur(18px);text-align:center;padding:24px}
+#winScreen.show{display:flex;animation:fadein .4s ease}
+.win-emoji{font-size:5rem;animation:winbounce 0.6s cubic-bezier(.36,.07,.19,.97) both}
+@keyframes winbounce{0%{transform:scale(0) rotate(-20deg)}60%{transform:scale(1.25) rotate(8deg)}80%{transform:scale(.9) rotate(-4deg)}100%{transform:scale(1) rotate(0)}}
+.win-title{font-size:clamp(1.8rem,7vw,3.5rem);font-weight:bold;letter-spacing:4px;text-transform:uppercase;background:linear-gradient(135deg,var(--acc2),var(--acc),var(--acc3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.win-sub{font-style:italic;font-size:clamp(.9rem,3vw,1.1rem);color:var(--acc3);opacity:.85;letter-spacing:2px;max-width:340px;line-height:1.6}
+.win-close{margin-top:10px;background:var(--rbtn);border:1px solid var(--rbord);color:var(--text);font-family:Georgia,serif;font-size:.88rem;letter-spacing:3px;padding:14px 40px;cursor:pointer;border-radius:8px;transition:all .3s;min-height:50px;touch-action:manipulation}
+.win-close:hover,.win-close:active{box-shadow:0 0 30px var(--glow);transform:translateY(-3px)}
+
+/* ── BOTELLA GIRATORIA ── */
+.bot-wrap{display:flex;flex-direction:column;align-items:center;gap:20px}
+.bot-stage{position:relative;width:min(280px,85vw);height:min(280px,85vw);display:flex;align-items:center;justify-content:center}
+#botCanvas{position:absolute;inset:0;width:100%;height:100%}
+.bot-names{display:flex;justify-content:space-between;width:100%;max-width:280px;padding:0 10px}
+.bot-name{font-size:clamp(.72rem,2.5vw,.82rem);letter-spacing:2px;color:var(--acc2);font-weight:bold;text-align:center;flex:1;transition:all .3s}
+.bot-name.active{color:var(--acc);text-shadow:0 0 14px var(--glow);font-size:clamp(.9rem,3vw,1.05rem)}
+.bot-result{background:rgba(0,0,0,.5);border:1px solid var(--border);border-radius:5px;padding:14px 20px;text-align:center;margin:10px 0;min-height:54px;display:flex;align-items:center;justify-content:center;width:100%;max-width:380px}
+.bot-result p{font-size:clamp(.95rem,3vw,1.1rem);font-style:italic}
+
+/* ── ¿QUIÉN DE LOS DOS? ── */
+.quien-card{background:rgba(0,0,0,.5);border:2px solid var(--border);border-radius:10px;padding:clamp(20px,5vw,32px);text-align:center;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;margin-bottom:14px;transition:all .4s}
+.quien-card.glow{border-color:var(--acc);box-shadow:0 0 30px var(--glow)}
+.quien-q{font-size:clamp(1rem,3.5vw,1.2rem);font-style:italic;line-height:1.65;color:var(--text)}
+.quien-votes{display:flex;gap:clamp(8px,3vw,14px);justify-content:center;margin:14px 0;flex-wrap:wrap}
+.quien-vbtn{flex:1;min-width:100px;max-width:180px;padding:clamp(12px,4vw,18px);font-family:Georgia,serif;font-size:clamp(.8rem,3vw,.92rem);letter-spacing:1.5px;cursor:pointer;border-radius:8px;border:1px solid var(--border);background:rgba(0,0,0,.4);color:var(--text);transition:all .28s;position:relative;overflow:hidden;touch-action:manipulation;min-height:56px}
+.quien-vbtn:hover,.quien-vbtn:active{border-color:var(--acc);background:rgba(255,80,30,.15);box-shadow:0 0 18px var(--glow2);transform:translateY(-3px)}
+.quien-vbtn.voted{border-color:var(--acc)!important;background:rgba(255,80,30,.25)!important;box-shadow:0 0 20px var(--glow)!important}
+.quien-reveal{background:rgba(0,0,0,.5);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;margin-bottom:12px;min-height:48px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;font-style:italic;color:var(--muted)}
+.quien-bar{height:8px;border-radius:4px;background:rgba(255,255,255,.08);width:100%;overflow:hidden;margin-top:6px}
+.quien-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .6s cubic-bezier(.22,1,.36,1)}
+.quien-score{font-size:clamp(1.4rem,5vw,2rem);font-weight:bold;color:var(--acc);text-shadow:0 0 10px var(--glow2)}
+.quien-cats{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;margin-bottom:14px}
+.quien-cat{background:transparent;border:1px solid var(--border);color:var(--muted);font-family:Georgia,serif;font-size:clamp(.6rem,.72rem,.67rem);letter-spacing:1px;padding:6px 11px;cursor:pointer;border-radius:20px;transition:all .22s;min-height:36px;touch-action:manipulation}
+.quien-cat.s,.quien-cat:hover,.quien-cat:active{border-color:var(--acc);color:var(--acc);background:rgba(255,80,30,.08)}
+.quien-stat{font-size:.6rem;letter-spacing:2px;color:var(--muted);opacity:.7;margin-top:4px}
+</style>
+</head>
+<body>
+
+<div style="display:none" aria-hidden="true">© 2025 Wil Rivera — Todos los derechos reservados. Prohibida su reproducción o modificación.</div>
+
+<div id="bgg"><canvas id="bggCanvas"></canvas></div>
+<div id="flames"><canvas id="flameCanvas"></canvas></div>
+<div id="petals"><canvas id="petalCanvas"></canvas></div>
+<canvas id="efxcanv" style="position:fixed;inset:0;pointer-events:none;z-index:1"></canvas>
+<canvas id="cc"></canvas>
+<div id="toast"></div>
+<div id="saveind">✦ Guardado</div>
+<canvas id="touchFX"></canvas>
+
+<!-- ══ PANTALLA VICTORIA ÉPICA ══ -->
+<div id="winScreen">
+  <div class="win-emoji" id="winEmoji">🏆</div>
+  <div class="win-title" id="winTitle">¡Victoria!</div>
+  <div class="win-sub" id="winSub">Has ganado esta noche</div>
+  <button class="win-close" onclick="closeWinScreen()">✦ Continuar ✦</button>
+</div>
+
+<!-- ══ PANTALLA INTRO ══ -->
+<div id="intro">
+  <div class="intro-logo">🔥</div>
+  <div class="intro-title">Juegos para Dos</div>
+  <div class="intro-sub">Una noche de deseos sin límites</div>
+  <div class="intro-copy">© 2025 Wil Rivera · Todos los derechos reservados</div>
+  <button class="intro-btn" onclick="iniciarApp()">✦ Entrar ✦</button>
+  <div class="intro-wr">© 2025 Wil Rivera</div>
+</div>
+<script>
+// Aplicar tema guardado antes de que se vea la pantalla de intro
+(function(){
+  try{
+    var raw=localStorage.getItem('jxd_settings_v2');
+    if(raw){
+      var s=JSON.parse(raw);
+      var tC=['','az','vi','go','ro','lu'];
+      var t=s.tema||0;
+      if(tC[t]) document.body.classList.add(tC[t]);
+      var intro=document.getElementById('intro');
+      if(intro){
+        var bgs=['#0a0202','#01080f','#060210','#080400','#040210','#040404'];
+        intro.style.background=bgs[t]||bgs[0];
+      }
+    }
+  }catch(e){}
+})();
+</script>
+
+<!-- ══ OVERLAY TEMAS ══ -->
+<div class="ov" id="ovT" onclick="if(event.target===this)closeOv('ovT')">
+  <div class="pan">
+    <div class="ptitle">🎨 Temas Visuales<button class="pclose" onclick="closeOv('ovT')">✕</button></div>
+    <div class="tgrid">
+      <div class="tc sel" id="tc0" onclick="setTema(0,this)"><div class="tp" style="background:linear-gradient(135deg,#6a0000,#e8503a)"></div><div class="tn">🔥 Fuego</div></div>
+      <div class="tc"     id="tc1" onclick="setTema(1,this)"><div class="tp" style="background:linear-gradient(135deg,#001530,#2e8fff)"></div><div class="tn">🌊 Noche Azul</div></div>
+      <div class="tc"     id="tc2" onclick="setTema(2,this)"><div class="tp" style="background:linear-gradient(135deg,#280060,#8830ff)"></div><div class="tn">💜 Misterio</div></div>
+      <div class="tc"     id="tc3" onclick="setTema(3,this)"><div class="tp" style="background:linear-gradient(135deg,#2c1800,#e8a810)"></div><div class="tn">✨ Dorado</div></div>
+      <div class="tc"     id="tc4" onclick="setTema(4,this)"><div class="tp" style="background:linear-gradient(135deg,#200028,#d8286a)"></div><div class="tn">🌹 Rosa</div></div>
+      <div class="tc"     id="tc5" onclick="setTema(5,this)"><div class="tp" style="background:linear-gradient(135deg,#080808,#a8a8a8)"></div><div class="tn">🌙 Luna</div></div>
+    </div>
+    <!-- MÚSICA DE FONDO -->
+    <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
+      <div style="font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--acc);opacity:.8;margin-bottom:12px">🎵 — Música Ambiental —</div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <button class="mbtn" id="mbtnPlay" onclick="toggleMusic()">▶ Activar</button>
+        <div style="flex:1;display:flex;align-items:center;gap:8px">
+          <span style="font-size:.6rem;color:var(--muted)">Vol</span>
+          <input type="range" id="mvolRange" min="0" max="100" value="30" oninput="setMusicVol(this.value)" style="flex:1;accent-color:var(--acc);height:3px">
+          <span id="mvolVal" style="font-size:.6rem;color:var(--acc);min-width:28px">30%</span>
+        </div>
+      </div>
+      <div style="font-size:.58rem;color:var(--muted);font-style:italic;opacity:.6" id="musicDesc">Cada tema tiene su propia atmósfera sonora</div>
+    </div>
+
+    <!-- FONDO ANIMADO EDITOR -->
+    <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--border)">
+      <div style="font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--acc);opacity:.8;margin-bottom:12px">🌌 — Fondo Animado —</div>
+
+      <!-- Tipo de fondo -->
+      <div style="font-size:.58rem;color:var(--muted);letter-spacing:2px;margin-bottom:8px">Patrón:</div>
+      <div class="bggrid" id="bggrid">
+        <div class="bgbtn sel" id="bgp0" onclick="setBgPattern(0,this)"><span class="bgico">🌀</span><span class="bglbl">Orbes</span></div>
+        <div class="bgbtn" id="bgp1" onclick="setBgPattern(1,this)"><span class="bgico">🌊</span><span class="bglbl">Ondas</span></div>
+        <div class="bgbtn" id="bgp2" onclick="setBgPattern(2,this)"><span class="bgico">💠</span><span class="bglbl">Nebulosa</span></div>
+        <div class="bgbtn" id="bgp3" onclick="setBgPattern(3,this)"><span class="bgico">✦</span><span class="bglbl">Pulso</span></div>
+        <div class="bgbtn" id="bgp4" onclick="setBgPattern(4,this)"><span class="bgico">🔥</span><span class="bglbl">Lava</span></div>
+        <div class="bgbtn" id="bgp5" onclick="setBgPattern(5,this)"><span class="bgico">🚫</span><span class="bglbl">Apagar</span></div>
+      </div>
+
+      <!-- Velocidad -->
+      <div style="display:flex;align-items:center;gap:10px;margin-top:12px">
+        <span style="font-size:.58rem;color:var(--muted);letter-spacing:2px;min-width:70px">Velocidad:</span>
+        <input type="range" id="bgSpeedRange" min="1" max="10" value="5" oninput="setBgSpeed(this.value)" style="flex:1;accent-color:var(--acc);height:3px">
+        <span id="bgSpeedVal" style="font-size:.6rem;color:var(--acc);min-width:20px">5</span>
+      </div>
+
+      <!-- Intensidad -->
+      <div style="display:flex;align-items:center;gap:10px;margin-top:8px">
+        <span style="font-size:.58rem;color:var(--muted);letter-spacing:2px;min-width:70px">Intensidad:</span>
+        <input type="range" id="bgIntRange" min="1" max="10" value="5" oninput="setBgInt(this.value)" style="flex:1;accent-color:var(--acc);height:3px">
+        <span id="bgIntVal" style="font-size:.6rem;color:var(--acc);min-width:20px">5</span>
+      </div>
+    </div>
+    <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--border)">
+      <div style="font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--acc);opacity:.8;margin-bottom:12px">✨ — Efectos Visuales —</div>
+      <div class="efxgrid" id="efxgrid">
+        <div class="efxbtn sel" id="efx0" onclick="setEfx(0,this)"><div class="efxico">🔥</div><div class="efxlbl">Llamas</div></div>
+        <div class="efxbtn" id="efx1" onclick="setEfx(1,this)"><div class="efxico">🌸</div><div class="efxlbl">Pétalos</div></div>
+        <div class="efxbtn" id="efx2" onclick="setEfx(2,this)"><div class="efxico">✨</div><div class="efxlbl">Destellos</div></div>
+        <div class="efxbtn" id="efx3" onclick="setEfx(3,this)"><div class="efxico">💫</div><div class="efxlbl">Estrellas</div></div>
+        <div class="efxbtn" id="efx4" onclick="setEfx(4,this)"><div class="efxico">🫧</div><div class="efxlbl">Burbujas</div></div>
+        <div class="efxbtn" id="efx5" onclick="setEfx(5,this)"><div class="efxico">❄️</div><div class="efxlbl">Nieve</div></div>
+        <div class="efxbtn" id="efx6" onclick="setEfx(6,this)"><div class="efxico">💎</div><div class="efxlbl">Cristales</div></div>
+        <div class="efxbtn" id="efx7" onclick="setEfx(7,this)"><div class="efxico">🚫</div><div class="efxlbl">Ninguno</div></div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:18px;font-size:.58rem;letter-spacing:2px;color:var(--muted);opacity:.5">© 2025 Wil Rivera</div>
+  </div>
+</div>
+
+<!-- ══ OVERLAY AJUSTES — PANTALLA PRINCIPAL ══ -->
+<div class="ov" id="ovA" onclick="if(event.target===this)closeOv('ovA')">
+  <div class="pan">
+    <div class="ptitle">⚙️ Ajustes<button class="pclose" onclick="closeOv('ovA')">✕</button></div>
+
+    <!-- Nombres y título -->
+    <div class="sa">
+      <h3 class="sa-h">👥 — Jugadores —</h3>
+      <div class="irow"><span class="ilbl">Jugador 1:</span><input class="inp" id="inj1" value="Jugador 1" oninput="updNoms()" placeholder="Nombre..."></div>
+      <div class="irow"><span class="ilbl">Jugador 2:</span><input class="inp" id="inj2" value="Jugador 2" oninput="updNoms()" placeholder="Nombre..."></div>
+    </div>
+    <div class="sa">
+      <h3 class="sa-h">✏️ — Título —</h3>
+      <div class="irow"><span class="ilbl">Título:</span><input class="inp" id="intit" value="Juegos para Dos" oninput="updTit()"></div>
+      <div class="irow"><span class="ilbl">Subtítulo:</span><input class="inp" id="insub" value="Una noche de deseos sin límites" oninput="updSub()"></div>
+    </div>
+
+    <!-- Grid de juegos -->
+    <div class="sa">
+      <h3 class="sa-h">🎮 — Editar Contenido de Juegos —</h3>
+      <div class="jgrid">
+        <button class="jgbtn" onclick="openGameEditor('tor')">
+          <span class="jgico">🃏</span>
+          <span class="jgnm">Verdad o Reto</span>
+          <span class="jgcnt" id="jgc-tor"></span>
+        </button>
+        <button class="jgbtn" onclick="openGameEditor('tmr')">
+          <span class="jgico">⏱</span>
+          <span class="jgnm">Timer</span>
+          <span class="jgcnt" id="jgc-tmr"></span>
+        </button>
+        <button class="jgbtn" onclick="openGameEditor('car')">
+          <span class="jgico">🂠</span>
+          <span class="jgnm">Cartas</span>
+          <span class="jgcnt" id="jgc-car"></span>
+        </button>
+        <button class="jgbtn" onclick="openGameEditor('tur')">
+          <span class="jgico">👑</span>
+          <span class="jgnm">Turnos</span>
+          <span class="jgcnt" id="jgc-tur"></span>
+        </button>
+        <button class="jgbtn" onclick="openGameEditor('hot')">
+          <span class="jgico">🌶</span>
+          <span class="jgnm">Retos Hot</span>
+          <span class="jgcnt" id="jgc-hot"></span>
+        </button>
+        <button class="jgbtn" onclick="openGameEditor('prg')">
+          <span class="jgico">💬</span>
+          <span class="jgnm">Preguntas</span>
+          <span class="jgcnt" id="jgc-prg"></span>
+        </button>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;display:flex;flex-direction:column;gap:10px;align-items:center">
+      <button class="rbtn" onclick="closeOv('ovA')">✦ Cerrar</button>
+      <button class="sbtn" onclick="resetAllData()" style="font-size:.68rem;letter-spacing:1px;opacity:.6">↺ Restablecer datos originales</button>
+    </div>
+    <div style="text-align:center;margin-top:14px;font-size:.58rem;letter-spacing:2px;color:var(--muted);opacity:.5">© 2025 Wil Rivera</div>
+  </div>
+</div>
+
+<!-- ══ OVERLAY EDITOR DE JUEGO ══ -->
+<div class="ov" id="ovGE" onclick="if(event.target===this)closeGameEditor()">
+  <div class="pan" id="gePan">
+    <div class="ptitle" id="geTitle">
+      <div style="display:flex;align-items:center;gap:10px">
+        <button class="pclose" onclick="closeGameEditor()" style="font-size:1rem;padding:4px 8px">← Volver</button>
+        <span id="geTitleText">Editor</span>
+      </div>
+      <button class="pclose" onclick="closeOv('ovGE');closeOv('ovA')">✕</button>
+    </div>
+    <div id="geBody"></div>
+  </div>
+</div>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="htop">
+    <button class="ibtn on" id="sndBtn" onclick="toggleSnd()">🔊 Sonido</button>
+    <div class="hright">
+      <button class="ibtn fs-btn" id="fsBtn" onclick="toggleFS()" title="Pantalla completa">⛶</button>
+      <button class="ibtn" onclick="openOv('ovT')">🎨 Temas</button>
+      <button class="ibtn" onclick="openAjustes()">⚙️ Ajustes</button>
+    </div>
+  </div>
+  <div style="color:var(--acc);opacity:.5;letter-spacing:14px;font-size:1rem;text-shadow:0 0 12px var(--glow)">✦ ✦ ✦</div>
+  <h1 id="htit">Juegos para Dos</h1>
+  <div class="sub" id="hsub">Una noche de deseos sin límites</div>
+  <div class="copy-tag">© 2025 Wil Rivera · Todos los derechos reservados</div>
+</header>
+
+<div class="swipe-hint">← desliza para navegar →</div>
+
+<!-- ══ NAV ══ -->
+<nav id="mainnav">
+  <button class="nbtn act" onclick="goSec('rul',this)">🎡 Ruleta</button>
+  <button class="nbtn" onclick="goSec('tor',this)">🃏 V o R</button>
+  <button class="nbtn" onclick="goSec('dad',this)">🎲 Dados</button>
+  <button class="nbtn" onclick="goSec('tmr',this)">⏱ Timer</button>
+  <button class="nbtn" onclick="goSec('car',this)">🂠 Cartas</button>
+  <button class="nbtn" onclick="goSec('tur',this)">👑 Turnos</button>
+  <button class="nbtn" onclick="goSec('hot',this)">🌶 Retos Hot</button>
+  <button class="nbtn" onclick="goSec('prg',this)">💬 Preguntas</button>
+  <button class="nbtn" onclick="goSec('pre',this)">👗 Prendas</button>
+  <button class="nbtn" onclick="goSec('yon',this)">🙅 Yo Nunca</button>
+  <button class="nbtn" onclick="goSec('bot',this)">🍾 Botella</button>
+  <button class="nbtn" onclick="goSec('qui',this)">👥 ¿Quién?</button>
+</nav>
+
+<main>
+
+<!-- RULETA -->
+<div class="sec vis" id="sec-rul">
+  <div class="card">
+    <div class="ctitle">🎡 Ruleta del Deseo</div>
+    <p class="cdesc">Cierra los ojos, pide un deseo y gira. Lo que salga... tendrás que cumplirlo sin excusas. 😈</p>
+    <div class="div">— ✦ —</div>
+    <div class="rwrap">
+      <div class="rcont">
+        <canvas id="rcanv" width="255" height="255"></canvas>
+        <div class="rarrow"></div>
+      </div>
+      <div class="rbox" id="rrbox"><p class="ph">Cierra los ojos... y gira la ruleta 🔥</p></div>
+      <div class="rhist" id="rhistbox" style="display:none">
+        <div class="rhist-title">— Últimos resultados —</div>
+        <div class="rhist-items" id="rhistitems"></div>
+      </div>
+      <div class="btnrow btnrow-center">
+        <button class="rbtn" onclick="spinRuleta()">🔥 Girar la Ruleta</button>
+        <button class="sbtn" onclick="resetHist()">↺ Limpiar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VERDAD O RETO -->
+<div class="sec" id="sec-tor">
+  <div class="card">
+    <div class="ctitle">🃏 Verdad o Reto</div>
+    <p class="cdesc">Elige y sin mentiras... o sin cobardías. Las consecuencias son lo mejor del juego. 😏</p>
+    <div class="div">— ✦ —</div>
+    <div style="display:flex;gap:10px;margin-bottom:13px">
+      <button class="torbtn tvbtn" onclick="doTOR('v')">💬 Verdad</button>
+      <button class="torbtn trbtn" onclick="doTOR('r')">🔥 Reto</button>
+    </div>
+    <div class="rbox" id="torbox"><p class="ph">¿Qué eliges? La verdad duele... pero el reto excita más. 😈</p></div>
+    <div class="btnrow"><button class="sbtn" onclick="if(lastTOR)doTOR(lastTOR)">↻ Otra</button></div>
+  </div>
+</div>
+
+<!-- DADOS -->
+<div class="sec" id="sec-dad">
+  <div class="card">
+    <div class="ctitle">🎲 Dados del Placer</div>
+    <p class="cdesc">El azar decide dónde, qué y por cuánto tiempo. Ninguno puede negarse. 🎲</p>
+    <div class="div">— ✦ —</div>
+    <div class="dfila">
+      <div class="dblk"><div class="det">Acción</div><div class="dado" id="da1"><span class="ph">?</span></div></div>
+      <div class="dblk"><div class="det">Zona</div><div class="dado" id="da2"><span class="ph">?</span></div></div>
+      <div class="dblk"><div class="det">Tiempo</div><div class="dado" id="da3"><span class="ph">?</span></div></div>
+    </div>
+    <div class="rbox" id="dadbox"><p class="ph">Lanza los dados y obedece lo que digan... 🔥</p></div>
+    <div class="btnrow">
+      <button class="rbtn" onclick="rollDados()">🎲 ¡Lanzar!</button>
+      <button class="sbtn" onclick="resetDados()">↺ Limpiar</button>
+    </div>
+  </div>
+</div>
+
+<!-- TIMER -->
+<div class="sec" id="sec-tmr">
+  <div class="card">
+    <div class="ctitle">⏱ Temporizador Ardiente</div>
+    <p class="cdesc">Cuando suene la alarma, paras. No importa en qué punto estés. ¡Así es el juego! 😈</p>
+    <div class="div">— ✦ —</div>
+    <div class="tbtns">
+      <button class="ttbtn s" onclick="setTime(1,this)">1 min</button>
+      <button class="ttbtn" onclick="setTime(2,this)">2 min</button>
+      <button class="ttbtn" onclick="setTime(3,this)">3 min</button>
+      <button class="ttbtn" onclick="setTime(5,this)">5 min</button>
+      <button class="ttbtn" onclick="setTime(10,this)">10 min</button>
+    </div>
+    <div class="tcustom">
+      <span class="tcustom-lbl">Personalizar:</span>
+      <input type="number" class="tcustom-inp" id="tcustomInp" min="1" max="99" placeholder="min" onchange="setCustomTime(this.value)">
+      <span class="tcustom-lbl">min</span>
+    </div>
+    <div class="rbox" id="tmract"><p class="ph">Pulsa "Nueva actividad" y obedece al reloj ⏱</p></div>
+    <div class="tbwrap"><div class="tb" id="tbar" style="width:100%"></div></div>
+    <div class="tdisp" id="tdisp">01:00</div>
+    <div class="btnrow btnrow-center">
+      <button class="rbtn" onclick="newAct()">🔥 Nueva Actividad</button>
+      <button class="sbtn" onclick="startTimer()">▶ Iniciar</button>
+      <button class="sbtn" onclick="pauseTimer()">⏸ Pausar</button>
+      <button class="sbtn" onclick="resetTimer()">↺ Reset</button>
+    </div>
+  </div>
+</div>
+
+<!-- CARTAS -->
+<div class="sec" id="sec-car">
+  <div class="card">
+    <div class="ctitle">🂠 Cartas Secretas</div>
+    <p class="cdesc">Cada carta esconde un secreto que deberás cumplir. No hay vuelta atrás una vez que la volteas. 😈</p>
+    <div class="div">— ✦ —</div>
+    <div class="cwrap">
+      <div class="ccont" id="ccard" onclick="flipCard()">
+        <div class="cinner">
+          <div class="cfront"><div class="cem">🂠</div><div class="cem" style="font-size:1.6rem">✦</div><div class="chint">Toca para revelar tu destino</div></div>
+          <div class="cback"><div class="ccat" id="ccat">— categoría —</div><div class="ctxt" id="ctxt">...</div></div>
+        </div>
+      </div>
+      <div class="btnrow btnrow-center">
+        <button class="rbtn" onclick="newCard()">🂠 Nueva Carta</button>
+        <button class="sbtn" onclick="flipCard()">↺ Voltear</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TURNOS -->
+<div class="sec" id="sec-tur">
+  <div class="card">
+    <div class="ctitle">👑 Turnos y Conquista</div>
+    <p class="cdesc">Quien más puntos consiga elige su premio... y el otro debe darlo sin rechistar. 👑</p>
+    <div class="div">— ✦ —</div>
+    <div class="jcard act" id="jc1">
+      <div><div class="jnom" id="jn1">Jugador 1</div><div class="jlbl" id="jl1">← En juego ahora</div></div>
+      <div class="ptwrap"><div class="ptnum" id="pt1">0</div><div class="ptctrl"><button class="ptbtn" onclick="addPt(1,1)">▲</button><button class="ptbtn" onclick="addPt(1,-1)">▼</button></div></div>
+    </div>
+    <div class="jcard" id="jc2">
+      <div><div class="jnom" id="jn2">Jugador 2</div><div class="jlbl" id="jl2"></div></div>
+      <div class="ptwrap"><div class="ptnum" id="pt2">0</div><div class="ptctrl"><button class="ptbtn" onclick="addPt(2,1)">▲</button><button class="ptbtn" onclick="addPt(2,-1)">▼</button></div></div>
+    </div>
+    <div class="rtobox"><div class="rtoet">— reto del turno —</div><p id="retotxt" class="ph">Pulsa "Nuevo reto" para que empiece la diversión 🔥</p></div>
+    <div class="btnrow">
+      <button class="rbtn" onclick="newTurnReto()">🔥 Nuevo Reto</button>
+      <button class="sbtn" onclick="nextTurn()">Pasar turno →</button>
+      <button class="sbtn" onclick="resetTurnos()">↺ Reiniciar</button>
+    </div>
+  </div>
+</div>
+
+<!-- RETOS HOT -->
+<div class="sec" id="sec-hot">
+  <div class="card">
+    <div class="ctitle">🌶 Retos Candentes</div>
+    <p class="cdesc">Elige tu nivel de valentía. Desde tierno hasta... explosivo. Lo que genere el dado, se cumple. 🔥</p>
+    <div class="div">— ✦ —</div>
+    <div class="nbtns">
+      <button class="nbtn2 s" onclick="setNiv('suave',this)">🌸 Suave</button>
+      <button class="nbtn2" onclick="setNiv('medio',this)">🔥 Caliente</button>
+      <button class="nbtn2" onclick="setNiv('hot',this)">🌶 Ardiente</button>
+      <button class="nbtn2" onclick="setNiv('extremo',this)">💣 Sin Límites</button>
+    </div>
+    <div class="hcard" id="hotcard">
+      <div class="hniv" id="hotniv">— elige tu nivel —</div>
+      <div class="htxt ph" id="hottxt">¿Cuánto calor podéis aguantar...?</div>
+    </div>
+    <div class="btnrow btnrow-center">
+      <button class="rbtn" onclick="genHot()">🌶 ¡Generar Reto!</button>
+      <button class="sbtn" onclick="genHot()">↻ Otro</button>
+    </div>
+  </div>
+</div>
+
+<!-- PREGUNTAS -->
+<div class="sec" id="sec-prg">
+  <div class="card">
+    <div class="ctitle">💬 Confesionario</div>
+    <p class="cdesc">Preguntas que deseabas que te hicieran. Respuestas que nunca te habías atrevido a dar. Hasta ahora. 😏</p>
+    <div class="div">— ✦ —</div>
+    <div class="ptabs">
+      <button class="ptab s" onclick="setPCat('deseos',this)">💭 Deseos</button>
+      <button class="ptab" onclick="setPCat('fantasias',this)">🌙 Fantasías</button>
+      <button class="ptab" onclick="setPCat('recuerdos',this)">💫 Recuerdos</button>
+      <button class="ptab" onclick="setPCat('pareja',this)">❤ Pareja</button>
+      <button class="ptab" onclick="setPCat('picante',this)">🌶 Picante</button>
+      <button class="ptab" onclick="setPCat('sifuera',this)">🌀 Si fuera...</button>
+      <button class="ptab" onclick="setPCat('nuncadije',this)">🤫 Nunca dije</button>
+    </div>
+    <div class="pqbox" id="pqbox">
+      <div class="pqcat" id="pqcat">— DESEOS —</div>
+      <div class="pqtxt ph" id="pqtxt">Elige una categoría y atrévete a responder con total honestidad...</div>
+    </div>
+    <div class="btnrow btnrow-center">
+      <button class="rbtn" onclick="newPQ()">💬 Nueva Pregunta</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRENDAS -->
+<div class="sec" id="sec-pre">
+  <div class="card">
+    <div class="ctitle">👗 Strip Juego</div>
+    <p class="cdesc">Cada vez que pierdas un reto, una prenda menos. El primero en quedarse sin nada... gana el premio más especial. 😈</p>
+    <div class="div">— ✦ —</div>
+    <div class="prwrap">
+      <div class="prcard" id="prc1">
+        <div class="prnom" id="prn1">Jugador 1</div>
+        <div class="pritems" id="pri1"></div>
+        <div class="prnum" id="prc1n">7</div>
+        <div class="prbtns"><button class="prbtn" onclick="rmPrenda(1)">−</button><button class="prbtn" onclick="addPrenda(1)">+</button></div>
+      </div>
+      <div class="prcard" id="prc2">
+        <div class="prnom" id="prn2">Jugador 2</div>
+        <div class="pritems" id="pri2"></div>
+        <div class="prnum" id="prc2n">7</div>
+        <div class="prbtns"><button class="prbtn" onclick="rmPrenda(2)">−</button><button class="prbtn" onclick="addPrenda(2)">+</button></div>
+      </div>
+    </div>
+    <div class="rbox" id="prmsg"><p class="ph">Quita prendas para ver quién gana el premio final... 😈</p></div>
+    <div class="btnrow btnrow-center"><button class="sbtn" onclick="resetPrendas()">↺ Reiniciar</button></div>
+  </div>
+</div>
+
+<!-- YO NUNCA -->
+<div class="sec" id="sec-yon">
+  <div class="card">
+    <div class="ctitle">🙅 Yo Nunca...</div>
+    <p class="cdesc">Se lee la frase en voz alta. Si lo has hecho alguna vez... pierdes un corazón. Sin mentiras. 😏</p>
+    <div class="div">— ✦ —</div>
+    <div class="yn-cats">
+      <button class="yn-cat s" onclick="setYNCat('todos',this)">✦ Todos</button>
+      <button class="yn-cat" onclick="setYNCat('dulce',this)">🍭 Dulce</button>
+      <button class="yn-cat" onclick="setYNCat('travesura',this)">🔥 Travesura</button>
+      <button class="yn-cat" onclick="setYNCat('intimo',this)">💋 Íntimo</button>
+      <button class="yn-cat" onclick="setYNCat('atrevido',this)">🌶 Atrevido</button>
+    </div>
+    <div class="yn-card" id="yncard">
+      <div class="yn-num" id="ynnum">— ✦ —</div>
+      <div class="yn-txt ph" id="yntxt">Pulsa "Nueva frase" para empezar el juego 🙅</div>
+    </div>
+    <div class="yn-score-banner" id="ynbanner">¡El que pierda todos sus corazones tiene que cumplir un deseo del otro! 💖</div>
+    <div class="yn-lives">
+      <div class="yn-player" id="ynp1">
+        <div class="yn-pnom" id="ynn1">Jugador 1</div>
+        <div class="yn-hearts" id="ynh1"></div>
+        <div class="yn-hnum" id="ynhnum1">5</div>
+        <div class="yn-actions">
+          <button class="yn-btn yn-btn-yes" onclick="ynLose(1)">💔 Lo hice</button>
+          <button class="yn-btn yn-btn-no" onclick="ynSafe(1)">✓ Nunca</button>
+        </div>
+      </div>
+      <div class="yn-player" id="ynp2">
+        <div class="yn-pnom" id="ynn2">Jugador 2</div>
+        <div class="yn-hearts" id="ynh2"></div>
+        <div class="yn-hnum" id="ynhnum2">5</div>
+        <div class="yn-actions">
+          <button class="yn-btn yn-btn-yes" onclick="ynLose(2)">💔 Lo hice</button>
+          <button class="yn-btn yn-btn-no" onclick="ynSafe(2)">✓ Nunca</button>
+        </div>
+      </div>
+    </div>
+    <div class="btnrow btnrow-center">
+      <button class="rbtn" onclick="newYN()">🙅 Nueva Frase</button>
+      <button class="sbtn" onclick="resetYN()">↺ Reiniciar</button>
+    </div>
+  </div>
+</div>
+<!-- BOTELLA GIRATORIA -->
+<div class="sec" id="sec-bot">
+  <div class="card">
+    <div class="ctitle">🍾 Botella Giratoria</div>
+    <p class="cdesc">Gira la botella. A quien señale... le toca cumplir lo que diga la carta. Sin excusas. 😈</p>
+    <div class="div">— ✦ —</div>
+    <div class="bot-wrap">
+      <div class="bot-stage">
+        <canvas id="botCanvas"></canvas>
+      </div>
+      <div class="bot-names">
+        <div class="bot-name" id="botn1">Jugador 1</div>
+        <div class="bot-name" id="botn2">Jugador 2</div>
+      </div>
+      <div class="bot-result" id="botresult"><p class="ph">Gira la botella para descubrir quién empieza... 🍾</p></div>
+      <div class="btnrow btnrow-center">
+        <button class="rbtn" onclick="spinBottle()">🍾 ¡Girar!</button>
+        <button class="sbtn" onclick="resetBottle()">↺ Limpiar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ¿QUIÉN DE LOS DOS? -->
+<div class="sec" id="sec-qui">
+  <div class="card">
+    <div class="ctitle">👥 ¿Quién de los Dos?</div>
+    <p class="cdesc">Una pregunta, dos votos. Cada uno elige en secreto... y luego se revela la verdad. 😏</p>
+    <div class="div">— ✦ —</div>
+    <div class="quien-cats">
+      <button class="quien-cat s" onclick="setQuienCat('todos',this)">✦ Todos</button>
+      <button class="quien-cat" onclick="setQuienCat('romantico',this)">💕 Romántico</button>
+      <button class="quien-cat" onclick="setQuienCat('picante',this)">🌶 Picante</button>
+      <button class="quien-cat" onclick="setQuienCat('divertido',this)">😂 Divertido</button>
+    </div>
+    <div class="quien-card" id="quiencard">
+      <div class="quien-q ph" id="quienq">Pulsa "Nueva pregunta" para que empiece la diversión 👥</div>
+    </div>
+    <div class="quien-votes">
+      <button class="quien-vbtn" id="quienv1" onclick="quienVote(1)"><span id="quienn1v">Jugador 1</span><br><span style="font-size:.65rem;opacity:.6;letter-spacing:1px">Soy yo 👆</span></button>
+      <button class="quien-vbtn" id="quienv2" onclick="quienVote(2)"><span id="quienn2v">Jugador 2</span><br><span style="font-size:.65rem;opacity:.6;letter-spacing:1px">Soy yo 👆</span></button>
+    </div>
+    <div class="quien-reveal" id="quienreveal">
+      <span class="ph">Votad los dos para revelar el resultado...</span>
+    </div>
+    <div class="quien-stat" id="quienstat">Pregunta 0 · Acuerdo total: 0</div>
+    <div class="btnrow btnrow-center">
+      <button class="rbtn" onclick="newQuien()">👥 Nueva Pregunta</button>
+      <button class="sbtn" onclick="resetQuien()">↺ Reiniciar</button>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="fline1">Para disfrutar entre adultos, con amor, complicidad y sin límites ✦</div>
+  <div class="fcopy">© 2025 Wil Rivera · Todos los derechos reservados · Prohibida su reproducción o modificación</div>
+</footer>
+
+<script>
+/*
+ * ══════════════════════════════════════════════════════
+ *  © 2025 Wil Rivera — Todos los derechos reservados.
+ *  Prohibida la reproducción, modificación o distribución
+ *  de este código sin autorización expresa del autor.
+ * ══════════════════════════════════════════════════════
+ */
+
+// ── Protección básica ──
+document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+document.addEventListener('keydown', function(e){
+  if((e.ctrlKey||e.metaKey) && (e.key==='u'||e.key==='s'||e.key==='U'||e.key==='S')) e.preventDefault();
+  if(e.key==='F12') e.preventDefault();
+  if((e.ctrlKey||e.metaKey) && e.shiftKey && (e.key==='I'||e.key==='i'||e.key==='J'||e.key==='j'||e.key==='C'||e.key==='c')) e.preventDefault();
+});
+
+// ── DATOS ORIGINALES ──
+var DEFAULTS = {
+  verdades:[
+    '¿Dónde es el lugar de mi cuerpo que más te enloquece y por qué?',
+    '¿Cuál ha sido el momento más excitante que hemos vivido y cuándo quieres repetirlo?',
+    '¿Alguna vez has pensado en mí mientras estabas en el trabajo? ¿Qué imaginaste?',
+    '¿Qué es lo que más deseas que te haga esta noche?',
+    '¿Hay algo que nunca te hayas atrevido a pedirme pero llevas tiempo deseando?',
+    '¿Cuál sería el lugar más atrevido donde quisieras estar conmigo?',
+    '¿Qué parte de ti es la que más deseas que explore esta noche?',
+    '¿Qué prenda mía te resulta absolutamente irresistible y por qué?',
+    '¿Tienes una fantasía con rol que nunca me hayas contado? Cuéntamela ahora.',
+    '¿Cuál es la hora del día en que más me deseas y qué harías si no hubiera consecuencias?',
+    '¿Qué es lo que más te gusta escuchar cuando estamos juntos en la intimidad?',
+    '¿Si pudieras elegir cómo termina esta noche, cómo sería exactamente?',
+    '¿Cuál es la cosa más atrevida que hayas fantaseado hacer fuera de casa?',
+    '¿Hay alguna postura o situación que nunca hayamos probado y desees vivir?',
+    '¿Qué fue lo primero que pensaste de mí cuando nos conocimos?'
+  ],
+  retos:[
+    'Masajea durante 3 minutos la zona del cuerpo que más le excite a tu pareja.',
+    'Susurra al oído, muy lentamente, exactamente lo que deseas hacer esta noche.',
+    'Da un beso apasionado de 1 minuto completo sin parar.',
+    'Guía las manos de tu pareja hacia donde más lo deseas, sin decir una palabra.',
+    'Escribe con la lengua en su cuello lo que sientes por ella/él.',
+    'Quita una prenda a tu pareja usando solo los dientes.',
+    'Deja que tu pareja te cubra los ojos y explore donde quiera durante 2 minutos.',
+    'Baila sensualmente pegados durante 2 minutos al ritmo de la canción favorita.',
+    'Describe con voz seductora, en detalle, qué quieres que te pase esta noche.',
+    'Traza con los labios un recorrido desde el hombro hasta la cintura.',
+    'Lee en voz alta el mensaje más atrevido que le hayas enviado alguna vez.',
+    'Da un mordisco suave en el cuello y di algo que nunca antes hayas dicho.',
+    'Canta o tararea al oído la canción que más os recuerda juntos.',
+    'Imita en mímica lo que deseas que te haga tu pareja esta noche.',
+    'Explora con los dedos el contorno de su cara y dile tres cosas que te vuelven loco/a.'
+  ],
+  timer:[
+    'Masajea toda la espalda muy despacio, de arriba abajo, con los dedos y los labios.',
+    'Explora con los dedos la espalda y la cintura mientras le susurras lo que sientes.',
+    'Miradlos fijamente a los ojos sin hablar, sin apartar la mirada, sin reíros.',
+    'Traza con los labios el cuello, el hombro y la clavícula sin prisa ninguna.',
+    'Cuéntale con voz baja y sensual exactamente qué deseas hacerle esta noche.',
+    'Bailad completamente pegados en silencio, sintiendo cada movimiento del cuerpo del otro.',
+    'Cúbrete los ojos y deja que tu pareja trace su camino por donde quiera durante el tiempo.',
+    'Dedica el tiempo a besar el cuello, detrás de las orejas, la nuca y el hombro.',
+    'Sostén su cara entre tus manos, mírale a los ojos y dile las tres cosas que más deseas.',
+    'Explora con los dedos cada centímetro de sus manos, muñecas y antebrazos.',
+    'Recorre con los labios toda la línea de la clavícula de extremo a extremo.',
+    'Susurra al oído uno por uno los momentos que más atesoras de vuestra historia.'
+  ],
+  cartas:[
+    {cat:'💋 Besos de Fuego',txt:'Un beso apasionado de 2 minutos. Las manos no pueden estar quietas.'},
+    {cat:'🌹 Seducción',txt:'Describe mirándole a los ojos tres zonas de su cuerpo que te enloquecen.'},
+    {cat:'🔥 Sin Ropa',txt:'Quítale la prenda que más te tiente a tu elección, muy despacio.'},
+    {cat:'✨ A Ciegas',txt:'Cúbrete los ojos. Tu pareja tiene 2 minutos para hacer lo que quiera.'},
+    {cat:'💆 Masaje Sensual',txt:'Masaje de 4 minutos en las zonas que ella/él elija. Sin prisa.'},
+    {cat:'🎭 Juego de Rol',txt:'Proponed una fantasía de rol y empezad a vivirla ahora mismo.'},
+    {cat:'💬 Confesión Ardiente',txt:'Confiesa en voz alta y con detalle tu fantasía más hot sobre esta persona.'},
+    {cat:'👁 Mirada de Fuego',txt:'Miradlos a los ojos dos minutos mientras os tocáis las manos. Sin hablar.'},
+    {cat:'🌶 Mapa del Cuerpo',txt:'Guía a tu pareja exactamente adónde quieres que ponga los labios.'},
+    {cat:'🕯 Noche Lenta',txt:'Elige música, luz tenue y comenzad la noche más despacio que nunca.'},
+    {cat:'🎁 Deseo Cumplido',txt:'Pide un deseo íntimo que no hayas pedido antes. Tu pareja debe cumplirlo.'},
+    {cat:'💃 Baile Privado',txt:'Un baile seductor de 2 minutos solo para tu pareja. Sin límites.'},
+    {cat:'🌙 Fantasía',txt:'Cuéntale tu fantasía más recurrente sobre vosotros dos. Con todos los detalles.'},
+    {cat:'🎶 Canción',txt:'Pon la canción que más os evoque y bailad sin separar los cuerpos ni un segundo.'},
+    {cat:'✍ Carta de Deseos',txt:'Escríbele en la palma de la mano las tres cosas que más deseas de ella/él.'},
+    {cat:'🔮 Destino',txt:'Deja que tu pareja decida absolutamente todo lo que ocurre durante los próximos 5 minutos.'}
+  ],
+  retT:[
+    'Baila para tu pareja durante 1 minuto de la forma más seductora que puedas.',
+    'Describe con todo detalle y voz sensual tu fantasía favorita sobre vosotros dos.',
+    'Da un masaje de 3 minutos en la zona del cuerpo que tu pareja te señale.',
+    'Guía las manos de tu pareja adonde más lo deseas sin decir ni una sola palabra.',
+    'Lee en voz alta el mensaje más ardiente que le hayas enviado alguna vez.',
+    'Cuenta el encuentro íntimo favorito que hayáis tenido, con todos los detalles.',
+    'Propón una regla para el resto de la noche que nunca hayáis probado antes.',
+    'Muéstrale con mímica seductora exactamente qué quieres que te haga.',
+    'Concede a tu pareja un deseo que hayas rechazado alguna vez.',
+    'Dile mirándole a los ojos las tres cosas de su cuerpo que más te vuelven loco/a.',
+    'Recita o improvisa un poema de amor de al menos cuatro versos sobre vuestra historia.',
+    'Propón una actividad completamente nueva que nunca hayáis hecho juntos.'
+  ],
+  hot:{
+    suave:[
+      'Abrazaos muy fuerte durante 30 segundos mirándoos fijamente a los ojos.',
+      'Cuéntale cuál es el lugar exacto de tu cuerpo donde más te gusta que te toquen.',
+      'Masajea los hombros y la nuca de tu pareja durante 3 minutos en silencio.',
+      'Dile tres cosas específicas de su cuerpo que te resultan irresistibles.',
+      'Bailad muy pegados durante una canción entera, sin separar los cuerpos.',
+      'Escríbele con el dedo en la palma de la mano lo que sientes en este momento.',
+      'Cuéntale un recuerdo especial que guardes de vuestra historia y que no le hayas contado.',
+      'Acaricia suavemente su cara y dile en voz baja lo que ves cuando le miras a los ojos.',
+      'Llévale la mano al corazón y cuéntale qué sientes cuando está cerca de ti.',
+      'Dile qué canción te recuerda a ella/él y por qué la elegirías para este momento.',
+      'Miraos fijamente a los ojos durante 60 segundos enteros sin apartar la mirada.',
+      'Cuéntale cuál fue el momento exacto en que supiste que ella/él era especial para ti.',
+      'Dale un abrazo muy largo y dile al oído una cosa que te gusta de cómo te hace sentir.'
+    ],
+    medio:[
+      'Besaos apasionadamente durante 1 minuto sin parar. Las manos son libres.',
+      'Cuéntale una fantasía concreta que tengas sobre vosotros dos esta noche.',
+      'Propón algo diferente para esta noche que nunca hayáis hecho antes.',
+      'Quítale una prenda usando solamente los dientes. Muy. Despacio.',
+      'Susurra en su oído lo que deseas que te haga en los próximos 5 minutos.',
+      'Describid juntos el escenario ideal para una noche sin límites de ningún tipo.',
+      'Dale un masaje en los pies durante 2 minutos mientras le describes tu fantasía favorita.',
+      'Traza con los dedos el contorno de sus labios y cuéntale lo que piensas cuando los ves.',
+      'Bésale en un lugar inesperado del cuerpo y explica por qué elegiste ese sitio.',
+      'Proponed una palabra clave que os recuerde esta noche cada vez que la digáis mañana.',
+      'Cuéntale el sueño más atrevido que hayas tenido con ella/él sin omitir ningún detalle.',
+      'Escríbele en la espalda con el dedo tu deseo más grande. Que lo adivine.',
+      'Describid entre los dos la noche perfecta sin censura, alternando frase a frase.'
+    ],
+    hot:[
+      'Dedica 4 minutos completos a la zona del cuerpo que más excite a tu pareja.',
+      'Dile exactamente, con voz baja y sensual, qué quieres que te haga esta noche.',
+      'Cada uno describe su fantasía más atrevida que nunca se han contado. Sin filtros.',
+      'Toma las manos de tu pareja y guíalas exactamente adonde más lo deseas.',
+      'Proponed una postura o situación nueva y comprometeos a vivirla ahora mismo.',
+      'Iniciad un juego de rol: elegid personajes y empezad la escena sin ensayo previo.',
+      'Describe en detalle lo que harías si tuvieras media hora contigo solo/a sin interrupciones.',
+      'Cada uno escribe en secreto la zona favorita del cuerpo del otro. Comparad y cumplid.',
+      'Quitaos una prenda a la vez de forma alterna hasta que decidáis parar o no parar.',
+      'Comprometeos a intentar una fantasía que uno haya propuesto antes y el otro haya dudado.',
+      'Masajea la zona más sensible de tu pareja durante 3 minutos con los ojos cerrados.',
+      'Cada uno dice una instrucción al otro. El que la recibe la ejecuta durante 2 minutos.'
+    ],
+    extremo:[
+      'Cada uno escribe en un papel su deseo más prohibido. Intercambiadlos y cumplidlos.',
+      'Esta hora manda uno sin restricciones. El otro obedece todo sin cuestionar nada.',
+      'Elegid juntos la fantasía que nunca hayáis vivido y comenzad a vivirla esta noche.',
+      'Describid el encuentro más ardiente que os imagináis. Con todo. Cada detalle.',
+      'Juego de mímica íntima: uno actúa sin palabras lo que desea. El otro interpreta.',
+      'Tres cosas nuevas que queráis probar este mes. Acordadlas ahora. La primera, ya.',
+      'Turno sin palabras: solo gestos, miradas y movimientos durante 5 minutos. Sin hablar.',
+      'Proponed y aceptad hacer algo que siempre hayáis pospuesto. Esta noche es la noche.',
+      'Estableced una prenda como recompensa al que más se atreva en la siguiente ronda.',
+      'Elegid un reto que os haya salido antes y subid un nivel de intensidad. Sin excusas.'
+    ]
+  },
+  pregs:{
+    deseos:[
+      '¿Si pudieras pedir cualquier deseo íntimo sin consecuencias, cuál sería esta noche?',
+      '¿Cuál es el lugar del mundo donde más deseas hacer el amor conmigo y por qué?',
+      '¿Qué es lo que más deseas de nuestra vida íntima que sientes que aún no hemos explorado?',
+      '¿Hay algo que siempre hayas querido pedirme y nunca hayas encontrado el momento?',
+      '¿Si pudiéramos tener una noche perfecta sin ningún tipo de límite, cómo sería?',
+      '¿Qué fantasía has tenido conmigo que nunca me hayas contado pero deseas vivir?',
+      '¿Qué parte de tu cuerpo desearías que explorase más y con más atención?',
+      '¿Si pudieras revivir un momento íntimo nuestro, cuál elegirías y por qué?',
+      '¿Qué deseo tuyo no te he cumplido aún y desearías que lo hiciera esta noche?',
+      '¿Cuál es la forma en que más deseas que te diga que te quiero?'
+    ],
+    fantasias:[
+      '¿Cuál es la fantasía que más veces has tenido sobre nosotros dos? Cuéntamela ahora.',
+      '¿Si pudiéramos vivir cualquier noche juntos sin consecuencias, cómo sería de principio a fin?',
+      '¿Cuál es el lugar más insólito donde has fantaseado estar conmigo?',
+      '¿Tienes una fantasía de rol que nunca te hayas atrevido a proponer? Dímela.',
+      '¿Hay algo que hayas visto, leído o imaginado que desees probar conmigo?',
+      '¿Qué situación te excita más cuando estás conmigo que no me hayas dicho aún?',
+      '¿Si pudieras diseñar la noche perfecta de principio a fin sin límites, cómo sería?',
+      '¿Hay algún escenario que hayas imaginado que nunca te hayas atrevido a proponer?',
+      '¿Qué personaje o situación fantaseada vuelves a imaginar más de una vez?',
+      '¿Si hoy fuera la última noche juntos sin que lo supiéramos, qué viviríamos?'
+    ],
+    recuerdos:[
+      '¿Cuál ha sido el momento más excitante de nuestra vida íntima? ¿Cuándo lo repetimos?',
+      '¿Cuándo exactamente te diste cuenta de que me deseabas de forma irremediable?',
+      '¿Cuál es la noche que más recuerdas con más intensidad y por qué fue diferente?',
+      '¿Cuál ha sido el encuentro más apasionado que hemos tenido? ¿Qué lo hizo especial?',
+      '¿Hay algo que hiciéramos una vez y que te encantaría volver a vivir esta noche?',
+      '¿Cuándo fue la primera vez que pensaste que yo era exactamente lo que deseabas?',
+      '¿Cuál fue el primer beso que recuerdas de nosotros y qué sentiste en ese momento?',
+      '¿Hay un momento específico en que te diste cuenta de que yo era para ti?',
+      '¿Qué recuerdo íntimo nuestro guardas como el más especial y por qué?',
+      '¿Cuándo sentiste que nuestra conexión era diferente a cualquier otra que hayas tenido?'
+    ],
+    pareja:[
+      '¿Qué es lo que más te enloquece de mí cuando estamos solos los dos?',
+      '¿En qué momento del día piensas en mí de forma más intensa y qué imaginas?',
+      '¿Qué es lo que más te gusta de cómo nos relacionamos en la intimidad?',
+      '¿Hay algo que yo haga que te ponga muy nervioso/a y que nunca me hayas dicho?',
+      '¿Si pudieras cambiar algo de nuestra vida íntima, qué sería?',
+      '¿Cuál es la cosa que más te excita de estar conmigo que no existe con nadie más?',
+      '¿Cómo sabes que me deseas en un momento concreto sin que yo lo haya dicho?',
+      '¿Qué detalle mío te vuelve loco/a y que no sabes si yo sé que tienes ese efecto?',
+      '¿Qué es lo que más valoras de nuestra intimidad como pareja y por qué?',
+      '¿Qué gesto o palabra mía es la que más te conecta conmigo en un momento íntimo?'
+    ],
+    picante:[
+      '¿Qué es lo más ardiente que hemos hecho que desearías repetir esta misma noche?',
+      '¿Cuál es la zona de mi cuerpo que más te vuelve loco/a y que nunca me lo has dicho así?',
+      '¿Hay algún juego o dinámica que hayas fantaseado probar conmigo y aún no hemos hecho?',
+      '¿Qué palabra o frase mía te excita más cuando estamos juntos en la intimidad?',
+      '¿Cuál es la prenda mía que más te cuesta resistirte? ¿Y la que más te gustaría quitarme?',
+      '¿Qué es lo que harías esta noche si supieras que yo diría que sí a todo sin excepción?',
+      '¿Cuál es el detalle más pequeño que yo hago sin saber que te excita completamente?',
+      '¿Si pudieras elegir el ritmo y la intensidad de esta noche, cómo los describirías?',
+      '¿Qué nivel de intensidad deseas que tenga esta noche en una escala del 1 al 10?',
+      '¿Qué es lo que nunca te he dicho sobre lo que siento cuando estoy cerca de ti?'
+    ]
+  },
+  yonunca:{
+    dulce:[
+      'Yo nunca he escrito una carta de amor a mano y la he enviado de verdad.',
+      'Yo nunca he preparado una cena sorpresa romántica para mi pareja.',
+      'Yo nunca he llorado de emoción viendo una película romántica.',
+      'Yo nunca he guardado una foto de mi pareja como fondo de pantalla sin decírselo.',
+      'Yo nunca he esperado despierto/a hasta las 3 de la madrugada para hablar con alguien especial.',
+      'Yo nunca he comprado un regalo sin motivo ni fecha especial solo porque sí.',
+      'Yo nunca me he enamorado a primera vista.',
+      'Yo nunca he dedicado una canción a alguien públicamente.',
+      'Yo nunca he bailado lento con alguien bajo la lluvia.',
+      'Yo nunca le he dicho "te quiero" primero sin saber si me lo dirían de vuelta.'
+    ],
+    travesura:[
+      'Yo nunca he mentido sobre dónde estaba para hacer algo prohibido.',
+      'Yo nunca he mandado un mensaje al número equivocado y me ha dado muchísima vergüenza.',
+      'Yo nunca he fingido estar dormido/a para no tener que responder a alguien.',
+      'Yo nunca he leído el diario o el móvil de alguien sin permiso.',
+      'Yo nunca he inventado una excusa completamente ridícula para escaparme de algo.',
+      'Yo nunca he hecho algo atrevido en un lugar público.',
+      'Yo nunca he tenido un secreto que aún no le he contado a mi pareja.',
+      'Yo nunca he comido algo robado directamente de la nevera de otra persona.',
+      'Yo nunca me he colado en algún sitio sin pagar la entrada.',
+      'Yo nunca he respondido "bien" cuando en realidad estaba fatal.'
+    ],
+    intimo:[
+      'Yo nunca he besado a alguien en un sitio inesperado que no fuera los labios.',
+      'Yo nunca he enviado una foto comprometedora a alguien.',
+      'Yo nunca he tenido pensamientos muy explícitos sobre alguien en un sitio inapropiado.',
+      'Yo nunca he coqueteado con alguien sabiendo perfectamente que no debía hacerlo.',
+      'Yo nunca he tenido una conversación subida de tono por mensaje a altas horas de la noche.',
+      'Yo nunca me he quedado sin dormir pensando en alguien que me gusta.',
+      'Yo nunca he imaginado el final de una primera cita de una manera muy concreta.',
+      'Yo nunca he buscado a alguien en redes sociales solo para ver cómo está.',
+      'Yo nunca he recibido un piropo que me haya dejado completamente sin palabras.',
+      'Yo nunca he sentido atracción física por alguien que no debería haberme atraído.'
+    ],
+    atrevido:[
+      'Yo nunca he propuesto algo completamente inesperado en la intimidad y ha salido muy bien.',
+      'Yo nunca he deseado parar el tiempo para quedarme dentro de un momento íntimo para siempre.',
+      'Yo nunca he dicho exactamente lo que quería en la intimidad sin ningún filtro.',
+      'Yo nunca he inventado un juego en pareja completamente improvisado que terminó siendo increíble.',
+      'Yo nunca he dejado sin palabras a mi pareja con algo que hice sin avisar.',
+      'Yo nunca he despertado a mi pareja de una manera que no era precisamente para dormir.',
+      'Yo nunca he mandado un mensaje atrevido a alguien y esperado con el corazón acelerado la respuesta.',
+      'Yo nunca he tenido una noche que no podría contarle a nadie pero que repetiría sin dudarlo.',
+      'Yo nunca he arriesgado algo en el amor que al final valió completamente la pena.',
+      'Yo nunca he dicho "esta noche no hay reglas" y lo he cumplido de verdad.'
+    ]
+  },
+  sifuera:[
+    '¿Si fuera una canción, cuál sería y qué parte de la letra me definiría mejor?',
+    '¿Si fuera un lugar del mundo, adónde irías a buscarme y qué harías al llegar?',
+    '¿Si fuera un sabor, cuál sería y cómo lo describirías?',
+    '¿Si fuera una hora del día, cuál sería y por qué me imaginas en ese momento?',
+    '¿Si fuera una estación del año, cuál sería y qué sentirías durante ella?',
+    '¿Si fuera un objeto que llevas siempre contigo, cuál sería y por qué?',
+    '¿Si fuera un tipo de beso, cómo sería exactamente y cuándo me lo darías?',
+    '¿Si fuera una película, cuál sería y qué escena nos representaría mejor?',
+    '¿Si fuera un deseo que puedes pedir esta noche, cuál pedirías sin pensar?',
+    '¿Si fuera una textura, cómo me describirías al tacto y dónde te gustaría sentirla?',
+    '¿Si fuera un color, cuál sería y qué te transmite ese color cuando lo ves?',
+    '¿Si fuera una habitación de la casa, cuál sería y qué pasaría dentro?'
+  ],
+  nuncadije:[
+    'Hay algo que pienso cada vez que llegas a casa y nunca te lo he dicho en voz alta.',
+    'La primera vez que te vi, pensé algo sobre ti que nunca me atreví a confesarte.',
+    'Hay un gesto tuyo que me desarma completamente y siempre finjo que no me afecta.',
+    'Nunca te dije cuánto me importó ese momento en que me dijiste exactamente lo que necesitaba oír.',
+    'Hay una cosa que me gustaría pedirte en la intimidad y siempre me freno en el último momento.',
+    'Nunca te dije que cuando no estás, me acuerdo de ti en momentos muy concretos que no imaginas.',
+    'Hay algo de cómo hueles que me pone en un estado que no sé cómo explicarte.',
+    'Nunca te dije que esa noche que crees que fue normal para mí fue de las que más recuerdo.',
+    'Hay algo que me encantaría que me hicieras y nunca sé cómo pedírtelo.',
+    'Nunca te dije que a veces te miro dormir y pienso cosas que me da vergüenza contarte.',
+    'Hay un detalle tuyo completamente pequeño que me parece lo más atractivo que tienes.',
+    'Nunca te dije que cuando discutimos, lo que más me duele no es lo que dices sino que me faltes.'
+  ],
+  quien:{
+    romantico:[
+      '¿Quién de los dos es más romántico/a a la hora de la verdad?',
+      '¿Quién tiene más iniciativa para sorprender al otro?',
+      '¿Quién se enamora más rápido?',
+      '¿Quién cuida más los detalles pequeños?',
+      '¿Quién es más meloso/a cuando nadie nos ve?',
+      '¿Quién recuerda mejor las fechas importantes?',
+      '¿Quién diría "te quiero" primero si empezáramos de cero?',
+      '¿Quién sufre más cuando hay distancia entre los dos?',
+      '¿Quién es más expresivo/a con sus sentimientos?',
+      '¿Quién elegiría quedarse en casa antes que salir esta noche?'
+    ],
+    picante:[
+      '¿Quién tiene más fantasías no contadas?',
+      '¿Quién tiene más resistencia cuando empieza el juego?',
+      '¿Quién propone cosas nuevas en la intimidad?',
+      '¿Quién disfruta más siendo el centro de atención?',
+      '¿Quién se pone más nervioso/a con las miradas?',
+      '¿Quién aguanta menos sin tocar al otro?',
+      '¿Quién tiene el umbral más alto de intensidad?',
+      '¿Quién se ruboriza más fácil con un comentario atrevido?',
+      '¿Quién disfrutaría más un masaje de 20 minutos ahora mismo?',
+      '¿Quién tiene el reto más atrevido guardado en mente esta noche?'
+    ],
+    divertido:[
+      '¿Quién come más rápido cuando tiene hambre de verdad?',
+      '¿Quién es peor perdedor/a?',
+      '¿Quién ronca más aunque lo niegue?',
+      '¿Quién es más dramático/a cuando está resfriado/a?',
+      '¿Quién tarda más en prepararse para salir?',
+      '¿Quién canta peor en la ducha?',
+      '¿Quién gastaría más en una tienda sin querer?',
+      '¿Quién se enoja antes en un atasco de tráfico?',
+      '¿Quién llora antes en una peli de animación?',
+      '¿Quién pediría la misma comida de siempre antes de probar algo nuevo?'
+    ]
+  }
+};
+
+// ── STORAGE ──
+var SAVE_KEY = 'jxd_data_v2';
+var SAVE_SETTINGS_KEY = 'jxd_settings_v2';
+
+function deepClone(obj){ return JSON.parse(JSON.stringify(obj)); }
+
+function loadData(){
+  try{
+    var raw = localStorage.getItem(SAVE_KEY);
+    if(raw){
+      var parsed = JSON.parse(raw);
+      // Merge to ensure all keys exist
+      var d = deepClone(DEFAULTS);
+      if(parsed.verdades) d.verdades = parsed.verdades;
+      if(parsed.retos) d.retos = parsed.retos;
+      if(parsed.timer) d.timer = parsed.timer;
+      if(parsed.cartas) d.cartas = parsed.cartas;
+      if(parsed.retT) d.retT = parsed.retT;
+      if(parsed.hot){
+        if(parsed.hot.suave) d.hot.suave = parsed.hot.suave;
+        if(parsed.hot.medio) d.hot.medio = parsed.hot.medio;
+        if(parsed.hot.hot) d.hot.hot = parsed.hot.hot;
+        if(parsed.hot.extremo) d.hot.extremo = parsed.hot.extremo;
+      }
+      if(parsed.pregs){
+        if(parsed.pregs.deseos) d.pregs.deseos = parsed.pregs.deseos;
+        if(parsed.pregs.fantasias) d.pregs.fantasias = parsed.pregs.fantasias;
+        if(parsed.pregs.recuerdos) d.pregs.recuerdos = parsed.pregs.recuerdos;
+        if(parsed.pregs.pareja) d.pregs.pareja = parsed.pregs.pareja;
+        if(parsed.pregs.picante) d.pregs.picante = parsed.pregs.picante;
+      }
+      return d;
+    }
+  }catch(e){}
+  return deepClone(DEFAULTS);
+}
+
+function loadSettings(){
+  try{
+    var raw = localStorage.getItem(SAVE_SETTINGS_KEY);
+    if(raw) return JSON.parse(raw);
+  }catch(e){}
+  return {j1:'Jugador 1',j2:'Jugador 2',titulo:'Juegos para Dos',subtitulo:'Una noche de deseos sin límites',tema:0};
+}
+
+var saveTimer = null;
+function saveData(){
+  try{
+    localStorage.setItem(SAVE_KEY, JSON.stringify(D));
+    showSaveInd();
+  }catch(e){}
+}
+
+function saveSettings(){
+  try{
+    var s = {
+      j1: document.getElementById('inj1').value||'Jugador 1',
+      j2: document.getElementById('inj2').value||'Jugador 2',
+      titulo: document.getElementById('intit').value||'Juegos para Dos',
+      subtitulo: document.getElementById('insub').value||'Una noche de deseos sin límites',
+      tema: curTema,
+      efx: curEfx,
+      musicVol: Math.round(musicVol*100),
+      musicOn: musicPlaying,
+      bgPattern: curBgPattern,
+      bgSpeed: bgSpeed,
+      bgInt: bgIntensity
+    };
+    localStorage.setItem(SAVE_SETTINGS_KEY, JSON.stringify(s));
+    showSaveInd();
+  }catch(e){}
+}
+
+function showSaveInd(){
+  var el = document.getElementById('saveind');
+  el.classList.add('show');
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(function(){ el.classList.remove('show'); }, 1800);
+}
+
+function resetAllData(){
+  if(!confirm('¿Seguro que quieres restaurar todos los datos originales? Perderás los cambios personalizados.')) return;
+  try{ localStorage.removeItem(SAVE_KEY); }catch(e){}
+  D = deepClone(DEFAULTS);
+  saveData();
+  openAjustes();
+  toast('Datos restaurados ✦');
+}
+
+// ── DATOS ──
+var D = loadData();
+
+// ── HELPERS ──
+var usedPicks = {};
+function pick(a, key){
+  if(!a || !a.length) return '';
+  if(!key){ return a[Math.floor(Math.random()*a.length)]; }
+  if(!usedPicks[key] || usedPicks[key].length === a.length) usedPicks[key] = [];
+  var avail = a.filter(function(x,i){ return usedPicks[key].indexOf(i)===-1; });
+  var idx = Math.floor(Math.random()*avail.length);
+  var val = avail[idx];
+  var origIdx = a.indexOf(val);
+  usedPicks[key].push(origIdx);
+  return val;
+}
+
+function fl(id){ var e=document.getElementById(id); if(!e) return; e.classList.remove('flash'); void e.offsetWidth; e.classList.add('flash'); }
+function hl(id){ var e=document.getElementById(id); if(!e) return; e.classList.add('hl'); setTimeout(function(){ e.classList.remove('hl'); },900); }
+
+// ── INTRO ──
+function iniciarApp(){
+  sndWin();
+  var el = document.getElementById('intro');
+  el.classList.add('hide');
+  setTimeout(function(){ el.style.display='none'; }, 850);
+  // Auto-start music if it was previously enabled
+  var s = loadSettings();
+  if(s.musicOn){
+    setTimeout(function(){
+      var ac = getAC();
+      if(ac){ startMusic(); musicPlaying=true; if(musicGain){ musicGain.gain.setValueAtTime(0,ac.currentTime); musicGain.gain.linearRampToValueAtTime(musicVol*0.5,ac.currentTime+2); } var btn=document.getElementById('mbtnPlay'); if(btn){btn.textContent='⏸ Pausar';btn.classList.add('playing');} }
+    }, 900);
+  }
+}
+
+// ── AUDIO ──
+var sndOn = true;
+var AC = null;
+function getAC(){ if(!AC){ try{ AC=new(window.AudioContext||window.webkitAudioContext)(); }catch(e){} } return AC; }
+function beep(type,freq,dur,vol,delay){
+  if(!sndOn) return;
+  try{
+    var ac=getAC(); if(!ac) return;
+    var o=ac.createOscillator(), g=ac.createGain();
+    o.connect(g); g.connect(ac.destination);
+    var d=delay||0, t=ac.currentTime+d;
+    o.type=type||'sine'; o.frequency.value=freq||440;
+    g.gain.setValueAtTime(0,t);
+    g.gain.linearRampToValueAtTime(vol||0.25,t+0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+(dur||0.2));
+    o.start(t); o.stop(t+(dur||0.2)+0.06);
+  }catch(e){}
+}
+function sndClick()  { beep('sine',700,.07,.12); }
+function sndSpin()   { var i; for(i=0;i<10;i++) beep('triangle',180+i*60,.05,.1,i*.06); }
+function sndTick()   { beep('triangle',300,.03,.08); }
+function sndWin()    { var n=[523,659,784,1047,1319]; n.forEach(function(f,i){ beep('sine',f,.2,.3,i*.11); }); }
+function sndPoint()  { beep('sine',784,.1,.22); beep('sine',1047,.14,.22,.12); }
+function sndCard()   { beep('sine',660,.09,.18); beep('sine',880,.12,.18,.11); }
+function sndVerif()  { beep('sine',440,.09,.18); beep('sine',550,.12,.18,.10); }
+function sndReto()   { beep('sawtooth',200,.06,.22); beep('sawtooth',300,.08,.2,.09); beep('sawtooth',440,.1,.2,.18); }
+function sndAlarm()  { var i; for(i=0;i<5;i++){ beep('sine',880,.12,.32,i*.22); beep('sine',1100,.1,.2,i*.22+.12); } }
+function sndRemove() { beep('sine',330,.1,.2); beep('sine',220,.14,.25,.15); }
+function sndHot()    { beep('sawtooth',180,.08,.3); beep('sawtooth',260,.1,.28,.1); beep('sawtooth',360,.14,.3,.2); beep('sine',500,.16,.25,.32); }
+function toggleSnd() {
+  sndOn=!sndOn;
+  var b=document.getElementById('sndBtn');
+  b.textContent=sndOn?'🔊 Sonido':'🔇 Silencio';
+  b.className=sndOn?'ibtn on':'ibtn off';
+  toast(sndOn?'🔊 Sonido activado':'🔇 Silenciado');
+}
+
+// ── PANTALLA COMPLETA ──
+function toggleFS(){
+  var btn = document.getElementById('fsBtn');
+  if(!document.fullscreenElement && !document.webkitFullscreenElement){
+    var el = document.documentElement;
+    if(el.requestFullscreen) el.requestFullscreen();
+    else if(el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+    btn.textContent='⛶';
+    toast('Pantalla completa ✦');
+  } else {
+    if(document.exitFullscreen) document.exitFullscreen();
+    else if(document.webkitExitFullscreen) document.webkitExitFullscreen();
+    btn.textContent='⛶';
+  }
+}
+
+// ── CONFETTI ──
+var cc=document.getElementById('cc'), ccx=cc.getContext('2d');
+function resizeCC(){ cc.width=window.innerWidth; cc.height=window.innerHeight; }
+resizeCC();
+window.addEventListener('resize', resizeCC);
+window.addEventListener('orientationchange', function(){ setTimeout(resizeCC, 200); });
+var cPs=[];
+function launchConfetti(){
+  var cols=['#e8503a','#ff8c6a','#ffb89a','#ff4060','#ffd700','#ff6090','#c060ff','#60ffcc'];
+  var i; for(i=0;i<80;i++) cPs.push({x:Math.random()*cc.width,y:-8,w:5+Math.random()*8,h:3+Math.random()*5,r:Math.random()*360,dr:(Math.random()-.5)*8,vx:(Math.random()-.5)*5,vy:2+Math.random()*5,c:cols[Math.floor(Math.random()*cols.length)],op:1});
+  animConf();
+}
+function animConf(){
+  if(!cPs.length){ ccx.clearRect(0,0,cc.width,cc.height); return; }
+  ccx.clearRect(0,0,cc.width,cc.height);
+  cPs=cPs.filter(function(p){ p.x+=p.vx;p.y+=p.vy;p.vy+=.09;p.r+=p.dr;p.op-=.013; if(p.op<=0||p.y>cc.height) return false; ccx.save();ccx.globalAlpha=p.op;ccx.translate(p.x,p.y);ccx.rotate(p.r*Math.PI/180);ccx.fillStyle=p.c;ccx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ccx.restore(); return true; });
+  requestAnimationFrame(animConf);
+}
+
+// ── TOAST ──
+var toastTm=null;
+function toast(msg){
+  var el=document.getElementById('toast'); el.textContent=msg; el.classList.add('on');
+  clearTimeout(toastTm); toastTm=setTimeout(function(){ el.classList.remove('on'); },2200);
+}
+
+// ═══════════════════════════════════════════════
+// ── FONDO ANIMADO (canvas) ──
+// ═══════════════════════════════════════════════
+var bggCV = document.getElementById('bggCanvas');
+var bggCX = bggCV.getContext('2d');
+var curBgPattern = 0;
+var bgSpeed = 5;
+var bgIntensity = 5;
+var bgTime = 0;
+var bgAnimId = null;
+
+function resizeBgg(){
+  bggCV.width = window.innerWidth;
+  bggCV.height = window.innerHeight;
+}
+resizeBgg();
+window.addEventListener('resize', resizeBgg);
+window.addEventListener('orientationchange', function(){ setTimeout(resizeBgg,200); });
+
+function getBgColors(){
+  var s = getComputedStyle(document.body);
+  var g  = s.getPropertyValue('--glow').trim()  || 'rgba(200,40,10,0.35)';
+  var g2 = s.getPropertyValue('--glow2').trim() || 'rgba(255,100,50,0.2)';
+  var acc = s.getPropertyValue('--acc').trim()  || '#e8503a';
+  return { g:g, g2:g2, acc:acc };
+}
+
+function drawBgOrbs(t, W, H, spd, intens){
+  // 3 slow-drifting radial glows
+  var col = getBgColors();
+  var sc = intens/5;
+  var orbs = [
+    { x: 0.15 + 0.1*Math.sin(t*0.7), y: 0.5 + 0.15*Math.cos(t*0.5), r: 0.45*sc, c: col.g },
+    { x: 0.85 + 0.08*Math.cos(t*0.6), y: 0.3 + 0.12*Math.sin(t*0.8), r: 0.38*sc, c: col.g2 },
+    { x: 0.5  + 0.12*Math.sin(t*0.4+1), y: 0.85 + 0.1*Math.cos(t*0.9), r: 0.35*sc, c: col.g }
+  ];
+  orbs.forEach(function(o){
+    var grd = bggCX.createRadialGradient(o.x*W, o.y*H, 0, o.x*W, o.y*H, o.r*Math.max(W,H));
+    grd.addColorStop(0, o.c);
+    grd.addColorStop(1, 'transparent');
+    bggCX.fillStyle = grd;
+    bggCX.fillRect(0,0,W,H);
+  });
+}
+
+function drawBgWaves(t, W, H, spd, intens){
+  var col = getBgColors();
+  var sc = intens/5;
+  // Horizontal sine waves as gradient bands
+  for(var i=0;i<3;i++){
+    var amp = H*(0.08+0.04*i)*sc;
+    var freq = 1.5+i*0.8;
+    var phase = t*(0.8+i*0.3) + i*2;
+    var yBase = H*(0.25+i*0.25);
+    bggCX.beginPath();
+    bggCX.moveTo(0, H);
+    for(var x=0;x<=W;x+=4){
+      var y = yBase + amp*Math.sin(freq*Math.PI*x/W + phase) + amp*0.4*Math.cos(2*freq*Math.PI*x/W - phase*0.7);
+      bggCX.lineTo(x, y);
+    }
+    bggCX.lineTo(W, H); bggCX.closePath();
+    var grd = bggCX.createLinearGradient(0, yBase-amp*2, 0, yBase+amp*2);
+    grd.addColorStop(0, i===1 ? col.g2 : col.g);
+    grd.addColorStop(1, 'transparent');
+    bggCX.fillStyle = grd;
+    bggCX.fill();
+  }
+}
+
+function drawBgNebula(t, W, H, spd, intens){
+  var col = getBgColors();
+  var sc = intens/5;
+  // Multiple overlapping soft clouds with perlin-like motion
+  for(var i=0;i<5;i++){
+    var angle = t*(0.3+i*0.2) + i*1.3;
+    var cx = W*(0.2+0.6*((Math.sin(angle)*0.5+0.5)));
+    var cy = H*(0.15+0.7*((Math.cos(angle*0.7)*0.5+0.5)));
+    var rx = W*(0.15+0.1*Math.sin(t+i))*sc;
+    var ry = H*(0.12+0.08*Math.cos(t*1.2+i))*sc;
+    var grd = bggCX.createRadialGradient(cx, cy, 0, cx, cy, Math.max(rx,ry));
+    var alpha = (0.08+0.06*Math.sin(t+i*0.7))*sc;
+    grd.addColorStop(0, i%2===0 ? col.g.replace(/[\d.]+\)$/,alpha+')') : col.g2.replace(/[\d.]+\)$/,alpha+')'));
+    grd.addColorStop(1, 'transparent');
+    bggCX.fillStyle = grd;
+    bggCX.beginPath();
+    bggCX.ellipse(cx, cy, Math.max(1,rx), Math.max(1,ry), angle*0.3, 0, Math.PI*2);
+    bggCX.fill();
+  }
+}
+
+function drawBgPulse(t, W, H, spd, intens){
+  var col = getBgColors();
+  var sc = intens/5;
+  // Concentric ring pulses from center
+  var cx = W/2, cy = H/2;
+  var maxR = Math.sqrt(cx*cx+cy*cy)*1.2;
+  for(var i=0;i<4;i++){
+    var phase = (t*spd/3 + i/4) % 1;
+    var r = phase * maxR;
+    var alpha = (1-phase)*0.18*sc;
+    var grd = bggCX.createRadialGradient(cx,cy, Math.max(0,r-40), cx,cy, r+40);
+    grd.addColorStop(0,'transparent');
+    grd.addColorStop(0.5, col.g.replace(/[\d.]+\)$/, alpha+')'));
+    grd.addColorStop(1,'transparent');
+    bggCX.fillStyle = grd;
+    bggCX.fillRect(0,0,W,H);
+  }
+}
+
+function drawBgLava(t, W, H, spd, intens){
+  var col = getBgColors();
+  var sc = intens/5;
+  // Slow lava-lamp blobs
+  for(var i=0;i<4;i++){
+    var bx = W*(0.15+0.7*(0.5+0.5*Math.sin(t*(0.2+i*0.1)+i*2.3)));
+    var by = H*(0.1+0.8*(0.5+0.5*Math.cos(t*(0.15+i*0.12)+i*1.7)));
+    var br = Math.max(W,H)*(0.12+0.08*Math.sin(t*0.4+i))*sc;
+    var grd = bggCX.createRadialGradient(bx,by,0,bx,by,br);
+    var alpha = (0.12+0.06*Math.abs(Math.sin(t*0.3+i)))*sc;
+    grd.addColorStop(0, col.g.replace(/[\d.]+\)$/, (alpha*1.5)+')'));
+    grd.addColorStop(0.5, col.g2.replace(/[\d.]+\)$/, alpha+')'));
+    grd.addColorStop(1,'transparent');
+    bggCX.fillStyle = grd;
+    bggCX.beginPath();
+    bggCX.arc(bx,by,Math.max(0.5,br),0,Math.PI*2);
+    bggCX.fill();
+  }
+}
+
+var bgPatternFns = [drawBgOrbs, drawBgWaves, drawBgNebula, drawBgPulse, drawBgLava];
+
+function bggTick(){
+  bgAnimId = requestAnimationFrame(bggTick);
+  var W = bggCV.width, H = bggCV.height;
+  bgTime += 0.003 * bgSpeed;
+  bggCX.clearRect(0,0,W,H);
+  if(curBgPattern >= 0 && curBgPattern < bgPatternFns.length){
+    bggCX.globalCompositeOperation = 'source-over';
+    bgPatternFns[curBgPattern](bgTime, W, H, bgSpeed, bgIntensity);
+  }
+}
+bggTick();
+
+function setBgPattern(idx, el){
+  curBgPattern = idx;
+  document.querySelectorAll('.bgbtn').forEach(function(b){ b.classList.remove('sel'); });
+  el.classList.add('sel');
+  bggCV.style.opacity = idx===5 ? '0' : '0.85';
+  sndClick();
+  saveSettings();
+}
+
+function setBgSpeed(v){
+  bgSpeed = parseFloat(v);
+  document.getElementById('bgSpeedVal').textContent = v;
+  saveSettings();
+}
+
+function setBgInt(v){
+  bgIntensity = parseFloat(v);
+  document.getElementById('bgIntVal').textContent = v;
+  saveSettings();
+}
+
+// ── LLAMAS REALISTAS (canvas) ──
+(function(){
+  var fc = document.getElementById('flameCanvas');
+  var fctx = fc.getContext('2d');
+  function resizeFC(){ fc.width = window.innerWidth; fc.height = 180; }
+  resizeFC();
+  window.addEventListener('resize', resizeFC);
+  window.addEventListener('orientationchange', function(){ setTimeout(resizeFC,200); });
+
+  // Particle-based realistic fire
+  var FP = []; // flame particles
+  var NEMITTERS = Math.max(18, Math.floor(window.innerWidth / 40));
+
+  function mkFP(x){
+    var spread = 18 + Math.random()*28;
+    return {
+      x: x + (Math.random()-.5)*spread,
+      y: fc.height,
+      vx: (Math.random()-.5)*1.4,
+      vy: -(1.8 + Math.random()*3.2),
+      life: 0.9 + Math.random()*0.4,
+      maxLife: 0.9 + Math.random()*0.4,
+      size: 4 + Math.random()*14,
+      wobble: Math.random()*Math.PI*2,
+      wobbleSpeed: 0.04 + Math.random()*0.08,
+      turbulence: 0.15 + Math.random()*0.3
+    };
+  }
+
+  // Pre-populate
+  for(var e=0;e<NEMITTERS;e++){
+    var ex = (e/(NEMITTERS-1))*fc.width;
+    for(var p=0;p<6;p++){
+      var fp = mkFP(ex);
+      fp.y = fc.height - Math.random()*fc.height;
+      fp.life = Math.random()*fp.maxLife;
+      FP.push(fp);
+    }
+  }
+
+  var lastT = 0;
+  function flameTick(t){
+    requestAnimationFrame(flameTick);
+    var dt = Math.min((t - lastT)/16, 2); lastT = t;
+
+    fctx.clearRect(0,0,fc.width,fc.height);
+    fctx.globalCompositeOperation = 'screen';
+
+    // Spawn new particles from emitters
+    NEMITTERS = Math.max(18, Math.floor(fc.width/40));
+    if(FP.length < NEMITTERS * 8){
+      for(var e=0;e<NEMITTERS;e++){
+        if(Math.random()<0.3){
+          var ex2 = (e/(NEMITTERS-1))*fc.width;
+          FP.push(mkFP(ex2));
+        }
+      }
+    }
+
+    FP = FP.filter(function(p){
+      p.life -= 0.012 * dt;
+      if(p.life <= 0) return false;
+
+      p.wobble += p.wobbleSpeed * dt;
+      p.x += (p.vx + Math.sin(p.wobble)*p.turbulence) * dt;
+      p.y += p.vy * dt;
+      p.vy -= 0.04 * dt; // accelerate upward
+      p.vx *= 0.995;
+      p.size *= (1 - 0.008*dt);
+
+      var lifeRatio = p.life / p.maxLife;
+      // Color: deep red -> orange -> yellow -> white at tip
+      var r,g,b,a;
+      if(lifeRatio > 0.7){
+        // Base: deep red/orange
+        var t2 = (lifeRatio - 0.7)/0.3;
+        r = 255; g = Math.floor(30 + (1-t2)*100); b = 0;
+        a = Math.min(1, lifeRatio) * 0.85;
+      } else if(lifeRatio > 0.35){
+        // Mid: orange to yellow
+        var t2 = (lifeRatio - 0.35)/0.35;
+        r = 255; g = Math.floor(100 + t2*120); b = 0;
+        a = lifeRatio * 0.7;
+      } else {
+        // Tip: yellow to white, fading
+        var t2 = lifeRatio/0.35;
+        r = 255; g = Math.floor(200 + t2*55); b = Math.floor((1-t2)*60);
+        a = lifeRatio * 0.55;
+      }
+
+      // Draw with radial gradient for soft glow
+      var s = Math.max(0.5, p.size);
+      var grad = fctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, s);
+      grad.addColorStop(0, 'rgba('+r+','+g+','+b+','+a+')');
+      grad.addColorStop(0.4, 'rgba('+r+','+Math.floor(g*.6)+',0,'+a*.6+')');
+      grad.addColorStop(1, 'rgba('+Math.floor(r*.5)+',0,0,0)');
+
+      fctx.beginPath();
+      fctx.arc(p.x, p.y, s, 0, Math.PI*2);
+      fctx.fillStyle = grad;
+      fctx.fill();
+
+      return true;
+    });
+
+    fctx.globalCompositeOperation = 'source-over';
+    // Ember glow at base
+    var baseGrad = fctx.createLinearGradient(0, fc.height-30, 0, fc.height);
+    baseGrad.addColorStop(0, 'rgba(220,50,0,0)');
+    baseGrad.addColorStop(1, 'rgba(180,30,0,0.18)');
+    fctx.fillStyle = baseGrad;
+    fctx.fillRect(0, fc.height-30, fc.width, 30);
+  }
+  requestAnimationFrame(flameTick);
+})();
+
+// ── PÉTALOS REALISTAS (canvas orgánico) ──
+(function(){
+  var pc = document.getElementById('petalCanvas');
+  var pctx = pc.getContext('2d');
+  function resizePC(){ pc.width = window.innerWidth; pc.height = window.innerHeight; }
+  resizePC();
+  window.addEventListener('resize', resizePC);
+  window.addEventListener('orientationchange', function(){ setTimeout(resizePC,200); });
+
+  var petals = [];
+  var MAXPETALS = 22;
+
+  // Draw a realistic rose petal shape
+  function drawPetal(ctx, x, y, w, h, rot, col, alpha){
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(rot);
+    ctx.globalAlpha = alpha;
+
+    // Petal shape using bezier
+    ctx.beginPath();
+    ctx.moveTo(0, -h/2);
+    ctx.bezierCurveTo(w/2, -h/2, w/2, h/2, 0, h/2);
+    ctx.bezierCurveTo(-w/2, h/2, -w/2, -h/2, 0, -h/2);
+    ctx.closePath();
+
+    // Gradient fill for depth
+    var grad = ctx.createRadialGradient(0, -h/6, 0, 0, 0, Math.max(w,h)/1.5);
+    var c1 = col[0], c2 = col[1];
+    grad.addColorStop(0, c1);
+    grad.addColorStop(0.6, c2);
+    grad.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    // Vein
+    ctx.beginPath();
+    ctx.moveTo(0, -h/2);
+    ctx.quadraticCurveTo(w/8, 0, 0, h/2);
+    ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+    ctx.lineWidth = 0.5;
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  function mkPetal(){
+    var size = 8 + Math.random()*14;
+    return {
+      x: Math.random()*pc.width,
+      y: -size*2,
+      vx: (Math.random()-.5)*0.8,
+      vy: 0.4 + Math.random()*1.1,
+      rot: Math.random()*Math.PI*2,
+      rotSpeed: (Math.random()-.5)*0.04,
+      sway: Math.random()*Math.PI*2,
+      swaySpeed: 0.01 + Math.random()*0.02,
+      swayAmp: 0.4 + Math.random()*1.0,
+      w: size,
+      h: size * (1.4 + Math.random()*0.5),
+      tilt: Math.random()*Math.PI,
+      tiltSpeed: (Math.random()-.5)*0.02,
+      alpha: 0.55 + Math.random()*0.4,
+      // Color varies: rose, pink, crimson, ivory
+      color: Math.random()<0.5 ? [
+        'rgba(220,60,80,0.9)', 'rgba(180,20,40,0.6)'
+      ] : Math.random()<0.5 ? [
+        'rgba(255,160,180,0.85)', 'rgba(220,80,110,0.5)'
+      ] : [
+        'rgba(255,220,230,0.8)', 'rgba(200,100,130,0.4)'
+      ]
+    };
+  }
+
+  // Pre-spawn scattered
+  for(var i=0;i<MAXPETALS;i++){
+    var p = mkPetal();
+    p.y = Math.random()*pc.height;
+    petals.push(p);
+  }
+
+  function petalTick(){
+    requestAnimationFrame(petalTick);
+    pctx.clearRect(0,0,pc.width,pc.height);
+
+    // Spawn
+    if(petals.length < MAXPETALS && Math.random()<0.04) petals.push(mkPetal());
+
+    petals = petals.filter(function(p){
+      if(p.y > pc.height + 30) return false;
+
+      p.sway += p.swaySpeed;
+      p.x += p.vx + Math.sin(p.sway)*p.swayAmp;
+      p.y += p.vy;
+      p.rot += p.rotSpeed;
+      p.tilt += p.tiltSpeed;
+
+      // 3D tilt effect by squishing width
+      var scaleX = Math.abs(Math.cos(p.tilt));
+      drawPetal(pctx, p.x, p.y, p.w * Math.max(0.1, scaleX), p.h, p.rot, p.color, p.alpha);
+      return true;
+    });
+  }
+  petalTick();
+})();
+
+// ── NAV ──
+var _secOrder=['rul','tor','dad','tmr','car','tur','hot','prg','pre','yon','bot','qui'];
+var _curSecId='rul';
+function goSec(id,btn){
+  sndClick();
+  // Haptic feedback
+  if(navigator.vibrate) navigator.vibrate(18);
+  var curIdx=_secOrder.indexOf(_curSecId);
+  var nextIdx=_secOrder.indexOf(id);
+  var dir = nextIdx >= curIdx ? 'right' : 'left';
+  var prev = document.querySelector('.sec.vis');
+  if(prev){ prev.classList.remove('vis','slide-in-right','slide-in-left'); }
+  document.querySelectorAll('.nbtn').forEach(function(b){ b.classList.remove('act'); });
+  var next = document.getElementById('sec-'+id);
+  next.classList.add('vis');
+  next.classList.remove('slide-in-right','slide-in-left');
+  void next.offsetWidth; // reflow
+  next.classList.add(dir==='right'?'slide-in-right':'slide-in-left');
+  btn.classList.add('act');
+  _curSecId = id;
+  btn.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  window.scrollTo({top:0,behavior:'smooth'});
+  // init canvas-based games when their section is shown
+  if(id==='bot') drawBottle(0);
+}
+
+// ── OVERLAYS ──
+function openOv(id){ sndClick(); document.getElementById(id).classList.add('open'); }
+function closeOv(id){ document.getElementById(id).classList.remove('open'); }
+function openAjustes(){
+  var s = loadSettings();
+  document.getElementById('inj1').value = s.j1;
+  document.getElementById('inj2').value = s.j2;
+  document.getElementById('intit').value = s.titulo;
+  document.getElementById('insub').value = s.subtitulo;
+  updateGameCounts();
+  document.getElementById('ovA').classList.add('open');
+}
+
+function updateGameCounts(){
+  var counts = {
+    'tor': (D.verdades.length + D.retos.length) + ' frases',
+    'tmr': D.timer.length + ' actividades',
+    'car': D.cartas.length + ' cartas',
+    'tur': D.retT.length + ' retos',
+    'hot': (D.hot.suave.length+D.hot.medio.length+D.hot.hot.length+D.hot.extremo.length) + ' retos',
+    'prg': (D.pregs.deseos.length+D.pregs.fantasias.length+D.pregs.recuerdos.length+D.pregs.pareja.length+D.pregs.picante.length) + ' preguntas'
+  };
+  Object.keys(counts).forEach(function(k){
+    var el = document.getElementById('jgc-'+k);
+    if(el) el.textContent = counts[k];
+  });
+}
+
+// ── GAME EDITOR ──
+var geCurrentGame = null;
+
+function openGameEditor(game){
+  geCurrentGame = game;
+  var cfg = getGameEditorConfig(game);
+  document.getElementById('geTitleText').textContent = cfg.title;
+  document.getElementById('geBody').innerHTML = buildGameEditorHTML(game, cfg);
+  document.getElementById('ovGE').classList.add('open');
+  sndClick();
+  // Activate first tab if multi-tab
+  var firstTab = document.querySelector('#ovGE .ge-tab');
+  if(firstTab) firstTab.click();
+}
+
+function closeGameEditor(){
+  document.getElementById('ovGE').classList.remove('open');
+  updateGameCounts();
+  geCurrentGame = null;
+}
+
+function getGameEditorConfig(game){
+  var cfgs = {
+    'tor': {
+      title: '🃏 Verdad o Reto',
+      tabs: [
+        { id:'verdades', label:'💬 Verdades', placeholder:'Nueva pregunta de verdad...' },
+        { id:'retos',    label:'🔥 Retos',    placeholder:'Nuevo reto...' }
+      ]
+    },
+    'tmr': {
+      title: '⏱ Timer',
+      tabs: [
+        { id:'timer', label:'⏱ Actividades', placeholder:'Nueva actividad para el timer...' }
+      ]
+    },
+    'car': {
+      title: '🂠 Cartas Secretas',
+      tabs: [
+        { id:'cartas', label:'🂠 Cartas', placeholder:'', special:'cartas' }
+      ]
+    },
+    'tur': {
+      title: '👑 Turnos y Conquista',
+      tabs: [
+        { id:'retT', label:'👑 Retos de Turno', placeholder:'Nuevo reto de turno...' }
+      ]
+    },
+    'hot': {
+      title: '🌶 Retos Candentes',
+      tabs: [
+        { id:'hot_suave',   label:'🌸 Suave',      placeholder:'Nuevo reto suave...' },
+        { id:'hot_medio',   label:'🔥 Caliente',   placeholder:'Nuevo reto caliente...' },
+        { id:'hot_hot',     label:'🌶 Ardiente',   placeholder:'Nuevo reto ardiente...' },
+        { id:'hot_extremo', label:'💣 Sin Límites', placeholder:'Nuevo reto sin límites...' }
+      ]
+    },
+    'prg': {
+      title: '💬 Confesionario',
+      tabs: [
+        { id:'pregs_deseos',    label:'💭 Deseos',    placeholder:'Nueva pregunta de deseos...' },
+        { id:'pregs_fantasias', label:'🌙 Fantasías', placeholder:'Nueva pregunta de fantasías...' },
+        { id:'pregs_recuerdos', label:'💫 Recuerdos', placeholder:'Nueva pregunta de recuerdos...' },
+        { id:'pregs_pareja',    label:'❤ Pareja',    placeholder:'Nueva pregunta de pareja...' },
+        { id:'pregs_picante',   label:'🌶 Picante',   placeholder:'Nueva pregunta picante...' }
+      ]
+    }
+  };
+  return cfgs[game];
+}
+
+function buildGameEditorHTML(game, cfg){
+  var html = '';
+  // Tab bar (only if >1 tab)
+  if(cfg.tabs.length > 1){
+    html += '<div class="ge-tabs">';
+    cfg.tabs.forEach(function(tab, i){
+      html += '<button class="ge-tab" onclick="switchGeTab(\''+tab.id+'\')" id="getab-'+tab.id+'">'+tab.label+'</button>';
+    });
+    html += '</div>';
+  }
+  // Sections
+  cfg.tabs.forEach(function(tab){
+    html += '<div class="ge-section" id="gesec-'+tab.id+'">';
+    if(tab.special === 'cartas'){
+      html += buildCartasSection();
+    } else {
+      var data = getGeData(tab.id);
+      html += '<div class="ge-count" id="gecnt-'+tab.id+'">'+data.length+' elementos</div>';
+      html += '<div class="ge-list" id="gelist-'+tab.id+'">';
+      html += buildGeItems(tab.id, data);
+      html += '</div>';
+      html += '<div class="ge-add"><textarea id="geinp-'+tab.id+'" placeholder="'+tab.placeholder+'"></textarea>';
+      html += '<button class="ge-add-btn" onclick="geAddItem(\''+tab.id+'\')">+</button></div>';
+    }
+    html += '</div>';
+  });
+  return html;
+}
+
+function buildCartasSection(){
+  var html = '<div class="ge-count" id="gecnt-cartas">'+D.cartas.length+' cartas</div>';
+  html += '<div class="ge-list" id="gelist-cartas">';
+  html += buildGeCartasItems();
+  html += '</div>';
+  html += '<div class="ge-carta-add">';
+  html += '<input class="inp" id="geinp-cat" placeholder="Categoría (ej: 💋 Besos)">';
+  html += '<textarea class="inp" id="geinp-txt" style="resize:vertical;min-height:48px" placeholder="Texto de la carta..."></textarea>';
+  html += '<button class="rbtn" style="align-self:flex-end;padding:10px 18px;font-size:.76rem" onclick="geAddCarta()">+ Añadir Carta</button>';
+  html += '</div>';
+  return html;
+}
+
+function buildGeItems(tabId, data){
+  var html = '';
+  data.forEach(function(item, i){
+    html += '<div class="ge-item" id="geitem-'+tabId+'-'+i+'">';
+    html += '<div class="ge-item-txt" id="getxt-'+tabId+'-'+i+'" onclick="geStartEdit(\''+tabId+'\','+i+')">'+esc(item)+'</div>';
+    html += '<div class="ge-actions">';
+    html += '<button class="ge-edit" onclick="geStartEdit(\''+tabId+'\','+i+')" title="Editar">✏</button>';
+    html += '<button class="ge-del" onclick="geDelItem(\''+tabId+'\','+i+')" title="Eliminar">✕</button>';
+    html += '</div></div>';
+  });
+  return html || '<div style="text-align:center;padding:16px;color:var(--muted);font-style:italic;font-size:.8rem">Sin elementos. ¡Añade el primero! ✦</div>';
+}
+
+function buildGeCartasItems(){
+  var html = '';
+  D.cartas.forEach(function(c, i){
+    html += '<div class="ge-item" id="geitem-cartas-'+i+'">';
+    html += '<div class="ge-item-txt" id="getxt-cartas-'+i+'" onclick="geStartEditCarta('+i+')">';
+    html += '<strong>'+esc(c.cat)+'</strong><br><span style="opacity:.75">'+esc(c.txt)+'</span>';
+    html += '</div>';
+    html += '<div class="ge-actions"><button class="ge-edit" onclick="geStartEditCarta('+i+')" title="Editar">✏</button>';
+    html += '<button class="ge-del" onclick="geDelCarta('+i+')" title="Eliminar">✕</button></div>';
+    html += '</div>';
+  });
+  return html || '<div style="text-align:center;padding:16px;color:var(--muted);font-style:italic;font-size:.8rem">Sin cartas. ¡Añade la primera! 🂠</div>';
+}
+
+function getGeData(tabId){
+  if(tabId.indexOf('hot_')===0){ var niv=tabId.replace('hot_',''); return D.hot[niv]; }
+  if(tabId.indexOf('pregs_')===0){ var cat=tabId.replace('pregs_',''); return D.pregs[cat]; }
+  return D[tabId] || [];
+}
+
+function setGeData(tabId, data){
+  if(tabId.indexOf('hot_')===0){ var niv=tabId.replace('hot_',''); D.hot[niv]=data; return; }
+  if(tabId.indexOf('pregs_')===0){ var cat=tabId.replace('pregs_',''); D.pregs[cat]=data; return; }
+  D[tabId]=data;
+}
+
+function switchGeTab(tabId){
+  document.querySelectorAll('#ovGE .ge-section').forEach(function(s){ s.classList.remove('vis'); });
+  document.querySelectorAll('#ovGE .ge-tab').forEach(function(b){ b.classList.remove('act'); });
+  var sec = document.getElementById('gesec-'+tabId);
+  var tab = document.getElementById('getab-'+tabId);
+  if(sec) sec.classList.add('vis');
+  if(tab) tab.classList.add('act');
+}
+
+// Add item
+function geAddItem(tabId){
+  var inp = document.getElementById('geinp-'+tabId);
+  var v = inp.value.trim(); if(!v) return;
+  var data = getGeData(tabId);
+  data.push(v);
+  setGeData(tabId, data);
+  inp.value='';
+  var list = document.getElementById('gelist-'+tabId);
+  if(list) list.innerHTML = buildGeItems(tabId, data);
+  var cnt = document.getElementById('gecnt-'+tabId);
+  if(cnt) cnt.textContent = data.length+' elementos';
+  sndClick(); saveData(); updateGameCounts();
+}
+
+function geAddCarta(){
+  var cat = document.getElementById('geinp-cat').value.trim();
+  var txt = document.getElementById('geinp-txt').value.trim();
+  if(!cat||!txt) return;
+  D.cartas.push({cat:cat, txt:txt});
+  document.getElementById('geinp-cat').value='';
+  document.getElementById('geinp-txt').value='';
+  var list = document.getElementById('gelist-cartas');
+  if(list) list.innerHTML = buildGeCartasItems();
+  var cnt = document.getElementById('gecnt-cartas');
+  if(cnt) cnt.textContent = D.cartas.length+' cartas';
+  sndClick(); saveData(); updateGameCounts();
+}
+
+// Delete
+function geDelItem(tabId, idx){
+  var data = getGeData(tabId);
+  data.splice(idx, 1);
+  setGeData(tabId, data);
+  var list = document.getElementById('gelist-'+tabId);
+  if(list) list.innerHTML = buildGeItems(tabId, data);
+  var cnt = document.getElementById('gecnt-'+tabId);
+  if(cnt) cnt.textContent = data.length+' elementos';
+  sndClick(); saveData(); updateGameCounts();
+}
+
+function geDelCarta(idx){
+  D.cartas.splice(idx, 1);
+  var list = document.getElementById('gelist-cartas');
+  if(list) list.innerHTML = buildGeCartasItems();
+  var cnt = document.getElementById('gecnt-cartas');
+  if(cnt) cnt.textContent = D.cartas.length+' cartas';
+  sndClick(); saveData(); updateGameCounts();
+}
+
+// Inline edit
+var geEditing = {}; // {tabId_idx: true}
+
+function geStartEdit(tabId, idx){
+  var key = tabId+'_'+idx;
+  if(geEditing[key]) return;
+  geEditing[key] = true;
+  var data = getGeData(tabId);
+  var el = document.getElementById('getxt-'+tabId+'-'+idx);
+  if(!el) return;
+  var orig = data[idx];
+  var ta = document.createElement('textarea');
+  ta.className = 'ge-item-txt editing';
+  ta.value = orig;
+  ta.onblur = function(){ geFinishEdit(tabId, idx, ta.value, el, ta); };
+  ta.onkeydown = function(e){
+    if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); ta.blur(); }
+    if(e.key==='Escape'){ ta.value=orig; ta.blur(); }
+  };
+  el.parentNode.replaceChild(ta, el);
+  ta.focus(); ta.select();
+  // Replace edit button to show save
+  var editBtn = document.querySelector('#geitem-'+tabId+'-'+idx+' .ge-edit');
+  if(editBtn){ editBtn.textContent='✓'; editBtn.onclick=function(){ ta.blur(); }; }
+}
+
+function geFinishEdit(tabId, idx, newVal, origEl, ta){
+  delete geEditing[tabId+'_'+idx];
+  var data = getGeData(tabId);
+  newVal = newVal.trim();
+  if(newVal && newVal !== data[idx]){
+    data[idx] = newVal;
+    setGeData(tabId, data);
+    saveData();
+    sndClick();
+  }
+  // Rebuild just this item
+  var item = document.getElementById('geitem-'+tabId+'-'+idx);
+  if(item){
+    var displayVal = data[idx] || newVal;
+    item.innerHTML = '<div class="ge-item-txt" id="getxt-'+tabId+'-'+idx+'" onclick="geStartEdit(\''+tabId+'\','+idx+')">'+esc(displayVal)+'</div>'
+      +'<div class="ge-actions"><button class="ge-edit" onclick="geStartEdit(\''+tabId+'\','+idx+')" title="Editar">✏</button>'
+      +'<button class="ge-del" onclick="geDelItem(\''+tabId+'\','+idx+')" title="Eliminar">✕</button></div>';
+  }
+}
+
+function geStartEditCarta(idx){
+  var key = 'cartas_'+idx;
+  if(geEditing[key]) return;
+  geEditing[key] = true;
+  var c = D.cartas[idx];
+  var item = document.getElementById('geitem-cartas-'+idx);
+  if(!item) return;
+  item.innerHTML = '<div style="flex:1;display:flex;flex-direction:column;gap:6px">'
+    +'<input class="inp" id="geedit-cat-'+idx+'" value="'+esc(c.cat)+'" placeholder="Categoría" style="font-size:.8rem;padding:6px 10px">'
+    +'<textarea class="inp" id="geedit-txt-'+idx+'" style="resize:vertical;min-height:44px;font-size:.8rem;padding:6px 10px">'+esc(c.txt)+'</textarea>'
+    +'</div>'
+    +'<div class="ge-actions">'
+    +'<button class="ge-edit" onclick="geFinishEditCarta('+idx+')" style="color:var(--acc)">✓</button>'
+    +'<button class="ge-del" onclick="geDelCarta('+idx+')">✕</button>'
+    +'</div>';
+}
+
+function geFinishEditCarta(idx){
+  delete geEditing['cartas_'+idx];
+  var cat = (document.getElementById('geedit-cat-'+idx)||{}).value||'';
+  var txt = (document.getElementById('geedit-txt-'+idx)||{}).value||'';
+  cat=cat.trim(); txt=txt.trim();
+  if(cat && txt){ D.cartas[idx]={cat:cat,txt:txt}; saveData(); sndClick(); }
+  var list = document.getElementById('gelist-cartas');
+  if(list) list.innerHTML = buildGeCartasItems();
+}
+
+// ── AJUSTES LEGACY helpers (kept for compatibility with renderL calls elsewhere) ──
+function renderL(k,lid){}
+function renderCartas(){}
+function renderHot(){}
+function renderPregs(){}
+function updNoms(){
+  var n1=document.getElementById('inj1').value||'Jugador 1';
+  var n2=document.getElementById('inj2').value||'Jugador 2';
+  document.getElementById('jn1').textContent=n1;
+  document.getElementById('jn2').textContent=n2;
+  document.getElementById('prn1').textContent=n1;
+  document.getElementById('prn2').textContent=n2;
+  saveSettings();
+}
+function updTit(){ document.getElementById('htit').textContent=document.getElementById('intit').value||'Juegos para Dos'; saveSettings(); }
+function updSub(){ var el=document.getElementById('hsub'); if(el) el.textContent=document.getElementById('insub').value||''; saveSettings(); }
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// ── TEMAS ──
+var tC=['','az','vi','go','ro','lu'];
+var curTema = 0;
+function setTema(i,el){
+  tC.forEach(function(c){ if(c) document.body.classList.remove(c); });
+  if(tC[i]) document.body.classList.add(tC[i]);
+  curTema = i;
+  document.querySelectorAll('.tc').forEach(function(c){ c.classList.remove('sel'); });
+  el.classList.add('sel');
+  setTimeout(function(){ drawRuleta(rAng); },100);
+  toast('Tema aplicado ✦');
+  closeOv('ovT');
+  saveSettings();
+  // Update music for new theme
+  if(musicPlaying){ stopMusic(); startMusic(); }
+  updateMusicDesc();
+}
+
+// ═══════════════════════════════════════════════
+// ── MÚSICA AMBIENTAL POR TEMA ──
+// ═══════════════════════════════════════════════
+var musicPlaying = false;
+var musicNodes = [];
+var musicGain = null;
+var musicVol = 0.30;
+
+// Descriptions per theme
+var musicDescs = [
+  '🔥 Fuego: pulso profundo + graves cálidos + resonancia sensual',
+  '🌊 Noche Azul: ondas oceánicas + sintetizador etéreo + latido lento',
+  '💜 Misterio: drones oscuros + armónicos flotantes + tensión seductora',
+  '✨ Dorado: campanas cálidas + arpa susurrante + brillo íntimo',
+  '🌹 Rosa: piano lento + cello suave + melodía romántica',
+  '🌙 Luna: silencio profundo + viento tenue + cristales nocturnos'
+];
+
+function updateMusicDesc(){
+  var el = document.getElementById('musicDesc');
+  if(el) el.textContent = musicDescs[curTema] || musicDescs[0];
+}
+
+function stopMusic(){
+  musicNodes.forEach(function(n){ try{ n.stop(); }catch(e){} });
+  musicNodes = [];
+  if(musicGain){ try{ musicGain.disconnect(); }catch(e){} musicGain = null; }
+}
+
+function startMusic(){
+  var ac = getAC(); if(!ac) return;
+  if(ac.state === 'suspended') ac.resume();
+  stopMusic();
+
+  musicGain = ac.createGain();
+  musicGain.gain.setValueAtTime(musicVol * 0.5, ac.currentTime);
+  musicGain.connect(ac.destination);
+
+  var themes = [
+    function(){ buildThemeFuego(ac, musicGain); },
+    function(){ buildThemeAzul(ac, musicGain); },
+    function(){ buildThemeMisterio(ac, musicGain); },
+    function(){ buildThemeDorado(ac, musicGain); },
+    function(){ buildThemeRosa(ac, musicGain); },
+    function(){ buildThemeLuna(ac, musicGain); }
+  ];
+  (themes[curTema] || themes[0])();
+}
+
+function mkOsc(ac, type, freq, vol, dest, detune){
+  var o = ac.createOscillator();
+  var g = ac.createGain();
+  o.type = type;
+  o.frequency.value = freq;
+  if(detune) o.detune.value = detune;
+  g.gain.value = vol;
+  o.connect(g); g.connect(dest);
+  o.start();
+  musicNodes.push(o);
+  return {osc:o, gain:g};
+}
+
+function mkLFO(ac, freq, depth, target, min){
+  var lfo = ac.createOscillator();
+  var lg = ac.createGain();
+  lfo.frequency.value = freq;
+  lg.gain.value = depth;
+  lfo.connect(lg); lg.connect(target);
+  lfo.start();
+  musicNodes.push(lfo);
+  return lfo;
+}
+
+function mkFilter(ac, type, freq, q, dest){
+  var f = ac.createBiquadFilter();
+  f.type = type; f.frequency.value = freq; f.Q.value = q||1;
+  f.connect(dest);
+  return f;
+}
+
+function mkReverb(ac, dest, secs){
+  var conv = ac.createConvolver();
+  var dur = secs||2, decay=2, rate=ac.sampleRate;
+  var len = rate*dur, buf = ac.createBuffer(2,len,rate);
+  for(var c=0;c<2;c++){
+    var d=buf.getChannelData(c);
+    for(var i=0;i<len;i++) d[i]=(Math.random()*2-1)*Math.pow(1-i/len,decay);
+  }
+  conv.buffer = buf;
+  conv.connect(dest);
+  return conv;
+}
+
+// 🔥 FUEGO — pulso sensual, graves resonantes, bajo latido
+function buildThemeFuego(ac, master){
+  var rev = mkReverb(ac, master, 3);
+  var filt = mkFilter(ac, 'lowpass', 400, 2, rev);
+  // Deep throbbing bass
+  var b1 = mkOsc(ac,'sine',55,0.4,filt);
+  mkLFO(ac, 0.5, 20, b1.osc.frequency, 55);
+  // Sub harmonic pulse
+  var b2 = mkOsc(ac,'sine',27.5,0.25,filt);
+  // Warm mid drone
+  var filt2 = mkFilter(ac,'bandpass',220,3,rev);
+  var m1 = mkOsc(ac,'triangle',110,0.15,filt2);
+  mkLFO(ac, 0.25, 8, m1.gain, 0.1);
+  // Slow amplitude throb on master
+  var tg = ac.createGain(); tg.gain.value = 1; tg.connect(master);
+  var rev2 = mkReverb(ac, tg, 2);
+  var topFilt = mkFilter(ac,'highshelf',800,-6,rev2);
+  var t1 = mkOsc(ac,'sine',330,0.06,topFilt);
+  mkLFO(ac, 0.18, 0.04, t1.gain, 0.02);
+}
+
+// 🌊 NOCHE AZUL — ondas lentas, sintetizador fluido
+function buildThemeAzul(ac, master){
+  var rev = mkReverb(ac, master, 4);
+  var filt = mkFilter(ac,'lowpass',600,1,rev);
+  // Ocean wave effect - slow sine sweep
+  var w1 = mkOsc(ac,'sine',80,0.3,filt);
+  mkLFO(ac, 0.1, 30, w1.osc.frequency, 80);
+  mkLFO(ac, 0.08, 0.15, w1.gain, 0.1);
+  var w2 = mkOsc(ac,'sine',120,0.2,filt);
+  mkLFO(ac, 0.13, 20, w2.osc.frequency, 120);
+  // Ethereal pad
+  var filt2 = mkFilter(ac,'bandpass',320,0.8,rev);
+  var p1 = mkOsc(ac,'sine',160,0.12,filt2,5);
+  var p2 = mkOsc(ac,'sine',320,0.08,filt2,-4);
+  mkLFO(ac, 0.05, 0.06, p1.gain, 0.06);
+  // Slow heartbeat sub
+  var filt3 = mkFilter(ac,'lowpass',100,2,master);
+  var hb = mkOsc(ac,'sine',40,0.2,filt3);
+  mkLFO(ac, 0.6, 0.12, hb.gain, 0.02);
+}
+
+// 💜 MISTERIO — drones oscuros, tensión suspendida
+function buildThemeMisterio(ac, master){
+  var rev = mkReverb(ac, master, 5);
+  var filt = mkFilter(ac,'lowpass',500,1.5,rev);
+  // Dark drone cluster
+  var d1 = mkOsc(ac,'sawtooth',55,0.1,filt);
+  var d2 = mkOsc(ac,'sawtooth',55.5,0.1,filt); // slight detune for beating
+  var d3 = mkOsc(ac,'triangle',82.5,0.15,filt);
+  mkLFO(ac, 0.07, 0.08, d1.gain, 0.05);
+  mkLFO(ac, 0.11, 0.06, d2.gain, 0.04);
+  // Floating harmonic whisper
+  var filt2 = mkFilter(ac,'bandpass',440,2,rev);
+  var h1 = mkOsc(ac,'sine',220,0.07,filt2);
+  var h2 = mkOsc(ac,'sine',440,0.05,filt2,7);
+  mkLFO(ac, 0.06, 0.05, h1.gain, 0.02);
+  // Sub throb
+  var filt3 = mkFilter(ac,'lowpass',80,2,master);
+  var sub = mkOsc(ac,'sine',27.5,0.25,filt3);
+  mkLFO(ac, 0.3, 0.1, sub.gain, 0.1);
+}
+
+// ✨ DORADO — campanas, arpa, brillo cálido
+function buildThemeDorado(ac, master){
+  var rev = mkReverb(ac, master, 3.5);
+  // Warm bass foundation
+  var filt = mkFilter(ac,'lowpass',700,1,rev);
+  var b1 = mkOsc(ac,'sine',110,0.2,filt);
+  mkLFO(ac, 0.2, 0.08, b1.gain, 0.08);
+  // Bell-like tones via AM synthesis
+  var filt2 = mkFilter(ac,'bandpass',880,3,rev);
+  var bell1 = mkOsc(ac,'sine',440,0.1,filt2);
+  var bell2 = mkOsc(ac,'sine',660,0.07,filt2,3);
+  var bell3 = mkOsc(ac,'sine',880,0.05,filt2,-2);
+  mkLFO(ac, 0.15, 0.07, bell1.gain, 0.03);
+  mkLFO(ac, 0.22, 0.05, bell2.gain, 0.02);
+  // Shimmer high
+  var filt3 = mkFilter(ac,'highpass',1200,0.5,rev);
+  var sh = mkOsc(ac,'sine',1320,0.04,filt3);
+  mkLFO(ac, 0.09, 0.03, sh.gain, 0.01);
+}
+
+// 🌹 ROSA — piano suave, cello, melodía romántica
+function buildThemeRosa(ac, master){
+  var rev = mkReverb(ac, master, 4);
+  var filt = mkFilter(ac,'lowpass',1000,0.8,rev);
+  // Cello-like low strings
+  var c1 = mkOsc(ac,'sawtooth',110,0.12,filt);
+  var c2 = mkOsc(ac,'sawtooth',165,0.08,filt,6);
+  mkLFO(ac, 0.16, 0.06, c1.gain, 0.06);
+  // Piano-like upper tones
+  var filt2 = mkFilter(ac,'bandpass',660,2,rev);
+  var p1 = mkOsc(ac,'triangle',330,0.1,filt2);
+  var p2 = mkOsc(ac,'triangle',440,0.07,filt2,-3);
+  var p3 = mkOsc(ac,'triangle',550,0.05,filt2,4);
+  mkLFO(ac, 0.12, 0.06, p1.gain, 0.04);
+  // Romantic pad
+  var filt3 = mkFilter(ac,'lowpass',200,1,master);
+  var pad = mkOsc(ac,'sine',55,0.18,filt3);
+  mkLFO(ac, 0.25, 0.08, pad.gain, 0.06);
+}
+
+// 🌙 LUNA — silencio profundo, viento nocturno, cristales
+function buildThemeLuna(ac, master){
+  var rev = mkReverb(ac, master, 6);
+  // Near-silence wind
+  var bufNode = ac.createScriptProcessor ? null : null;
+  var filt = mkFilter(ac,'bandpass',300,0.3,rev);
+  var w1 = mkOsc(ac,'sine',60,0.06,filt);
+  mkLFO(ac, 0.04, 25, w1.osc.frequency, 60);
+  mkLFO(ac, 0.06, 0.04, w1.gain, 0.02);
+  // Crystal high tones
+  var filt2 = mkFilter(ac,'highpass',1500,1,rev);
+  var cr1 = mkOsc(ac,'sine',1760,0.04,filt2);
+  var cr2 = mkOsc(ac,'sine',2200,0.03,filt2,8);
+  var cr3 = mkOsc(ac,'sine',2640,0.02,filt2,-5);
+  mkLFO(ac, 0.08, 0.03, cr1.gain, 0.01);
+  mkLFO(ac, 0.11, 0.02, cr2.gain, 0.01);
+  // Deep sub drone (barely audible)
+  var filt3 = mkFilter(ac,'lowpass',60,1,master);
+  var sub = mkOsc(ac,'sine',30,0.12,filt3);
+  mkLFO(ac, 0.05, 0.05, sub.gain, 0.04);
+}
+
+function toggleMusic(){
+  var ac = getAC();
+  if(!ac){ toast('Audio no disponible'); return; }
+  if(musicPlaying){
+    // Fade out then stop
+    if(musicGain) musicGain.gain.linearRampToValueAtTime(0, ac.currentTime+0.8);
+    setTimeout(stopMusic, 900);
+    musicPlaying = false;
+    var btn = document.getElementById('mbtnPlay');
+    btn.textContent = '▶ Activar'; btn.classList.remove('playing');
+    toast('🔇 Música pausada');
+  } else {
+    startMusic();
+    if(musicGain){ musicGain.gain.setValueAtTime(0, ac.currentTime); musicGain.gain.linearRampToValueAtTime(musicVol*0.5, ac.currentTime+1.5); }
+    musicPlaying = true;
+    var btn = document.getElementById('mbtnPlay');
+    btn.textContent = '⏸ Pausar'; btn.classList.add('playing');
+    toast('🎵 Música activada');
+  }
+  saveSettings();
+}
+
+function setMusicVol(v){
+  musicVol = v/100;
+  document.getElementById('mvolVal').textContent = v+'%';
+  var ac = getAC();
+  if(musicGain && ac) musicGain.gain.linearRampToValueAtTime(musicVol*0.5, ac.currentTime+0.1);
+  saveSettings();
+}
+
+// ═══════════════════════════════════════════════
+// ── EFECTOS VISUALES ──
+// ═══════════════════════════════════════════════
+var curEfx = 0;
+var efxParticles = [];
+var efxAnimId = null;
+var efxCV = document.getElementById('efxcanv');
+var efxCX = efxCV.getContext('2d');
+
+function resizeEfx(){ efxCV.width=window.innerWidth; efxCV.height=window.innerHeight; }
+resizeEfx();
+window.addEventListener('resize', resizeEfx);
+window.addEventListener('orientationchange', function(){ setTimeout(resizeEfx, 200); });
+
+var efxDefs = [
+  { name:'Llamas',   uses:'flames' },
+  { name:'Petalos',  uses:'petals' },
+  { name:'Destellos',uses:'canvas' },
+  { name:'Estrellas',uses:'canvas' },
+  { name:'Burbujas', uses:'canvas' },
+  { name:'Nieve',    uses:'canvas' },
+  { name:'Cristales',uses:'canvas' },
+  { name:'Ninguno',  uses:'none'   }
+];
+
+function setEfx(idx, el){
+  curEfx = idx;
+  document.querySelectorAll('.efxbtn').forEach(function(b){ b.classList.remove('sel'); });
+  el.classList.add('sel');
+  // Stop canvas loop
+  if(efxAnimId){ cancelAnimationFrame(efxAnimId); efxAnimId=null; }
+  efxParticles = [];
+  efxCX.clearRect(0,0,efxCV.width,efxCV.height);
+
+  // Hide/show layers (now canvas-based)
+  var flameCanvas = document.getElementById('flameCanvas');
+  var petalCanvas = document.getElementById('petalCanvas');
+  if(flameCanvas) flameCanvas.style.display = 'none';
+  if(petalCanvas) petalCanvas.style.display = 'none';
+
+  if(idx === 0){ if(flameCanvas) flameCanvas.style.display = ''; }
+  else if(idx === 1){ if(petalCanvas) petalCanvas.style.display = ''; }
+  else if(idx === 7){ /* nothing */ }
+  else { startEfxCanvas(idx); }
+
+  sndClick();
+  toast('Efecto: '+efxDefs[idx].name+' ✦');
+  saveSettings();
+}
+
+function startEfxCanvas(idx){
+  // Spawn initial particles
+  var count = idx===6 ? 40 : 60;
+  for(var i=0;i<count;i++) efxParticles.push(spawnEfxParticle(idx, true));
+  efxLoop(idx);
+}
+
+function efxLoop(idx){
+  efxAnimId = requestAnimationFrame(function(){ efxLoop(idx); });
+  efxCX.clearRect(0,0,efxCV.width,efxCV.height);
+  // Spawn
+  if(Math.random()<0.25) efxParticles.push(spawnEfxParticle(idx, false));
+  // Update & draw
+  efxParticles = efxParticles.filter(function(p){
+    p.life -= p.decay;
+    if(p.life<=0) return false;
+    p.x += p.vx; p.y += p.vy;
+    p.vx *= p.drag; p.vy *= p.drag;
+    p.vy += p.gravity;
+    p.r += p.spin;
+    efxCX.save();
+    efxCX.globalAlpha = Math.min(1, p.life) * p.alpha;
+    efxCX.translate(p.x, p.y);
+    efxCX.rotate(p.r);
+    drawEfxParticle(idx, p);
+    efxCX.restore();
+    return true;
+  });
+}
+
+function spawnEfxParticle(idx, init){
+  var W = efxCV.width, H = efxCV.height;
+  var p = { x:0, y:0, vx:0, vy:0, r:0, spin:0, size:6, life:1, decay:0.006, drag:0.99, gravity:0, alpha:0.8 };
+  if(idx===2){ // Destellos - sparkles floating up
+    p.x = Math.random()*W; p.y = init ? Math.random()*H : H + 10;
+    p.vx = (Math.random()-.5)*1.2; p.vy = -(0.4+Math.random()*1.2);
+    p.size = 2+Math.random()*5; p.life = 0.6+Math.random()*0.6;
+    p.decay = 0.004+Math.random()*0.004; p.spin = (Math.random()-.5)*.1;
+    p.alpha = 0.6+Math.random()*0.4; p.color = cssv('--acc2');
+  } else if(idx===3){ // Estrellas - twinkle in place
+    p.x = init ? Math.random()*W : Math.random()*W;
+    p.y = init ? Math.random()*H : Math.random()*H;
+    p.vx = (Math.random()-.5)*.2; p.vy = (Math.random()-.5)*.2;
+    p.size = 1+Math.random()*3; p.life = 0.5+Math.random();
+    p.decay = 0.003+Math.random()*0.003; p.spin = 0;
+    p.alpha = 0.3+Math.random()*0.7; p.color = Math.random()<0.5 ? cssv('--acc2') : cssv('--acc3');
+    p.twinkle = Math.random()*Math.PI*2;
+  } else if(idx===4){ // Burbujas - rise slowly
+    p.x = Math.random()*W; p.y = init ? Math.random()*H : H+30;
+    p.vx = (Math.random()-.5)*0.6; p.vy = -(0.3+Math.random()*0.8);
+    p.size = 4+Math.random()*14; p.life = 0.5+Math.random()*0.8;
+    p.decay = 0.003+Math.random()*0.003; p.spin=0; p.drag=0.998;
+    p.alpha = 0.15+Math.random()*0.3; p.color = cssv('--acc');
+  } else if(idx===5){ // Nieve - fall
+    p.x = Math.random()*W; p.y = init ? Math.random()*H : -10;
+    p.vx = (Math.random()-.5)*1; p.vy = 0.5+Math.random()*1.5;
+    p.size = 2+Math.random()*5; p.life = 1; p.decay = 0.003;
+    p.gravity = 0.005; p.spin = (Math.random()-.5)*.05;
+    p.alpha = 0.4+Math.random()*0.5; p.color = '#ffffff';
+  } else if(idx===6){ // Cristales - shards float and rotate
+    p.x = Math.random()*W; p.y = init ? Math.random()*H : (Math.random()<0.5 ? -20 : H+20);
+    p.vx = (Math.random()-.5)*0.8; p.vy = (Math.random()-.5)*0.8;
+    p.size = 4+Math.random()*10; p.life = 0.8+Math.random()*0.6;
+    p.decay = 0.002+Math.random()*0.003; p.spin = (Math.random()-.5)*.04;
+    p.r = Math.random()*Math.PI*2; p.alpha = 0.25+Math.random()*0.5;
+    p.color = cssv('--acc3');
+  }
+  return p;
+}
+
+function drawEfxParticle(idx, p){
+  if(idx===2){ // Sparkle star
+    efxCX.strokeStyle = p.color; efxCX.lineWidth = 1;
+    efxCX.beginPath();
+    for(var j=0;j<4;j++){
+      var a=j*Math.PI/2, r1=p.size, r2=p.size*.3;
+      efxCX.moveTo(Math.cos(a)*r2, Math.sin(a)*r2);
+      efxCX.lineTo(Math.cos(a)*r1, Math.sin(a)*r1);
+    }
+    efxCX.stroke();
+  } else if(idx===3){ // Star dot with twinkle
+    var tw = Math.sin(p.twinkle + Date.now()*.002)*0.5+0.5;
+    efxCX.globalAlpha *= tw;
+    efxCX.fillStyle = p.color;
+    efxCX.beginPath(); efxCX.arc(0,0,Math.max(0.1,p.size*(0.5+tw*0.5)),0,Math.PI*2); efxCX.fill();
+  } else if(idx===4){ // Bubble circle outline
+    efxCX.strokeStyle = p.color; efxCX.lineWidth = 1.5;
+    efxCX.beginPath(); efxCX.arc(0,0,Math.max(0.1,p.size),0,Math.PI*2); efxCX.stroke();
+    efxCX.fillStyle = p.color; efxCX.globalAlpha *= 0.1;
+    efxCX.fill();
+  } else if(idx===5){ // Snowflake
+    efxCX.strokeStyle = p.color; efxCX.lineWidth = 1;
+    efxCX.beginPath();
+    for(var j=0;j<6;j++){
+      var a=j*Math.PI/3;
+      efxCX.moveTo(0,0);
+      efxCX.lineTo(Math.cos(a)*p.size, Math.sin(a)*p.size);
+    }
+    efxCX.stroke();
+  } else if(idx===6){ // Crystal shard
+    efxCX.strokeStyle = p.color; efxCX.lineWidth = 1;
+    efxCX.fillStyle = p.color; efxCX.globalAlpha *= 0.3;
+    efxCX.beginPath();
+    efxCX.moveTo(0,-p.size); efxCX.lineTo(p.size*.4,0);
+    efxCX.lineTo(0,p.size); efxCX.lineTo(-p.size*.4,0);
+    efxCX.closePath(); efxCX.fill();
+    efxCX.globalAlpha = Math.min(1,p.life)*p.alpha; efxCX.stroke();
+  }
+}
+
+// ── APLICAR SETTINGS GUARDADOS ──
+(function(){
+  var s = loadSettings();
+  if(s.j1){ document.getElementById('inj1').value=s.j1; }
+  if(s.j2){ document.getElementById('inj2').value=s.j2; }
+  if(s.titulo){ document.getElementById('intit').value=s.titulo; document.getElementById('htit').textContent=s.titulo; }
+  if(s.subtitulo){ document.getElementById('insub').value=s.subtitulo; var sh=document.getElementById('hsub'); if(sh) sh.textContent=s.subtitulo; }
+  if(s.j1){ document.getElementById('jn1').textContent=s.j1; document.getElementById('prn1').textContent=s.j1; document.getElementById('ynn1').textContent=s.j1; }
+  if(s.j2){ document.getElementById('jn2').textContent=s.j2; document.getElementById('prn2').textContent=s.j2; document.getElementById('ynn2').textContent=s.j2; }
+  if(s.tema && s.tema>0){
+    var tcEl = document.getElementById('tc'+s.tema);
+    if(tcEl){ setTema(s.tema, tcEl); }
+  }
+  // Restore effects
+  var efxIdx = s.efx || 0;
+  var efxEl = document.getElementById('efx'+efxIdx);
+  if(efxEl){ setEfx(efxIdx, efxEl); }
+  // Restore bg pattern
+  if(s.bgPattern !== undefined){
+    var bgEl = document.getElementById('bgp'+s.bgPattern);
+    if(bgEl){ setBgPattern(s.bgPattern, bgEl); }
+  }
+  if(s.bgSpeed !== undefined){
+    bgSpeed = s.bgSpeed;
+    var bsr = document.getElementById('bgSpeedRange');
+    var bsv = document.getElementById('bgSpeedVal');
+    if(bsr) bsr.value = s.bgSpeed;
+    if(bsv) bsv.textContent = s.bgSpeed;
+  }
+  if(s.bgInt !== undefined){
+    bgIntensity = s.bgInt;
+    var bir = document.getElementById('bgIntRange');
+    var biv = document.getElementById('bgIntVal');
+    if(bir) bir.value = s.bgInt;
+    if(biv) biv.textContent = s.bgInt;
+  }
+  // Restore music volume
+  if(s.musicVol !== undefined){
+    musicVol = s.musicVol/100;
+    var volRange = document.getElementById('mvolRange');
+    var volVal = document.getElementById('mvolVal');
+    if(volRange) volRange.value = s.musicVol;
+    if(volVal) volVal.textContent = s.musicVol+'%';
+  }
+  updateMusicDesc();
+  // Restore music state (requires user interaction first, so we just update button)
+  if(s.musicOn){
+    var mbtn = document.getElementById('mbtnPlay');
+    if(mbtn){ mbtn.textContent='▶ Reactivar'; }
+  }
+})();
+
+// ── RULETA ──
+var rSegs=[
+  {t:'Masaje\nSensual',e:'💆'},{t:'Beso\nde Fuego',e:'💋'},
+  {t:'Susurros\nArdientes',e:'🌹'},{t:'Baile\nSeductor',e:'💃'},
+  {t:'Deseo\nSecreto',e:'🔥'},{t:'Caricia\nÍntima',e:'✨'},
+  {t:'Reto\nCandente',e:'🌶'},{t:'Tu\nCapricho',e:'🎁'}
+];
+var rC=['--r1','--r2','--r3','--r4','--r5','--r6','--r7','--r8'];
+var rcv=document.getElementById('rcanv'), rctx=rcv.getContext('2d');
+var rAng=0, rSpin=false;
+var rHist=[];
+function cssv(v){ return getComputedStyle(document.body).getPropertyValue(v).trim(); }
+
+function getRSize(){
+  var cont = document.querySelector('.rcont');
+  var sz = cont ? Math.min(cont.offsetWidth, cont.offsetHeight, 255) : 255;
+  return Math.max(sz, 10); // never return 0 (section hidden = offsetWidth 0)
+}
+
+function drawRuleta(a){
+  var sz=getRSize(), cx=sz/2, cy=sz/2, r=Math.max(1, sz/2-2), n=rSegs.length, sl=(2*Math.PI)/n;
+  rcv.width=sz; rcv.height=sz;
+  rctx.clearRect(0,0,sz,sz);
+  rctx.beginPath(); rctx.arc(cx,cy,r,0,2*Math.PI); rctx.fillStyle=cssv('--bg'); rctx.fill();
+  var i;
+  for(i=0;i<n;i++){
+    var s=a+i*sl,e2=s+sl;
+    rctx.beginPath(); rctx.moveTo(cx,cy); rctx.arc(cx,cy,r,s,e2); rctx.closePath();
+    rctx.fillStyle=cssv(rC[i]); rctx.fill();
+    rctx.strokeStyle='rgba(255,120,60,.25)'; rctx.lineWidth=1.5; rctx.stroke();
+    rctx.save(); rctx.translate(cx,cy); rctx.rotate(s+sl/2);
+    rctx.fillStyle='rgba(255,240,224,.92)';
+    var fs = Math.max(7, Math.floor(sz*0.036));
+    rctx.font='bold '+fs+'px Georgia,serif'; rctx.textAlign='right';
+    var lns=rSegs[i].t.split('\n'),l;
+    for(l=0;l<lns.length;l++) rctx.fillText(lns[l],r-6,l*12-(lns.length-1)*6+2);
+    rctx.restore();
+  }
+  var hubR = Math.max(1, sz*0.063);
+  var g=rctx.createRadialGradient(cx,cy,0,cx,cy,hubR);
+  g.addColorStop(0,cssv('--acc2')); g.addColorStop(1,cssv('--acc'));
+  rctx.beginPath(); rctx.arc(cx,cy,hubR,0,2*Math.PI); rctx.fillStyle=g; rctx.fill();
+  rctx.strokeStyle=cssv('--acc'); rctx.lineWidth=2; rctx.stroke();
+  rctx.fillStyle=cssv('--bg'); rctx.font='bold '+Math.max(10,Math.floor(sz*.047))+'px serif';
+  rctx.textAlign='center'; rctx.textBaseline='middle';
+  rctx.fillText('✦',cx,cy); rctx.textBaseline='alphabetic';
+}
+drawRuleta(0);
+window.addEventListener('resize', function(){ setTimeout(function(){ drawRuleta(rAng); },100); });
+window.addEventListener('orientationchange', function(){ setTimeout(function(){ drawRuleta(rAng); },300); });
+
+function spinRuleta(){
+  if(rSpin) return; rSpin=true; sndSpin();
+  var ext=(5+Math.random()*5)*2*Math.PI, fin=rAng+ext;
+  var dur=2800+Math.random()*900, ini=performance.now();
+  var tickI=setInterval(function(){ sndTick(); },90);
+  function step(now){
+    var t=Math.min((now-ini)/dur,1), ease=1-Math.pow(1-t,4);
+    drawRuleta(rAng+(fin-rAng)*ease);
+    if(t<1){ requestAnimationFrame(step); }
+    else{
+      clearInterval(tickI); rAng=fin%(2*Math.PI); drawRuleta(rAng);
+      rSpin=false; showRRes();
+    }
+  }
+  requestAnimationFrame(step);
+}
+function showRRes(){
+  var n=rSegs.length, sl=(2*Math.PI)/n;
+  var ap=(2*Math.PI-(rAng%(2*Math.PI))+2*Math.PI)%(2*Math.PI);
+  var idx=Math.floor(ap/sl)%n, seg=rSegs[idx], nom=seg.t.replace('\n',' ');
+  var msgs=[
+    seg.e+' ¡'+nom+'! Esta noche no hay excusas para no cumplirlo... 😈',
+    seg.e+' El destino ha hablado: '+nom+'. Lo que diga la ruleta, se cumple. 🔥',
+    seg.e+' Esta noche toca '+nom+'. Sin negociaciones. ¡Que empiece! 😏'
+  ];
+  document.getElementById('rrbox').innerHTML='<p class="pulse-text">'+pick(msgs)+'</p>';
+  fl('rrbox'); sndWin(); launchConfetti(); toast('🔥 '+nom);
+  // Historial
+  rHist.unshift(seg.e+' '+nom);
+  if(rHist.length>6) rHist.pop();
+  var hbox=document.getElementById('rhistbox'), hitems=document.getElementById('rhistitems');
+  hbox.style.display='block';
+  hitems.innerHTML='';
+  rHist.forEach(function(h){ var sp=document.createElement('span'); sp.className='rhist-item'; sp.textContent=h; hitems.appendChild(sp); });
+}
+function resetHist(){
+  rHist=[];
+  document.getElementById('rhistbox').style.display='none';
+  document.getElementById('rrbox').innerHTML='<p class="ph">Cierra los ojos... y gira la ruleta 🔥</p>';
+  sndClick();
+}
+
+// ── VERDAD O RETO ──
+var lastTOR = null;
+function doTOR(t){
+  if(!t) return;
+  lastTOR=t;
+  var lista=t==='v'?D.verdades:D.retos;
+  t==='v'?sndVerif():sndReto();
+  var txt=pick(lista, 'tor_'+t), em=t==='v'?'💬':'🔥', lbl=t==='v'?'VERDAD':'RETO', col=t==='v'?'#90c4ff':'#ff9988';
+  document.getElementById('torbox').innerHTML=
+    '<div><p style="font-size:.58rem;letter-spacing:4px;text-transform:uppercase;opacity:.7;margin-bottom:5px;color:'+col+'">'+em+' — '+lbl+' — '+em+'</p>'+
+    '<p style="font-size:1.08rem;font-style:italic;line-height:1.6">'+txt+'</p></div>';
+  fl('torbox');
+  if(t==='r'){ launchConfetti(); }
+}
+
+// ── DADOS ──
+var dAcc=['Besar apasionadamente','Masajear lentamente','Acariciar con los dedos','Soplar suavemente en','Mordisquear con ternura','Trazar círculos con la lengua en','Pasar los labios por','Susurrar algo al oído sobre','Trazar con la punta del dedo','Respirar cálido sobre','Presionar suavemente los labios en','Explorar con la yema de los dedos'];
+var dZon=['el cuello','los labios','la espalda entera','el hombro','la nuca','detrás de la oreja','la cintura','el interior del codo','la clavícula','la muñeca','el tobillo','la sien'];
+var dTiem=['30 segundos','1 minuto','2 minutos largos','3 minutos sin parar','hasta que lo pidas tú','hasta que suene un beso','a ritmo de una canción completa'];
+
+function rollDados(){
+  var ids=['da1','da2','da3'],i;
+  for(i=0;i<3;i++){ var d=document.getElementById(ids[i]); d.classList.remove('spin'); void d.offsetWidth; d.classList.add('spin'); }
+  for(i=0;i<5;i++) beep('square',100+i*25,.04,.12,.05*i);
+  setTimeout(function(){
+    var a=pick(dAcc,'dad_a'),z=pick(dZon,'dad_z'),t=pick(dTiem,'dad_t');
+    document.getElementById('da1').textContent=a;
+    document.getElementById('da2').textContent=z;
+    document.getElementById('da3').textContent=t;
+    document.getElementById('dadbox').innerHTML='<p class="pulse-text">🎲 <em>'+a+'</em> '+z+' durante <em>'+t+'</em>. No se puede rechazar. 🔥</p>';
+    fl('dadbox'); sndWin(); toast(a+' '+z);
+  },500);
+}
+function resetDados(){
+  ['da1','da2','da3'].forEach(function(id){ document.getElementById(id).innerHTML='<span class="ph">?</span>'; });
+  document.getElementById('dadbox').innerHTML='<p class="ph">Lanza los dados y obedece lo que digan... 🔥</p>';
+  usedPicks['dad_a']=[]; usedPicks['dad_z']=[]; usedPicks['dad_t']=[];
+}
+
+// ── TIMER ──
+var tSec=60,tTot=60,tInt=null,tPaused=false;
+function setTime(min,btn){
+  document.querySelectorAll('.ttbtn').forEach(function(b){ b.classList.remove('s'); });
+  btn.classList.add('s'); sndClick();
+  tSec=tTot=min*60; clearInterval(tInt); tInt=null; tPaused=false;
+  updTD(); document.getElementById('tbar').style.width='100%';
+  document.getElementById('tdisp').classList.remove('urg');
+  var ci=document.getElementById('tcustomInp'); if(ci) ci.value='';
+}
+function setCustomTime(v){
+  v=parseInt(v); if(isNaN(v)||v<1) return;
+  v=Math.min(v,99);
+  tSec=tTot=v*60; clearInterval(tInt); tInt=null; tPaused=false;
+  updTD(); document.getElementById('tbar').style.width='100%';
+  document.getElementById('tdisp').classList.remove('urg');
+  document.querySelectorAll('.ttbtn').forEach(function(b){ b.classList.remove('s'); });
+  sndClick(); toast('⏱ '+v+' minutos listos');
+}
+function newAct(){
+  document.getElementById('tmract').innerHTML='<p>'+pick(D.timer,'timer')+'</p>';
+  fl('tmract'); sndCard(); resetTimer();
+}
+function startTimer(){
+  if(tInt&&!tPaused) return; tPaused=false; clearInterval(tInt); sndClick();
+  tInt=setInterval(function(){
+    if(tSec<=0){ clearInterval(tInt);tInt=null; document.getElementById('tdisp').textContent='¡Turno!'; document.getElementById('tdisp').classList.remove('urg'); document.getElementById('tbar').style.width='0%'; sndAlarm(); launchConfetti(); toast('¡Cambiad de turno! 🔄'); return; }
+    tSec--; updTD(); document.getElementById('tbar').style.width=(tSec/tTot*100)+'%';
+    if(tSec<=10){ document.getElementById('tdisp').classList.add('urg'); beep('sine',900,.05,.2); }
+    else if(tSec%15===0){ beep('sine',440,.03,.12); }
+  },1000);
+}
+function pauseTimer(){ if(!tInt) return; clearInterval(tInt); tInt=null; tPaused=true; sndClick(); }
+function resetTimer(){ clearInterval(tInt);tInt=null;tPaused=false;tSec=tTot; updTD(); document.getElementById('tbar').style.width='100%'; document.getElementById('tdisp').classList.remove('urg'); }
+function updTD(){ var m=Math.floor(tSec/60),s=tSec%60; document.getElementById('tdisp').textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s; }
+
+// ── CARTAS ──
+var cFlipped=false, cCur=D.cartas[0];
+function newCard(){ if(!D.cartas.length) return; cCur=pick(D.cartas,'cartas'); document.getElementById('ccat').textContent=cCur.cat; document.getElementById('ctxt').textContent=cCur.txt; document.getElementById('ccard').classList.remove('flip'); cFlipped=false; sndCard(); }
+function flipCard(){ document.getElementById('ccat').textContent=cCur.cat; document.getElementById('ctxt').textContent=cCur.txt; document.getElementById('ccard').classList.toggle('flip'); cFlipped=!cFlipped; sndCard(); if(cFlipped){ sndVerif(); toast(cCur.cat); } }
+newCard();
+
+// ── TURNOS ──
+var turno=1, pts=[0,0];
+function addPt(j,d){
+  pts[j-1]=Math.max(0,pts[j-1]+d);
+  var el=document.getElementById('pt'+j); el.textContent=pts[j-1];
+  el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump');
+  if(d>0) sndPoint();
+  if(pts[j-1]>=5){ sndWin(); launchConfetti(); var nom=document.getElementById('jn'+j).textContent; toast('🏆 ¡'+nom+' gana con '+pts[j-1]+' pts!'); }
+}
+function newTurnReto(){ var el=document.getElementById('retotxt'); el.innerHTML='<span class="pulse-text">'+pick(D.retT,'retT')+'</span>'; el.classList.remove('ph'); fl('retotxt'); sndCard(); }
+function nextTurn(){ turno=turno===1?2:1; var o=turno===1?2:1; document.getElementById('jc'+turno).classList.add('act'); document.getElementById('jc'+o).classList.remove('act'); document.getElementById('jl'+turno).textContent='← En juego ahora'; document.getElementById('jl'+o).textContent=''; var nom=document.getElementById('jn'+turno).textContent; sndClick(); toast('Turno de '+nom+' 👑'); }
+function resetTurnos(){ pts=[0,0]; document.getElementById('pt1').textContent='0'; document.getElementById('pt2').textContent='0'; turno=1; document.getElementById('jc1').classList.add('act'); document.getElementById('jc2').classList.remove('act'); document.getElementById('jl1').textContent='← En juego ahora'; document.getElementById('jl2').textContent=''; var el=document.getElementById('retotxt'); el.textContent='Pulsa "Nuevo reto" para que empiece la diversión 🔥'; el.classList.add('ph'); sndClick(); usedPicks['retT']=[]; }
+
+// ── RETOS HOT ──
+var curNiv='suave';
+function setNiv(n,btn){ curNiv=n; sndClick(); document.querySelectorAll('.nbtn2').forEach(function(b){ b.classList.remove('s'); }); btn.classList.add('s'); toast('Nivel: '+n+' 🔥'); }
+function genHot(){
+  var txt=pick(D.hot[curNiv],'hot_'+curNiv);
+  var lbls={suave:'🌸 SUAVE',medio:'🔥 CALIENTE',hot:'🌶 ARDIENTE',extremo:'💣 SIN LÍMITES'};
+  var card=document.getElementById('hotcard');
+  document.getElementById('hotniv').textContent=lbls[curNiv];
+  var el=document.getElementById('hottxt'); el.innerHTML='<span class="pulse-text">'+txt+'</span>'; el.classList.remove('ph');
+  card.classList.add('glow'); setTimeout(function(){ card.classList.remove('glow'); },1200);
+  fl('hotcard');
+  if(curNiv==='hot'||curNiv==='extremo'){ sndHot(); launchConfetti(); }
+  else sndVerif();
+  toast('🌶 '+lbls[curNiv]);
+}
+
+// ── PREGUNTAS ──
+var curPCat='deseos';
+function setPCat(cat,btn){ curPCat=cat; sndClick(); document.querySelectorAll('.ptab').forEach(function(b){ b.classList.remove('s'); }); btn.classList.add('s'); }
+function newPQ(){
+  var lista=D.pregs[curPCat] || DEFAULTS.sifuera || DEFAULTS.nuncadije;
+  if(curPCat==='sifuera') lista=DEFAULTS.sifuera;
+  if(curPCat==='nuncadije') lista=DEFAULTS.nuncadije;
+  var lbls={deseos:'— DESEOS —',fantasias:'— FANTASÍAS —',recuerdos:'— RECUERDOS —',pareja:'— PAREJA —',picante:'— PICANTE —',sifuera:'— SI FUERA... —',nuncadije:'— NUNCA DIJE —'};
+  document.getElementById('pqcat').textContent=lbls[curPCat]||'—';
+  var el=document.getElementById('pqtxt'); el.innerHTML='<span class="pulse-text">'+pick(lista,'preg_'+curPCat)+'</span>'; el.style.color='';
+  fl('pqbox'); sndVerif();
+}
+
+// ── PRENDAS ──
+var prEm=['👗','👠','👙','🧤','🧣','👒','🧥','👔','👖','🎩','🧦','👛'];
+var prCnt=[7,7];
+function drawPrendas(j){
+  var n=prCnt[j-1], items=document.getElementById('pri'+j);
+  items.innerHTML=''; document.getElementById('prc'+j+'n').textContent=n;
+  var i; for(i=0;i<n;i++){ var sp=document.createElement('span'); sp.className='priit'; sp.textContent=prEm[i%prEm.length]; items.appendChild(sp); }
+  var card=document.getElementById('prc'+j);
+  if(n<=2) card.classList.add('danger'); else card.classList.remove('danger');
+}
+function rmPrenda(j){
+  if(prCnt[j-1]<=0){ toast('¡Sin prendas! Premio pendiente 😈'); return; }
+  prCnt[j-1]--; drawPrendas(j); sndRemove();
+  var n=prCnt[j-1], nom=document.getElementById('prn'+j).textContent;
+  var msg=document.getElementById('prmsg');
+  if(n===0){ msg.innerHTML='<p class="pulse-text">🔥 ¡'+nom+' lo ha dado todo! Ahora le toca elegir su premio más especial... 😈</p>'; sndWin(); launchConfetti(); toast('🔥 ¡'+nom+' sin prendas!'); }
+  else if(n<=2){ msg.innerHTML='<p>🌶 ¡Solo le quedan <strong>'+n+'</strong> prenda'+(n>1?'s':'')+' a '+nom+'! La cosa se calienta... 🔥</p>'; sndHot(); }
+  else { msg.innerHTML='<p class="ph">Quita prendas para ver quién gana el premio final... 😈</p>'; }
+}
+function addPrenda(j){ prCnt[j-1]++; drawPrendas(j); sndClick(); document.getElementById('prmsg').innerHTML='<p class="ph">Quita prendas para ver quién gana el premio final... 😈</p>'; }
+function resetPrendas(){ prCnt=[7,7]; drawPrendas(1); drawPrendas(2); sndClick(); document.getElementById('prmsg').innerHTML='<p class="ph">Quita prendas para ver quién gana el premio final... 😈</p>'; }
+
+// INIT
+drawPrendas(1); drawPrendas(2);
+
+// ── YO NUNCA ──
+var ynCat = 'todos';
+var ynLives = [5,5];
+var ynCount = 0;
+var ynMaxHearts = 5;
+
+function setYNCat(cat, btn){
+  ynCat = cat;
+  sndClick();
+  document.querySelectorAll('.yn-cat').forEach(function(b){ b.classList.remove('s'); });
+  btn.classList.add('s');
+  toast('Categoría: '+(cat==='todos'?'Todas':btn.textContent));
+}
+
+function getYNList(){
+  if(ynCat==='todos'){
+    var all=[];
+    var yn=DEFAULTS.yonunca;
+    Object.keys(yn).forEach(function(k){ all=all.concat(yn[k]); });
+    return all;
+  }
+  return DEFAULTS.yonunca[ynCat]||[];
+}
+
+function newYN(){
+  var lista=getYNList();
+  if(!lista.length) return;
+  ynCount++;
+  var txt=pick(lista,'yn_'+ynCat);
+  var el=document.getElementById('yntxt');
+  el.innerHTML='<span class="pulse-text">'+txt+'</span>';
+  el.classList.remove('ph');
+  document.getElementById('ynnum').textContent='— Frase #'+ynCount+' —';
+  var card=document.getElementById('yncard');
+  card.classList.add('glow');
+  setTimeout(function(){ card.classList.remove('glow'); },1200);
+  fl('yncard');
+  sndVerif();
+  document.getElementById('ynbanner').textContent='¿Alguien lo ha hecho? ¡Pulsa "Lo hice" y pierde un corazón! 💔';
+}
+
+function drawYNHearts(j){
+  var n=ynLives[j-1];
+  var el=document.getElementById('ynh'+j);
+  var html='';
+  for(var i=0;i<ynMaxHearts;i++){
+    html+='<span class="yn-heart'+(i>=n?' lost':'')+'">💖</span>';
+  }
+  el.innerHTML=html;
+  document.getElementById('ynhnum'+j).textContent=n;
+  var card=document.getElementById('ynp'+j);
+  if(n<=1) card.classList.add('danger'); else card.classList.remove('danger');
+}
+
+function ynLose(j){
+  if(ynLives[j-1]<=0){ toast('¡Ya no tiene corazones! 💀'); return; }
+  ynLives[j-1]--;
+  drawYNHearts(j);
+  sndRemove();
+  var nom=document.getElementById('ynn'+j).textContent;
+  var n=ynLives[j-1];
+  if(n===0){
+    sndWin(); launchConfetti();
+    toast('💀 ¡'+nom+' sin corazones! ¡Cumple un deseo!');
+    document.getElementById('ynbanner').innerHTML='<strong>💀 '+nom+'</strong> ha perdido todos sus corazones... ¡Ahora cumple el deseo que le pida su pareja! 😈';
+  } else if(n<=2){
+    sndHot();
+    toast('🔥 ¡'+nom+' solo le quedan '+n+' corazones!');
+    document.getElementById('ynbanner').textContent='🌶 La cosa se pone peligrosa... ¡Cuidado '+nom+'!';
+  } else {
+    sndClick();
+    toast(nom+' confiesa: "Lo hice" 😅 (−1 ❤)');
+  }
+}
+
+function ynSafe(j){
+  sndClick();
+  var nom=document.getElementById('ynn'+j).textContent;
+  toast(nom+': "Yo nunca... 😇"');
+}
+
+function resetYN(){
+  ynLives=[5,5]; ynCount=0;
+  drawYNHearts(1); drawYNHearts(2);
+  var el=document.getElementById('yntxt');
+  el.textContent='Pulsa "Nueva frase" para empezar el juego 🙅';
+  el.classList.add('ph');
+  document.getElementById('ynnum').textContent='— ✦ —';
+  document.getElementById('ynbanner').textContent='¡El que pierda todos sus corazones tiene que cumplir un deseo del otro! 💖';
+  document.getElementById('yncard').classList.remove('glow');
+  usedPicks['yn_todos']=[]; usedPicks['yn_dulce']=[]; usedPicks['yn_travesura']=[]; usedPicks['yn_intimo']=[]; usedPicks['yn_atrevido']=[];
+  sndClick(); toast('Juego reiniciado ✦');
+}
+
+// Apply player names to Yo Nunca
+function syncYNNames(){
+  var n1=document.getElementById('jn1'); var n2=document.getElementById('jn2');
+  if(n1) document.getElementById('ynn1').textContent=n1.textContent;
+  if(n2) document.getElementById('ynn2').textContent=n2.textContent;
+}
+
+// Init Yo Nunca hearts
+drawYNHearts(1); drawYNHearts(2);
+
+// Patch updNoms to also sync YN names
+var _origUpdNoms = updNoms;
+updNoms = function(){
+  _origUpdNoms();
+  syncYNNames();
+};
+
+// ── SWIPE GESTURES (mobile) ── updated with new sections
+(function(){
+  var secs=_secOrder;
+  var tX=0, tY=0, moved=false;
+  var main=document.querySelector('main');
+  if(!main) return;
+  main.addEventListener('touchstart',function(e){
+    if(e.touches.length!==1) return;
+    tX=e.touches[0].clientX; tY=e.touches[0].clientY; moved=false;
+  },{passive:true});
+  main.addEventListener('touchmove',function(e){
+    if(e.touches.length!==1) return;
+    var dx=e.touches[0].clientX-tX, dy=e.touches[0].clientY-tY;
+    if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>12) moved=true;
+  },{passive:true});
+  main.addEventListener('touchend',function(e){
+    if(!moved) return;
+    var dx=e.changedTouches[0].clientX-tX;
+    if(Math.abs(dx)<50) return;
+    var idx=secs.indexOf(_curSecId);
+    if(idx===-1) return;
+    var ni=dx<0?idx+1:idx-1;
+    if(ni<0||ni>=secs.length) return;
+    var btn=document.querySelector('[onclick="goSec(\''+secs[ni]+'\',this)"]');
+    if(btn) goSec(secs[ni],btn);
+  },{passive:true});
+})();
+
+// ── EPIC WIN SCREEN ──
+function showWinScreen(emoji, title, sub){
+  document.getElementById('winEmoji').textContent = emoji||'🏆';
+  document.getElementById('winTitle').textContent = title||'¡Victoria!';
+  document.getElementById('winSub').textContent = sub||'';
+  var ws=document.getElementById('winScreen');
+  ws.classList.add('show');
+  launchConfetti(); sndWin();
+  if(navigator.vibrate) navigator.vibrate([80,40,80,40,160]);
+}
+function closeWinScreen(){ document.getElementById('winScreen').classList.remove('show'); }
+
+// Patch sndWin calls that need the epic screen
+var _origAddPt = addPt;
+addPt = function(j,d){
+  _origAddPt(j,d);
+  // Check if this caused a win (>= threshold)
+  if(d>0 && pts[j-1]>=5){
+    var nom=document.getElementById('jn'+j).textContent;
+    setTimeout(function(){ showWinScreen('🏆','¡'+nom+' gana!','Ha conseguido '+pts[j-1]+' puntos esta noche 👑'); },400);
+  }
+};
+
+// ── TOUCH PARTICLES ──
+(function(){
+  var cv=document.getElementById('touchFX');
+  if(!cv) return;
+  var cx=cv.getContext('2d');
+  function resize(){ cv.width=window.innerWidth; cv.height=window.innerHeight; }
+  resize();
+  window.addEventListener('resize',resize);
+  var particles=[];
+  var emojis=['💖','✨','🔥','💋','⭐','💫','❤','🌹'];
+  function mkP(x,y){
+    for(var i=0;i<6;i++){
+      particles.push({
+        x:x, y:y,
+        vx:(Math.random()-.5)*4,
+        vy:-(1.5+Math.random()*3),
+        life:1, decay:0.025+Math.random()*0.02,
+        size:12+Math.random()*10,
+        em:emojis[Math.floor(Math.random()*emojis.length)],
+        rot:(Math.random()-.5)*0.3
+      });
+    }
+    if(!animRunning) animTP();
+  }
+  var animRunning=false;
+  function animTP(){
+    animRunning=true;
+    cx.clearRect(0,0,cv.width,cv.height);
+    particles=particles.filter(function(p){
+      p.x+=p.vx; p.y+=p.vy; p.vy+=0.08; p.life-=p.decay;
+      if(p.life<=0) return false;
+      cx.save(); cx.globalAlpha=p.life;
+      cx.font=p.size+'px serif';
+      cx.fillText(p.em, p.x, p.y);
+      cx.restore();
+      return true;
+    });
+    if(particles.length>0) requestAnimationFrame(animTP);
+    else { animRunning=false; cx.clearRect(0,0,cv.width,cv.height); }
+  }
+  document.addEventListener('touchstart',function(e){
+    for(var i=0;i<e.changedTouches.length;i++) mkP(e.changedTouches[i].clientX, e.changedTouches[i].clientY);
+  },{passive:true});
+  document.addEventListener('click',function(e){
+    // Only on intentional clicks (not drags), and not on buttons/inputs
+    if(e.target.tagName==='BUTTON'||e.target.tagName==='INPUT') return;
+    mkP(e.clientX, e.clientY);
+  });
+})();
+
+// ── BOTELLA GIRATORIA ──
+var botCV=document.getElementById('botCanvas');
+var botCX=botCV?botCV.getContext('2d'):null;
+var botAngle=Math.PI/4; // starts pointing to player 1 side
+var botSpin=false;
+var botHistory=[];
+
+function getBotSize(){ var s=botCV.parentElement; return s?Math.min(s.offsetWidth,s.offsetHeight,280):220; }
+
+function drawBottle(angle){
+  if(!botCX) return;
+  var sz=Math.max(getBotSize(),60);
+  botCV.width=sz; botCV.height=sz;
+  var cx=sz/2, cy=sz/2, r=sz/2-8;
+  // Background circle
+  botCX.clearRect(0,0,sz,sz);
+  var bgGrd=botCX.createRadialGradient(cx,cy,0,cx,cy,r);
+  bgGrd.addColorStop(0,'rgba(40,5,5,.7)');
+  bgGrd.addColorStop(1,'rgba(10,0,0,.9)');
+  botCX.beginPath(); botCX.arc(cx,cy,r,0,Math.PI*2);
+  botCX.fillStyle=bgGrd; botCX.fill();
+  botCX.strokeStyle='rgba(200,80,40,.35)'; botCX.lineWidth=1.5; botCX.stroke();
+  // Divider line
+  botCX.beginPath(); botCX.moveTo(cx,cy-r+10); botCX.lineTo(cx,cy+r-10);
+  botCX.strokeStyle='rgba(255,255,255,.08)'; botCX.lineWidth=1; botCX.stroke();
+  // Player labels in circle
+  botCX.save();
+  botCX.font='bold '+Math.max(10,Math.floor(sz*.055))+'px Georgia,serif';
+  botCX.textAlign='center'; botCX.textBaseline='middle';
+  botCX.fillStyle='rgba(255,200,180,.5)';
+  var n1=document.getElementById('botn1'); var n2=document.getElementById('botn2');
+  botCX.fillText((n1?n1.textContent:'J1').substring(0,6), cx-r*.42, cy);
+  botCX.fillText((n2?n2.textContent:'J2').substring(0,6), cx+r*.42, cy);
+  botCX.restore();
+  // Draw bottle
+  botCX.save();
+  botCX.translate(cx,cy);
+  botCX.rotate(angle);
+  var bLen=r*.75, bW=r*.09;
+  // Bottle body gradient
+  var bGrd=botCX.createLinearGradient(-bW,-bLen,bW,-bLen);
+  var accColor=getComputedStyle(document.body).getPropertyValue('--acc').trim()||'#e8503a';
+  bGrd.addColorStop(0,'rgba(100,200,80,.7)');
+  bGrd.addColorStop(.5,'rgba(140,255,100,.9)');
+  bGrd.addColorStop(1,'rgba(80,160,60,.7)');
+  // Body as pill shape (manually rounded with arcs)
+  var h=bLen*1.6, br=Math.min(bW,h/2);
+  botCX.beginPath();
+  botCX.moveTo(-bW+br,-bLen); botCX.lineTo(bW-br,-bLen);
+  botCX.arc(bW-br,-bLen+br,br,-Math.PI/2,0);
+  botCX.lineTo(bW,-bLen+h-br);
+  botCX.arc(bW-br,-bLen+h-br,br,0,Math.PI/2);
+  botCX.lineTo(-bW+br,-bLen+h);
+  botCX.arc(-bW+br,-bLen+h-br,br,Math.PI/2,Math.PI);
+  botCX.lineTo(-bW,-bLen+br);
+  botCX.arc(-bW+br,-bLen+br,br,Math.PI,Math.PI*1.5);
+  botCX.closePath();
+  botCX.fillStyle=bGrd; botCX.fill();
+  botCX.strokeStyle='rgba(255,255,255,.25)'; botCX.lineWidth=1; botCX.stroke();
+  // Neck (simple rect)
+  botCX.beginPath();
+  botCX.rect(-bW*.4,-bLen-bW*1.8,bW*.8,bW*2.1);
+  botCX.fillStyle='rgba(120,220,90,.8)'; botCX.fill();
+  // Shine stripe
+  botCX.beginPath();
+  botCX.rect(-bW*.55,-bLen+bW*.5,bW*.22,bLen*.65);
+  botCX.fillStyle='rgba(255,255,255,.18)'; botCX.fill();
+  botCX.restore();
+  // Arrow tip
+  var tipX=cx+Math.sin(angle)*(r*.83);
+  var tipY=cy-Math.cos(angle)*(r*.83);
+  botCX.beginPath(); botCX.arc(Math.max(tipX,1),Math.max(tipY,1),Math.max(6,r*.06),0,Math.PI*2);
+  botCX.fillStyle=accColor; botCX.fill();
+  botCX.shadowColor=accColor; botCX.shadowBlur=10; botCX.fill();
+  botCX.shadowBlur=0;
+}
+
+function spinBottle(){
+  if(botSpin) return;
+  botSpin=true;
+  sndSpin();
+  if(navigator.vibrate) navigator.vibrate(30);
+  var extra=(4+Math.random()*4)*2*Math.PI;
+  var target=botAngle+extra;
+  var dur=2200+Math.random()*800, ini=performance.now();
+  var startAng=botAngle;
+  function step(now){
+    var t=Math.min(1,(now-ini)/dur);
+    var ease=1-Math.pow(1-t,3);
+    botAngle=startAng+extra*ease;
+    drawBottle(botAngle);
+    if(t<1){ requestAnimationFrame(step); return; }
+    botAngle=target%(2*Math.PI);
+    botSpin=false;
+    var finalAngle=((botAngle%(Math.PI*2))+Math.PI*2)%(Math.PI*2);
+    // Bottle points UP when angle=0, so sin(angle) tells us left/right
+    // positive sin = right side = player 2
+    var winner=Math.sin(botAngle)>0?2:1;
+    var nom=document.getElementById('botn'+winner).textContent;
+    document.getElementById('botresult').innerHTML='<p>🍾 ¡La botella apunta a <strong>'+nom+'</strong>! Le toca cumplir un deseo 😈</p>';
+    document.getElementById('botn1').classList.toggle('active', winner===1);
+    document.getElementById('botn2').classList.toggle('active', winner===2);
+    sndWin(); launchConfetti();
+    if(navigator.vibrate) navigator.vibrate([60,30,120]);
+    toast('🍾 ¡'+nom+' ha sido elegido/a!');
+    botHistory.push(nom);
+  }
+  requestAnimationFrame(step);
+}
+function resetBottle(){
+  botAngle=Math.PI/4; drawBottle(botAngle);
+  document.getElementById('botresult').innerHTML='<p class="ph">Gira la botella para descubrir quién empieza... 🍾</p>';
+  document.getElementById('botn1').classList.remove('active');
+  document.getElementById('botn2').classList.remove('active');
+  botHistory=[]; sndClick();
+}
+
+// ── ¿QUIÉN DE LOS DOS? ──
+var quienCat='todos', quienVotes=[null,null], quienCount=0, quienAgreements=0;
+
+function setQuienCat(cat,btn){
+  quienCat=cat; sndClick();
+  document.querySelectorAll('.quien-cat').forEach(function(b){ b.classList.remove('s'); });
+  btn.classList.add('s');
+}
+
+function getQuienList(){
+  if(quienCat==='todos'){
+    var q=DEFAULTS.quien, all=[];
+    Object.keys(q).forEach(function(k){ all=all.concat(q[k]); });
+    return all;
+  }
+  return DEFAULTS.quien[quienCat]||[];
+}
+
+function newQuien(){
+  quienVotes=[null,null];
+  document.getElementById('quienv1').classList.remove('voted');
+  document.getElementById('quienv2').classList.remove('voted');
+  document.getElementById('quienreveal').innerHTML='<span class="ph">Votad los dos para revelar el resultado...</span>';
+  var lista=getQuienList();
+  if(!lista.length) return;
+  quienCount++;
+  var q=pick(lista,'quien_'+quienCat);
+  var el=document.getElementById('quienq');
+  el.innerHTML='<span class="pulse-text">'+q+'</span>';
+  el.classList.remove('ph');
+  var card=document.getElementById('quiencard');
+  card.classList.add('glow'); setTimeout(function(){ card.classList.remove('glow'); },1200);
+  fl('quiencard'); sndVerif();
+  document.getElementById('quienstat').textContent='Pregunta '+quienCount+' · Acuerdo total: '+quienAgreements;
+}
+
+function quienVote(j){
+  if(quienVotes[j-1]!==null){ toast('Ya votaste 😏'); return; }
+  quienVotes[j-1]=j;
+  document.getElementById('quienv'+j).classList.add('voted');
+  sndClick();
+  if(navigator.vibrate) navigator.vibrate(25);
+  var n=document.getElementById('quienn'+j+'v').textContent;
+  toast(n+' ha votado 👆');
+  if(quienVotes[0]!==null && quienVotes[1]!==null) revealQuien();
+}
+
+function revealQuien(){
+  var n1=document.getElementById('quienn1v').textContent;
+  var n2=document.getElementById('quienn2v').textContent;
+  var v1=quienVotes[0], v2=quienVotes[1];
+  var el=document.getElementById('quienreveal');
+  var pct1=v1===1?60:40; // vote 1 = both think J1; adjust bar
+  if(v1===1 && v2===1){ // both say J1
+    el.innerHTML='<span class="quien-score">👥</span><span>¡Los dos dijeron <strong>'+n1+'</strong>! Acuerdo total 🎉</span><div class="quien-bar"><div class="quien-bar-fill" style="width:100%"></div></div>';
+    quienAgreements++; sndWin(); launchConfetti();
+    if(navigator.vibrate) navigator.vibrate([60,30,60]);
+  } else if(v1===2 && v2===2){ // both say J2
+    el.innerHTML='<span class="quien-score">👥</span><span>¡Los dos dijeron <strong>'+n2+'</strong>! Acuerdo total 🎉</span><div class="quien-bar"><div class="quien-bar-fill" style="width:100%"></div></div>';
+    quienAgreements++; sndWin(); launchConfetti();
+    if(navigator.vibrate) navigator.vibrate([60,30,60]);
+  } else { // disagreement
+    var who1=v1===1?n1:n2, who2=v2===1?n1:n2;
+    el.innerHTML='<span style="font-size:.9rem">'+n1+' votó: <strong>'+who1+'</strong> · '+n2+' votó: <strong>'+who2+'</strong></span><br><span style="font-size:.75rem;opacity:.6;font-style:italic">¡Desacuerdo! Habladlo 😏</span><div class="quien-bar"><div class="quien-bar-fill" style="width:50%"></div></div>';
+    sndVerif();
+  }
+  document.getElementById('quienstat').textContent='Pregunta '+quienCount+' · Acuerdo total: '+quienAgreements;
+}
+
+function resetQuien(){
+  quienVotes=[null,null]; quienCount=0; quienAgreements=0;
+  document.getElementById('quienv1').classList.remove('voted');
+  document.getElementById('quienv2').classList.remove('voted');
+  document.getElementById('quienq').textContent='Pulsa "Nueva pregunta" para que empiece la diversión 👥';
+  document.getElementById('quienq').classList.add('ph');
+  document.getElementById('quienreveal').innerHTML='<span class="ph">Votad los dos para revelar el resultado...</span>';
+  document.getElementById('quienstat').textContent='Pregunta 0 · Acuerdo total: 0';
+  sndClick(); toast('Juego reiniciado ✦');
+}
+
+// Sync quien player names
+function syncQuienNames(){
+  var n1=document.getElementById('jn1'), n2=document.getElementById('jn2');
+  if(n1){ document.getElementById('quienn1v').textContent=n1.textContent; document.getElementById('botn1').textContent=n1.textContent; }
+  if(n2){ document.getElementById('quienn2v').textContent=n2.textContent; document.getElementById('botn2').textContent=n2.textContent; }
+}
+
+// Patch updNoms further
+var _origUpdNoms2 = updNoms;
+updNoms = function(){
+  _origUpdNoms2();
+  syncQuienNames();
+};
+
+// Init bottle & quien names from saved settings
+syncQuienNames();
+(function(){
+  var s=loadSettings();
+  if(s.j1){ document.getElementById('botn1').textContent=s.j1; document.getElementById('quienn1v').textContent=s.j1; }
+  if(s.j2){ document.getElementById('botn2').textContent=s.j2; document.getElementById('quienn2v').textContent=s.j2; }
+})();
+drawBottle(botAngle);
+
+// (c) 2025 Wil Rivera - Todos los derechos reservados.
+</script>
+</body>
+</html>
